@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "MyStoreApp",
+    "slug": "MyStoreApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.spng",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.pilentboy.MyStoreApp"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d48dcabf-b03c-43fc-a001-370f15d7b98e"
+      }
+    }
+  }
+}
