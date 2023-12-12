@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet, Pressable, Image, ScrollView, StatusBar} from 'react-native'
+import { View, Text, StyleSheet, Pressable, Image, ScrollView, StatusBar } from 'react-native'
 import { useState, useEffect } from "react";
 import Product from "../componenet/product"
+import ProducContext from '../context/product-context';
 
 // Home  component
 function Home() {
