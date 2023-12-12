@@ -9,6 +9,14 @@ function Home() {
     const [productsList, addpoductsList] = useState([])
     const [loading, setloading] = useState(true)
 
+
+    const [test, settest] = useState()
+
+    productsList.forEach(e => {
+        settest(e.name)
+        console.log(test)
+    })
+    
     // Fetch data when the component mounts
     useEffect(() => {
         const fetchData = async () => {
@@ -19,13 +27,19 @@ function Home() {
 
                 // Update the state with the list of products and set loading to false
                 addpoductsList(jsonContent.products);
+
                 setloading(false)
             } catch (error) {
                 console.error('Error reading db.json:', error);
             }
 
         };
+
         fetchData()
+
+
+
+
     }, []);
 
     // Render the component based on the loading state
