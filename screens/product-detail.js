@@ -1,32 +1,37 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, Image, StatusBar, Alert, ScrollView } from 'react-native';
 
 // ProductDetail Component
 //////////////////////// Working on it-------------------
 function ProductDetail({ route }) {
 
-    const { name, price, imgsrc, size, type, description, related_products } = route.params
+    const productInfo = route.params
+
+    Alert.alert(productInfo.name)
 
     return (
-        <View style={style.flex}>
+        <ScrollView>
             <StatusBar barStyle={"default"} />
-            <Text style={style.fonts}>
-                name: {name}
-            </Text>
-            <Text style={style.fonts}>
-                price: {price}
-            </Text>
-            <Text style={style.fonts}>
-                size: {size}
-            </Text>
-            <Text style={style.fonts}>
-                type: {type}
-            </Text>
-            <Text style={style.fonts}>
-                description: {description}
-            </Text>
-            <Image source={{ uri: imgsrc }} style={style.img} />
-        </View>
+            <View style={style.flex}>
+                <Text style={style.fonts}>
+                    name: {productInfo.name}
+                </Text>
+                <Text style={style.fonts}>
+                    price: {productInfo.price}
+                </Text>
+                <Text style={style.fonts}>
+                    size: {productInfo.size}
+                </Text>
+                <Text style={style.fonts}>
+                    type: {productInfo.type}
+                </Text>
+                <Text style={style.fonts}>
+                    description: {productInfo.description}
+                </Text>
+                <Image source={{ uri: productInfo.imgsrc }} style={style.img} />
+            </View>
+        </ScrollView>
+
     )
 
 

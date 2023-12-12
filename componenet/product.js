@@ -6,12 +6,21 @@ import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 // Product Component
-function Product(props) {
+function Product({ name, price, imgsrc, size, type, description, related_products }) {
 
-    // Destructure props
-    const { name, price, imgsrc, size, type, description, related_products } = props;
+    // product info state
+    const [producInfo, setproductInfo] = useState({
+        name: name,
+        price: price,
+        description: description,
+        imgsrc: imgsrc,
+        related_products: related_products,
+        size: size,
+        type: type
+    })
 
     const [likeColor, setlikeColor] = useState("#222529")
+
 
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
@@ -24,7 +33,7 @@ function Product(props) {
             {/* product image  */}
             <View style={style.productImageContainer}>
                 <Pressable onPress={displayProductDetail}>
-                    <Image style={style.productImage} source={{ uri: imgsrc }} />
+                    <Image style={style.productImage} source={{ uri: producInfo.imgsrc }} />
                 </Pressable>
             </View>
 
@@ -55,13 +64,13 @@ function Product(props) {
 
             {/* Product Name  */}
             <Text style={[style.flex, style.productName, { flexDirection: "row" }]}>
-                {name}
+                {producInfo.name}
             </Text>
 
             {/* product price and rate */}
             <View style={[style.flex, { flexDirection: "row", marginVertical: 10, alignItems: "center" }]}>
                 {/* price */}
-                <Text style={style.prodcutPrice}>{price}</Text>
+                <Text style={style.prodcutPrice}>{producInfo.price}</Text>
 
                 {/* score */}
                 <View style={[style.flex, { flexDirection: "row" }]}>
@@ -79,7 +88,7 @@ function Product(props) {
     // Function to navigate to ProductDetailsScreen and pass props
     function displayProductDetail() {
 
-        navigation.navigate('ProductDetailsScreen', { name, price, imgsrc, size, type, description, related_products });
+        navigation.navigate('ProductDetailsScreen', producInfo);
     }
 
 
