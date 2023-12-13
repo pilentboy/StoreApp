@@ -1,46 +1,41 @@
 import { View, Text, StyleSheet, Pressable, Image, ScrollView, StatusBar } from 'react-native'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Product from "../componenet/product"
+import { ProductContext } from '../context/productContext';
 
 // Home  component
 function Home() {
 
     // State to manage the list of products and loading state
-    const [productsList, addpoductsList] = useState([])
-    const [loading, setloading] = useState(true)
+    // const [productsList, addpoductsList] = useState([])
+    const [loading, setloading] = useState(false)
 
 
     const [test, settest] = useState()
 
-    productsList.forEach(e => {
-        settest(e.name)
-        console.log(test)
-    })
-    
+    const { products, updateProducts } = useContext(ProductContext)
+    console.log(updateProducts, "test")
     // Fetch data when the component mounts
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                // Read data from db.json using require (this is a synchronous operation)
-                const response = await require('../db.json');
-                const jsonContent = JSON.parse(JSON.stringify(response));
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             // Read data from db.json using require (this is a synchronous operation)
+    //             const response = await require('../db.json');
+    //             const jsonContent = JSON.parse(JSON.stringify(response));
 
-                // Update the state with the list of products and set loading to false
-                addpoductsList(jsonContent.products);
+    //             // Update the state with the list of products and set loading to false
+    //             addpoductsList(jsonContent.products);
 
-                setloading(false)
-            } catch (error) {
-                console.error('Error reading db.json:', error);
-            }
+    //             setloading(false)
+    //         } catch (error) {
+    //             console.error('Error reading db.json:', error);
+    //         }
 
-        };
+    //     };
 
-        fetchData()
+    //     fetchData()
 
-
-
-
-    }, []);
+    // }, []);
 
     // Render the component based on the loading state
 
@@ -71,13 +66,12 @@ function Home() {
                     {/* List of Products */}
                     <View style={[style.flex, style.productContainer]}>
                         {
-                            productsList.map(item => {
+                            products.map((product) => {
                                 return (
-                                    < Product name={item.name} price={item.price} key={item.id} imgsrc={item.image} size={item.size} type={item.type} description={item.description} related_products={item.related_products} />
+                                    <Product key={product.id} {...product} />
                                 )
                             })
                         }
-
                     </View>
 
                 </View>

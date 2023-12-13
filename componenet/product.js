@@ -1,26 +1,32 @@
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native'
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { ProductContext } from '../context/productContext';
 
 // Product Component
-function Product({ name, price, imgsrc, size, type, description, related_products }) {
+function Product({ name, price, image, size, type, description, related_products, id }) {
 
     // product info state
-    const [producInfo, setproductInfo] = useState({
-        name: name,
-        price: price,
-        description: description,
-        imgsrc: imgsrc,
-        related_products: related_products,
-        size: size,
-        type: type
-    })
+    // const [producInfo, setproductInfo] = useState({
+    //     name: name,
+    //     price: price,
+    //     description: description,
+    //     imgsrc: imgsrc,
+    //     related_products: related_products,
+    //     size: size,
+    //     type: type
+    // })
+    const { products } = useContext(ProductContext)
+    const test = products.find((p) => p.id === 1)
 
+    console.log(test.name, "test")
     const [likeColor, setlikeColor] = useState("#222529")
 
+    // const { products } = useContext(ProductContext)
+    // console.log(products,"test")
 
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
@@ -29,11 +35,10 @@ function Product({ name, price, imgsrc, size, type, description, related_product
     return (
 
         <View style={[style.flex, style.productCard]} >
-
             {/* product image  */}
             <View style={style.productImageContainer}>
                 <Pressable onPress={displayProductDetail}>
-                    <Image style={style.productImage} source={{ uri: producInfo.imgsrc }} />
+                    <Image style={style.productImage} source={{ uri: image }} />
                 </Pressable>
             </View>
 
@@ -64,13 +69,13 @@ function Product({ name, price, imgsrc, size, type, description, related_product
 
             {/* Product Name  */}
             <Text style={[style.flex, style.productName, { flexDirection: "row" }]}>
-                {producInfo.name}
+                {name}
             </Text>
 
             {/* product price and rate */}
             <View style={[style.flex, { flexDirection: "row", marginVertical: 10, alignItems: "center" }]}>
                 {/* price */}
-                <Text style={style.prodcutPrice}>{producInfo.price}</Text>
+                <Text style={style.prodcutPrice}>{price}</Text>
 
                 {/* score */}
                 <View style={[style.flex, { flexDirection: "row" }]}>
@@ -87,8 +92,8 @@ function Product({ name, price, imgsrc, size, type, description, related_product
 
     // Function to navigate to ProductDetailsScreen and pass props
     function displayProductDetail() {
-
-        navigation.navigate('ProductDetailsScreen', producInfo);
+        console.log("test")
+        navigation.navigate('ProductDetailsScreen', { name, price, image, size, type, description, related_products, id });
     }
 
 
