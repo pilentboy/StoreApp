@@ -1,52 +1,33 @@
-import { View, Text, StyleSheet, Pressable, Image, ScrollView, StatusBar } from 'react-native'
-import { useState, useEffect, useContext } from "react";
+import { View, Text, StyleSheet, Pressable, ScrollView, StatusBar, Modal } from 'react-native'
+import { useState, useContext } from "react";
 import Product from "../componenet/product"
 import { ProductContext } from '../context/productContext';
+import { AntDesign } from '@expo/vector-icons';
 
 // Home  component
 function Home() {
 
-    // State to manage the list of products and loading state
-    // const [productsList, addpoductsList] = useState([])
-    const [loading, setloading] = useState(false)
-
-
-    const [test, settest] = useState()
-
-    const { products, updateProducts } = useContext(ProductContext)
-    console.log(updateProducts, "test")
-    // Fetch data when the component mounts
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             // Read data from db.json using require (this is a synchronous operation)
-    //             const response = await require('../db.json');
-    //             const jsonContent = JSON.parse(JSON.stringify(response));
-
-    //             // Update the state with the list of products and set loading to false
-    //             addpoductsList(jsonContent.products);
-
-    //             setloading(false)
-    //         } catch (error) {
-    //             console.error('Error reading db.json:', error);
-    //         }
-
-    //     };
-
-    //     fetchData()
-
-    // }, []);
+    // products list
+    const { products, updateProducts, loading } = useContext(ProductContext)
 
     // Render the component based on the loading state
-
     if (!loading) {
         return (
             // ScrollView to enable scrolling
             <ScrollView >
                 {/* Container for the main content */}
                 <StatusBar barStyle={"default"} />
-                <View style={{ paddingHorizontal: 15, paddingVertical: 30, width: "100vw" }}>
-                    {/* screen title */}
+                {/* Modal to add a new product */}
+                <Modal visible={false}>
+                    <View>
+                        <Text>
+                            I'm a modal
+                        </Text>
+                    </View>
+                </Modal>
+                {/* main view */}
+                <View style={{ paddingHorizontal: 15, paddingVertical: 30, width: "100vw", position: "relative" }}>
+                    {/* home title */}
                     <View style={style.flex}>
                         <Text style={style.screenTitle}>
                             Jackets and
@@ -55,7 +36,7 @@ function Home() {
                             tops
                         </Text>
                     </View>
-                    {/* screen description */}
+                    {/* home description */}
                     <View style={{ marginTop: 15 }}>
                         <Text style={style.screenDescritipn} >
                             Lorem ipsum dolor sit amet,
@@ -71,9 +52,14 @@ function Home() {
                                     <Product key={product.id} {...product} />
                                 )
                             })
+
                         }
                     </View>
 
+                    {/* add a new product button */}
+                    <Pressable style={{}}>
+                        <AntDesign name="pluscircle" size={24} color="black" />
+                    </Pressable>
                 </View>
 
             </ScrollView>

@@ -1,5 +1,5 @@
 
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, Children } from 'react';
 
 // Create a context
 const ProductContext = createContext();
@@ -7,6 +7,7 @@ const ProductContext = createContext();
 // Create a context provider component
 const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
+    const [loading, setloading] = useState(true)
 
     // Function to update the products state
     const updateProducts = (newProducts) => {
@@ -22,6 +23,7 @@ const ProductProvider = ({ children }) => {
 
                 // Update the state with the list of products and set loading to false
                 setProducts(jsonContent.products);
+                setloading(false)
 
             } catch (error) {
                 console.error('Error reading db.json:', error);
@@ -31,10 +33,11 @@ const ProductProvider = ({ children }) => {
 
         fetchData()
 
+
     }, []);
 
     return (
-        <ProductContext.Provider value={{ products, updateProducts }}>
+        <ProductContext.Provider value={{ products, updateProducts, loading }}>
             {children}
         </ProductContext.Provider>
     );

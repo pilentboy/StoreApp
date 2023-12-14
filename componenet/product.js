@@ -4,25 +4,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { ProductContext } from '../context/productContext';
+// import { ProductContext } from '../context/productContext';
 
 // Product Component
 function Product({ name, price, image, size, type, description, related_products, id }) {
 
-    // product info state
-    // const [producInfo, setproductInfo] = useState({
-    //     name: name,
-    //     price: price,
-    //     description: description,
-    //     imgsrc: imgsrc,
-    //     related_products: related_products,
-    //     size: size,
-    //     type: type
-    // })
-    const { products } = useContext(ProductContext)
-    const test = products.find((p) => p.id === 1)
-
-    console.log(test.name, "test")
     const [likeColor, setlikeColor] = useState("#222529")
 
     // const { products } = useContext(ProductContext)
@@ -37,7 +23,7 @@ function Product({ name, price, image, size, type, description, related_products
         <View style={[style.flex, style.productCard]} >
             {/* product image  */}
             <View style={style.productImageContainer}>
-                <Pressable onPress={displayProductDetail}>
+                <Pressable onPress={displayProductDetails}>
                     <Image style={style.productImage} source={{ uri: image }} />
                 </Pressable>
             </View>
@@ -59,7 +45,7 @@ function Product({ name, price, image, size, type, description, related_products
                     </Pressable>
 
                     {/* edit  */}
-                    <Pressable style={{ marginHorizontal: 5 }}>
+                    <Pressable style={{ marginHorizontal: 5 }} onPress={displayProductDetails}>
                         <MaterialCommunityIcons name="briefcase-edit-outline" size={25} color="#222529" />
                     </Pressable>
                 </View>
@@ -91,8 +77,7 @@ function Product({ name, price, image, size, type, description, related_products
     )
 
     // Function to navigate to ProductDetailsScreen and pass props
-    function displayProductDetail() {
-        console.log("test")
+    function displayProductDetails() {
         navigation.navigate('ProductDetailsScreen', { name, price, image, size, type, description, related_products, id });
     }
 

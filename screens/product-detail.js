@@ -9,7 +9,7 @@ function ProductDetail({ route }) {
     const { products, updateProducts } = useContext(ProductContext)
     const [w, sw] = useState(true)
 
-    chnageProductInfo = () => {
+    const chnageProductInfo = () => {
         const productIndex = products.findIndex((product) => product.id === productInfo.id);
         if (productIndex !== -1) {
             // Create a new array to avoid mutating the state directly
@@ -41,6 +41,7 @@ function ProductDetail({ route }) {
     useEffect(() => {
         chnageProductInfo()
     }, [])
+
     if (!w) {
         return (
             <ScrollView>
