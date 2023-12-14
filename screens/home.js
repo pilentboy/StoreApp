@@ -10,6 +10,8 @@ function Home() {
     // products list
     const { products, updateProducts, loading } = useContext(ProductContext)
 
+    // modal state
+    const [modal, setmodal] = useState(false)
     // Render the component based on the loading state
     if (!loading) {
         return (
@@ -17,14 +19,17 @@ function Home() {
             <ScrollView >
                 {/* Container for the main content */}
                 <StatusBar barStyle={"default"} />
+
                 {/* Modal to add a new product */}
-                <Modal visible={false}>
+                <Modal visible={modal}>
                     <View>
                         <Text>
                             I'm a modal
                         </Text>
                     </View>
+
                 </Modal>
+
                 {/* main view */}
                 <View style={{ paddingHorizontal: 15, paddingVertical: 30, width: "100vw", position: "relative" }}>
                     {/* home title */}
@@ -44,6 +49,12 @@ function Home() {
                         </Text>
                     </View>
 
+
+                    {/* add a new product button */}
+                    <Pressable style={style.addProductBTNBOX} onPress={displayAddNewProductModel}>
+                        <AntDesign name="plussquare" size={50} color="white" />
+                    </Pressable>
+
                     {/* List of Products */}
                     <View style={[style.flex, style.productContainer]}>
                         {
@@ -56,10 +67,6 @@ function Home() {
                         }
                     </View>
 
-                    {/* add a new product button */}
-                    <Pressable style={{}}>
-                        <AntDesign name="pluscircle" size={24} color="black" />
-                    </Pressable>
                 </View>
 
             </ScrollView>
@@ -75,6 +82,14 @@ function Home() {
                 </Text>
             </View>
         )
+    }
+
+    function displayAddNewProductModel() {
+        if (!modal) {
+            setmodal(true)
+        } else {
+            setmodal(false)
+        }
     }
 
 }
@@ -98,6 +113,11 @@ const style = StyleSheet.create({
         flexWrap: "wrap",
         justifyContent: "space-between",
         paddingVertical: 25
+    },
+    addProductBTNBOX: {
+        marginTop: 15,
+        backgroundColor: "#222529"
     }
+
 })
 export default Home;
