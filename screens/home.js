@@ -2,13 +2,15 @@ import { View, Text, StyleSheet, Pressable, ScrollView, StatusBar, Modal } from 
 import { useState, useContext } from "react";
 import Product from "../componenet/product"
 import { ProductContext } from '../context/productContext';
-import { AntDesign } from '@expo/vector-icons';
-
+import { Feather } from '@expo/vector-icons';
 // Home  component
 function Home() {
 
     // products list
     const { products, updateProducts, loading } = useContext(ProductContext)
+
+    // modal state
+    const [modal, setmodal] = useState(false)
 
     // Render the component based on the loading state
     if (!loading) {
@@ -18,7 +20,7 @@ function Home() {
                 {/* Container for the main content */}
                 <StatusBar barStyle={"default"} />
                 {/* Modal to add a new product */}
-                <Modal visible={false}>
+                <Modal visible={modal}>
                     <View>
                         <Text>
                             I'm a modal
@@ -44,6 +46,11 @@ function Home() {
                         </Text>
                     </View>
 
+                    {/* add a new product button */}
+                    <Pressable style={style.addNewProductBTN} onPress={AddProduct}>
+                        <Feather name="plus-square" size={50} color="white" />
+                    </Pressable>
+
                     {/* List of Products */}
                     <View style={[style.flex, style.productContainer]}>
                         {
@@ -56,10 +63,8 @@ function Home() {
                         }
                     </View>
 
-                    {/* add a new product button */}
-                    <Pressable style={{}}>
-                        <AntDesign name="pluscircle" size={24} color="black" />
-                    </Pressable>
+
+
                 </View>
 
             </ScrollView>
@@ -75,6 +80,14 @@ function Home() {
                 </Text>
             </View>
         )
+    }
+
+    function AddProduct() {
+        if(!modal){
+            setmodal(true)
+        }else{
+            setmodal(false)
+        }
     }
 
 }
@@ -98,6 +111,10 @@ const style = StyleSheet.create({
         flexWrap: "wrap",
         justifyContent: "space-between",
         paddingVertical: 25
+    },
+    addNewProductBTN: {
+        marginTop: 15,
+        backgroundColor: "#222529"
     }
 })
 export default Home;
