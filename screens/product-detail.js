@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image, StatusBar, Button, Alert, ScrollView } from 'react-native';
 import { ProductContext } from '../context/productContext';
+import ProductScore from '../componenet/product-score';
+
 // ProductDetail Component
-//////////////////////// Working on it-------------------
 function ProductDetail({ route }) {
 
     const productInfo = route.params
@@ -50,6 +51,33 @@ function ProductDetail({ route }) {
             {/* Container for the product details content */}
             <View style={style.mainContainer}>
 
+                {/* priduct title */}
+                <Text style={[style.productName]}>
+                    Striped T shirt
+                </Text>
+
+                {/* product price */}
+                <Text style={style.productPrice}>
+                    $29.40
+                </Text>
+
+                <View style={style.productStore}>
+                    <ProductScore />
+                    <Text style={{ marginHorizontal: 10, fontSize: 15, fontWeight: "bold", color: "#878e95" }}>
+                        25 REVIEWS
+                    </Text>
+                </View>
+
+                {/* product description */}
+
+                <Text style={style.productDescription} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Text>
+
+
+
+
+
             </View>
 
         </ScrollView>
@@ -65,6 +93,25 @@ const style = StyleSheet.create({
         paddingHorizontal: 15,
         paddingVertical: 30,
         width: "100vw"
-    }
+    },
+    productName: {
+        fontWeight: "bold",
+        fontSize: 40
+    },
+    productPrice: {
+        fontSize: 25,
+        fontWeight: "bold",
+        marginTop: 25
+    },
+    productStore: {
+        marginTop: 15,
+        flexDirection: "row"
+    },
+    productDescription: {
+        fontSize: 20,
+        color: "#878e95",
+        fontWeight: "bold",
+        marginTop: 25
+    },
 })
 export default ProductDetail

@@ -4,6 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import ProductScore from './product-score';
 // import { ProductContext } from '../context/productContext';
 
 // Product Component
@@ -63,14 +64,8 @@ function Product({ name, price, image, size, type, description, related_products
                 {/* price */}
                 <Text style={style.prodcutPrice}>{price}</Text>
 
-                {/* score */}
-                <View style={[style.flex, { flexDirection: "row" }]}>
-                    <FontAwesome name="star" size={16} color="#b9ac7d" />
-                    <FontAwesome name="star" size={16} color="#b9ac7d" />
-                    <FontAwesome name="star" size={16} color="#b9ac7d" />
-                    <FontAwesome name="star" size={16} color="#878e95" />
-                    <FontAwesome name="star" size={16} color="#878e95" />
-                </View>
+                <ProductScore />
+
             </View>
 
         </View>
