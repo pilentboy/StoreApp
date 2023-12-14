@@ -10,7 +10,7 @@ function Navigator() {
     return (
         <ProductProvider>
             <Stack.Navigator>
-                
+
                 {/* Define the "Home" screen with options to hide the header  */}
                 <Stack.Screen name="Home"
                     component={Home}

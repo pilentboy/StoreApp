@@ -3,6 +3,8 @@ import { useState, useContext } from "react";
 import Product from "../componenet/product"
 import { ProductContext } from '../context/productContext';
 import { Feather } from '@expo/vector-icons';
+
+
 // Home  component
 function Home() {
 
@@ -11,14 +13,11 @@ function Home() {
 
     // modal state
     const [modal, setmodal] = useState(false)
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ca48fe5f87c33b92caa90d8c5d16671eefe7994
     // Render the component based on the loading state
 
 
     if (!loading) {
+
         return (
             // ScrollView to enable scrolling
             <ScrollView >
@@ -54,16 +53,9 @@ function Home() {
                         </Text>
                     </View>
 
-<<<<<<< HEAD
-
                     {/* add a new product button */}
-                    <Pressable style={style.addProductBTNBOX} onPress={displayAddNewProductModel}>
-                        <AntDesign name="plussquare" size={50} color="white" />
-=======
-                    {/* add a new product button */}
-                    <Pressable style={style.addNewProductBTN} onPress={AddProduct}>
+                    <Pressable style={style.addNewProductBTN} onPress={displayNewProductModel}>
                         <Feather name="plus-square" size={50} color="white" />
->>>>>>> 7ca48fe5f87c33b92caa90d8c5d16671eefe7994
                     </Pressable>
 
                     {/* List of Products */}
@@ -78,14 +70,11 @@ function Home() {
                         }
                     </View>
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 7ca48fe5f87c33b92caa90d8c5d16671eefe7994
-                </View>
+                </View >
 
-            </ScrollView>
+            </ScrollView >
 
         )
     } else {
@@ -100,25 +89,15 @@ function Home() {
         )
     }
 
-<<<<<<< HEAD
+
     // display add new product modal
-    function displayAddNewProductModel() {
-        if (!modal) {
-            setmodal(true)
-        } else {
-=======
-    function AddProduct() {
-        if(!modal){
-            setmodal(true)
-        }else{
->>>>>>> 7ca48fe5f87c33b92caa90d8c5d16671eefe7994
-            setmodal(false)
-        }
+    function displayNewProductModel() {
+        console.log("test")
     }
 
 }
 
-// Styles for the component
+
 const style = StyleSheet.create({
     flex: {
         display: "flex",
@@ -138,7 +117,6 @@ const style = StyleSheet.create({
         justifyContent: "space-between",
         paddingVertical: 25
     },
-<<<<<<< HEAD
     addProductBTNBOX: {
         marginTop: 15,
         backgroundColor: "#222529"
@@ -147,12 +125,13 @@ const style = StyleSheet.create({
         paddingHorizontal: 15,
         paddingVertical: 30,
         width: "100vw"
-=======
+    },
     addNewProductBTN: {
         marginTop: 15,
         backgroundColor: "#222529"
->>>>>>> 7ca48fe5f87c33b92caa90d8c5d16671eefe7994
     }
 
 })
+
+
 export default Home;
