@@ -13,6 +13,8 @@ function Home() {
     // modal state
     const [modal, setmodal] = useState(false)
     // Render the component based on the loading state
+
+
     if (!loading) {
         return (
             // ScrollView to enable scrolling
@@ -31,7 +33,7 @@ function Home() {
                 </Modal>
 
                 {/* main view */}
-                <View style={{ paddingHorizontal: 15, paddingVertical: 30, width: "100vw", position: "relative" }}>
+                <View style={style.mainContainer}>
                     {/* home title */}
                     <View style={style.flex}>
                         <Text style={style.screenTitle}>
@@ -84,6 +86,7 @@ function Home() {
         )
     }
 
+    // display add new product modal
     function displayAddNewProductModel() {
         if (!modal) {
             setmodal(true)
@@ -117,6 +120,11 @@ const style = StyleSheet.create({
     addProductBTNBOX: {
         marginTop: 15,
         backgroundColor: "#222529"
+    },
+    mainContainer: {
+        paddingHorizontal: 15,
+        paddingVertical: 30,
+        width: "100vw"
     }
 
 })
