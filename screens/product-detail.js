@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image, StatusBar, Button, Alert, ScrollView, Picker } from 'react-native';
+import { View, Text, StyleSheet, Image, StatusBar, Button, Alert, ScrollView, Picker, Pressable } from 'react-native';
 import { ProductContext } from '../context/productContext';
 import ProductScore from '../componenet/product-score';
-
+import { Entypo } from '@expo/vector-icons';
 // ProductDetail Component
 function ProductDetail({ route }) {
 
@@ -103,7 +103,7 @@ function ProductDetail({ route }) {
                     {/* type*/}
 
                     <View style={[style.flex, { flexDirection: "row", marginTop: 20 }]}>
-                        
+
                         <Text style={[style.productType, { backgroundColor: "#b9ac7d" }]}>
                             HOODIE
                         </Text>
@@ -111,11 +111,26 @@ function ProductDetail({ route }) {
                         <Text style={[style.productType, { backgroundColor: "white", color: "#b9ac7d", borderColor: "#b9ac7d", borderWidth: 2, marginLeft: 5 }]}>
                             COLLEGE
                         </Text>
-                        
+
                     </View>
 
                 </View>
 
+                {/* add to cart */}
+                <View style={[style.flex, style.addToCart, { flexDirection: "row" }]}>
+                    {/* count of the product */}
+                    <Text style={style.productCount}>
+                        1
+                    </Text>
+                    {/* add to cart button */}
+                    <Pressable style={[style.addToCartBTN, style.flex, { flexDirection: "row", justifyContent: "center", alignItems: "center" }]}>
+
+                        <Entypo name="shopping-cart" size={20} color="white" />
+                        <Text style={style.cartBTNText}>
+                            ADD TO CART
+                        </Text>
+                    </Pressable>
+                </View>
 
             </View>
 
@@ -176,6 +191,29 @@ const style = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 16
     },
+    addToCart: {
+        marginTop: 25
+    },
+    addToCartBTN: {
+        width: "80%",
+        paddingVertical: 15,
+        backgroundColor: "#222529",
+    },
+    cartBTNText: {
+        color: "white",
+        fontWeight: "bold",
+        fontSize: 18,
+        marginLeft: 10
+    },
+    productCount: {
+        width: "20%",
+        textAlign: "center",
+        paddingVertical: 15,
+        fontWeight: "bold",
+        color: "black",
+        borderWidth: 1,
+        borderColor: "#878e95"
+    }
 
 })
 export default ProductDetail
