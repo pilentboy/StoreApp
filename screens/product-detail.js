@@ -75,8 +75,10 @@ function ProductDetail({ route }) {
                 </Text>
 
 
-                <View style={[style.flex, style.productSizeContainer]}>
-                    <Text style={style.productSize}>
+                {/* product size */}
+                <View style={[style.flex, style.productRequiredOptions]}>
+
+                    <Text style={style.requiredTitle}>
                         Size
                     </Text>
 
@@ -85,13 +87,26 @@ function ProductDetail({ route }) {
                         onValueChange={(itemValue, itemIndex) =>
                             setSelectedValue(itemValue)
                         } style={style.sizePicker}>
-                        <Picker.Item label="Option 1" value="option1"  />
-                        <Picker.Item label="Option 2" value="option2"  />
-                        <Picker.Item label="Option 3" value="option3"  />
+                        <Picker.Item label="Option 1" value="option1" />
+                        <Picker.Item label="Option 2" value="option2" />
+                        <Picker.Item label="Option 3" value="option3" />
                     </Picker>
                 </View>
 
+                {/* product type */}
+                <View style={[style.flex, style.productRequiredOptions]}>
 
+                    <Text style={style.requiredTitle}>
+                        Type
+                    </Text>
+
+                    {/* type*/}
+
+                    <View style={[style.flex, { flexDirection: "row" }]}>
+                        
+                    </View>
+
+                </View>
 
 
             </View>
@@ -129,11 +144,11 @@ const style = StyleSheet.create({
         fontWeight: "bold",
         marginTop: 25
     },
-    productSize: {
+    requiredTitle: {
         fontWeight: "bold",
         fontSize: 20
     },
-    productSizeContainer: {
+    productRequiredOptions: {
         marginTop: 25,
     },
     sizePicker: {
