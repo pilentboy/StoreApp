@@ -6,6 +6,8 @@ import { Entypo } from '@expo/vector-icons';
 import RequiredTitle from '../componenet/required-title';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import ProductDescription from '../componenet/product-description';
+import DotText from '../componenet/dot-text';
 
 // ProductDetail Component
 function ProductDetail({ route }) {
@@ -74,10 +76,7 @@ function ProductDetail({ route }) {
 
                 {/* product description */}
 
-                <Text style={style.productDescription} >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </Text>
-
+                <ProductDescription description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
                 {/* product size */}
                 <View style={[style.flex, style.productRequiredOptions]}>
@@ -168,12 +167,35 @@ function ProductDetail({ route }) {
 
                 {/* product description */}
                 <View style={{ borderBottomWidth: 3, paddingVertical: 20 }}>
-                    <Text style={{ fontWeight: "bold", fontSize: 18, marginLeft: 16 }}>
+                    <Text style={{ fontWeight: "bold", fontSize: 20, marginLeft: 20 }}>
                         DESCRIPTION
                     </Text>
                 </View>
 
-                {/*  */}
+                {/*  about the product  */}
+
+                <View style={{ paddingHorizontal: 16, marginVertical: 20 }}>
+                    <Text style={{ fontWeight: "bold", fontSize: 23, marginBottom: 10 }}>About</Text>
+
+                    <ProductDescription description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+
+                    <ProductDescription description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas purus viverra accumsan in nisl nisi Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque In egestas erat imperdiet sed euismod nisi porta lorem mollis" />
+
+                </View>
+
+                <View style={{ paddingHorizontal: 16, marginVertical: 20 }}>
+
+                    <Text style={{ fontWeight: "bold", fontSize: 23, marginBottom: 10 }}>You will love</Text>
+
+
+                    <DotText description={"vsed euismod nisi porta lorem mollis."} />
+
+                    <DotText description={"imperdiet sed euismod nisi porta lorem mollis."} />
+                    <DotText description={"vel elit scelerisque In egestas erat imperdiet."} />
+
+
+
+                </View>
 
             </View>
 
@@ -204,12 +226,6 @@ const style = StyleSheet.create({
     productStore: {
         marginTop: 15,
         flexDirection: "row"
-    },
-    productDescription: {
-        fontSize: 20,
-        color: "#878e95",
-        fontWeight: "bold",
-        marginTop: 25
     },
     requiredTitle: {
         fontWeight: "bold",
