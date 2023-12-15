@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image, StatusBar, Button, Alert, ScrollView, Picker, Pressable } from 'react-native';
 import { ProductContext } from '../context/productContext';
+import Swiper from 'react-native-swiper';
 import ProductScore from '../componenet/product-score';
 import { Entypo } from '@expo/vector-icons';
 import RequiredTitle from '../componenet/required-title';
@@ -199,6 +200,14 @@ function ProductDetail({ route }) {
 
             </View>
 
+            {/* related products */}
+
+            <View style={{ paddingHorizontal: 16, marginVertical: 20 }}>
+                <Text style={{ fontWeight: "bold", fontSize: 23, marginBottom: 10 }}>You might also like these</Text>
+
+                {/* related products */}
+                
+            </View>
 
         </ScrollView>
 
