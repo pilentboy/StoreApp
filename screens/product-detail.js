@@ -4,6 +4,8 @@ import { ProductContext } from '../context/productContext';
 import ProductScore from '../componenet/product-score';
 import { Entypo } from '@expo/vector-icons';
 import RequiredTitle from '../componenet/required-title';
+import { AntDesign } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 // ProductDetail Component
 function ProductDetail({ route }) {
@@ -130,6 +132,23 @@ function ProductDetail({ route }) {
                     </Pressable>
                 </View>
 
+                {/* add to wishlist and social medias */}
+
+                <View style={style.wishlistRow} >
+                    <Pressable style={[style.flex, { flexDirection: "row", alignItems: "center" }]}>
+                        <AntDesign name="hearto" size={20} color="#b9ac7d" />
+                        <Text style={{ color: "#b9ac7d", fontWeight: "bold", marginLeft: 5, fontSize: 18 }}>Add to wishlist</Text>
+                    </Pressable>
+
+                    {/* social media links */}
+                    <View style={[style.flex, { flexDirection: "row" }]}>
+
+                        <FontAwesome name="telegram" size={24} color="black" style={{ marginHorizontal: 5 }} />
+
+                        <Entypo name="youtube" size={24} color="black" />
+                    </View>
+
+                </View>
             </View>
 
         </ScrollView>
@@ -211,6 +230,12 @@ const style = StyleSheet.create({
         color: "black",
         borderWidth: 1,
         borderColor: "#878e95"
+    },
+    wishlistRow: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginTop: 25
     }
 
 })
