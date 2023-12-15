@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image, StatusBar, Button, Alert, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, StatusBar, Button, Alert, ScrollView, Picker } from 'react-native';
 import { ProductContext } from '../context/productContext';
 import ProductScore from '../componenet/product-score';
 
@@ -8,7 +8,7 @@ function ProductDetail({ route }) {
 
     const productInfo = route.params
     const { products, updateProducts } = useContext(ProductContext)
-
+    const [selectedValue, setSelectedValue] = useState('option1');
     // const chnageProductInfo = () => {
     //     const productIndex = products.findIndex((product) => product.id === productInfo.id);
     //     if (productIndex !== -1) {
@@ -75,6 +75,22 @@ function ProductDetail({ route }) {
                 </Text>
 
 
+                <View style={[style.flex, style.productSizeContainer]}>
+                    <Text style={style.productSize}>
+                        Size
+                    </Text>
+
+                    <Picker
+                        selectedValue={selectedValue}
+                        onValueChange={(itemValue, itemIndex) =>
+                            setSelectedValue(itemValue)
+                        } style={style.sizePicker}>
+                        <Picker.Item label="Option 1" value="option1"  />
+                        <Picker.Item label="Option 2" value="option2"  />
+                        <Picker.Item label="Option 3" value="option3"  />
+                    </Picker>
+                </View>
+
 
 
 
@@ -113,5 +129,23 @@ const style = StyleSheet.create({
         fontWeight: "bold",
         marginTop: 25
     },
+    productSize: {
+        fontWeight: "bold",
+        fontSize: 20
+    },
+    productSizeContainer: {
+        marginTop: 25,
+    },
+    sizePicker: {
+        marginTop: 15,
+        paddingVertical: 12,
+        width: "50vw",
+        borderColor: "#878e95",
+        paddingHorizontal: 20
+    },
+    pickerItem: {
+        fontWeight: "bold",
+        fontStyle: 20
+    }
 })
 export default ProductDetail
