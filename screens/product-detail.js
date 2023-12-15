@@ -166,6 +166,15 @@ function ProductDetail({ route }) {
 
                 <Image source={require("../assets/images/product-image/image1.webp")} style={style.productImage} />
 
+                {/* product description */}
+                <View style={{ borderBottomWidth: 3, paddingVertical: 20 }}>
+                    <Text style={{ fontWeight: "bold", fontSize: 18, marginLeft: 16 }}>
+                        DESCRIPTION
+                    </Text>
+                </View>
+
+                {/*  */}
+
             </View>
 
 
