@@ -149,6 +149,17 @@ function ProductDetail({ route }) {
                     </View>
 
                 </View>
+
+                {/* category and tags */}
+
+                <View style={[style.flex, { marginTop: 25 }]}>
+                    <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+                        Category: <Text style={style.grayText}>Shirts</Text>
+                    </Text>
+                    <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+                        Tags: <Text style={style.grayText}>Leisure, Elegant</Text>
+                    </Text>
+                </View>
             </View>
 
         </ScrollView>
@@ -236,6 +247,9 @@ const style = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         marginTop: 25
+    },
+    grayText: {
+        color: "#878e95",
     }
 
 })
