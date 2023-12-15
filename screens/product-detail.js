@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image, StatusBar, Button, Alert, ScrollView, Picker, Pressable } from 'react-native';
 import { ProductContext } from '../context/productContext';
-import Swiper from 'react-native-swiper';
 import ProductScore from '../componenet/product-score';
 import { Entypo } from '@expo/vector-icons';
 import RequiredTitle from '../componenet/required-title';
@@ -9,6 +8,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import ProductDescription from '../componenet/product-description';
 import DotText from '../componenet/dot-text';
+import Product from '../componenet/product';
 
 // ProductDetail Component
 function ProductDetail({ route }) {
@@ -16,6 +16,12 @@ function ProductDetail({ route }) {
     const productInfo = route.params
     const { products, updateProducts } = useContext(ProductContext)
     const [selectedValue, setSelectedValue] = useState('option1');
+
+    let relatedProducts = [];
+
+
+    console.log(products)
+    console.log(productInfo)
     // const chnageProductInfo = () => {
     //     const productIndex = products.findIndex((product) => product.id === productInfo.id);
     //     if (productIndex !== -1) {
@@ -206,7 +212,17 @@ function ProductDetail({ route }) {
                 <Text style={{ fontWeight: "bold", fontSize: 23, marginBottom: 10 }}>You might also like these</Text>
 
                 {/* related products */}
-                
+
+                <View style={[style.flex, style.productContainer]}>
+                    {
+                        products.map((product) => {
+                            return (
+                                <Product key={product.id} {...product} />
+                            )
+                        })
+                    }
+                </View>
+
             </View>
 
         </ScrollView>
@@ -296,7 +312,19 @@ const style = StyleSheet.create({
         marginVertical: 25,
         width: "100%",
         height: 400
-    }
+    },
+    slide: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#9DD6EB'
+    },
+    productContainer: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+
+    },
 
 })
 export default ProductDetail
