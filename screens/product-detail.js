@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Image, StatusBar, Button, Alert, ScrollView, Pi
 import { ProductContext } from '../context/productContext';
 import ProductScore from '../componenet/product-score';
 import { Entypo } from '@expo/vector-icons';
+import RequiredTitle from '../componenet/required-title';
+
 // ProductDetail Component
 function ProductDetail({ route }) {
 
@@ -78,9 +80,7 @@ function ProductDetail({ route }) {
                 {/* product size */}
                 <View style={[style.flex, style.productRequiredOptions]}>
 
-                    <Text style={style.requiredTitle}>
-                        Size
-                    </Text>
+                    <RequiredTitle title="Size" />
 
                     <Picker
                         selectedValue={selectedValue}
@@ -96,9 +96,7 @@ function ProductDetail({ route }) {
                 {/* product type */}
                 <View style={[style.flex, style.productRequiredOptions]}>
 
-                    <Text style={style.requiredTitle}>
-                        Type
-                    </Text>
+                    <RequiredTitle title="Type" />
 
                     {/* type*/}
 
