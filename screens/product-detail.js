@@ -102,7 +102,15 @@ function ProductDetail({ route }) {
 
                     {/* type*/}
 
-                    <View style={[style.flex, { flexDirection: "row" }]}>
+                    <View style={[style.flex, { flexDirection: "row", marginTop: 20 }]}>
+                        
+                        <Text style={[style.productType, { backgroundColor: "#b9ac7d" }]}>
+                            HOODIE
+                        </Text>
+
+                        <Text style={[style.productType, { backgroundColor: "white", color: "#b9ac7d", borderColor: "#b9ac7d", borderWidth: 2, marginLeft: 5 }]}>
+                            COLLEGE
+                        </Text>
                         
                     </View>
 
@@ -160,7 +168,14 @@ const style = StyleSheet.create({
     },
     pickerItem: {
         fontWeight: "bold",
-        fontStyle: 20
-    }
+        fontSize: 10
+    },
+    productType: {
+        paddingHorizontal: 25,
+        paddingVertical: 12,
+        fontWeight: "bold",
+        fontSize: 16
+    },
+
 })
 export default ProductDetail
