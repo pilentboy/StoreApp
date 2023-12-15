@@ -160,7 +160,14 @@ function ProductDetail({ route }) {
                         Tags: <Text style={style.grayText}>Leisure, Elegant</Text>
                     </Text>
                 </View>
+
+
+                {/* product image */}
+
+                <Image source={require("../assets/images/product-image/image1.webp")} style={style.productImage} />
+
             </View>
+
 
         </ScrollView>
 
@@ -250,6 +257,11 @@ const style = StyleSheet.create({
     },
     grayText: {
         color: "#878e95",
+    },
+    productImage: {
+        marginVertical: 25,
+        width: "100%",
+        height: 400
     }
 
 })
