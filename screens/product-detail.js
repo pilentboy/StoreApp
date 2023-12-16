@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image, StatusBar, Button, Alert, ScrollView, Picker, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Image, StatusBar, Button, Alert, ScrollView, Pressable } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import { ProductContext } from '../context/productContext';
 import ProductScore from '../componenet/product-score';
 import { Entypo } from '@expo/vector-icons';
