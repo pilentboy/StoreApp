@@ -17,12 +17,22 @@ function ProductDetail({ route }) {
     const productInfo = route.params
     const { products, updateProducts } = useContext(ProductContext)
     const [selectedValue, setSelectedValue] = useState('option1');
+    const [relatedProducts, setRelatedProducts] = useState([])
 
-    let relatedProducts = [];
+    // display related products in products-details based on the product's clicked information
+    const findRelatedProducts = async () => {
+        const relProducts = await products.filter((p, index) => {
+            if (productInfo.related_products.includes(index)) {
+                return products[index]
+            }
+        })
+        setRelatedProducts(relProducts)
+    }
 
+    useEffect(() => {
+        findRelatedProducts()
+    }, [ProductDetail])
 
-    console.log(products)
-    console.log(productInfo)
     // const chnageProductInfo = () => {
     //     const productIndex = products.findIndex((product) => product.id === productInfo.id);
     //     if (productIndex !== -1) {
@@ -216,7 +226,7 @@ function ProductDetail({ route }) {
 
                 <View style={[style.flex, style.productContainer]}>
                     {
-                        products.map((product) => {
+                        relatedProducts.map((product) => {
                             return (
                                 <Product key={product.id} {...product} />
                             )

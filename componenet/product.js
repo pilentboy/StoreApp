@@ -12,8 +12,6 @@ function Product({ name, price, image, size, type, description, related_products
 
     const [likeColor, setlikeColor] = useState("#222529")
 
-    // const { products } = useContext(ProductContext)
-    // console.log(products,"test")
 
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
@@ -74,6 +72,7 @@ function Product({ name, price, image, size, type, description, related_products
     // Function to navigate to ProductDetailsScreen and pass props
     function displayProductDetails() {
         navigation.navigate('ProductDetailsScreen', { name, price, image, size, type, description, related_products, id });
+        console.log("test")
     }
 
 
