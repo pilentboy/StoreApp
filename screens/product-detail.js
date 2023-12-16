@@ -89,7 +89,7 @@ function ProductDetail({ route }) {
                 <View style={style.productStore}>
                     <ProductScore />
                     <Text style={{ marginHorizontal: 10, fontSize: 15, fontWeight: "bold", color: "#878e95" }}>
-                        25 REVIEWS
+                        {productInfo.reviews} REVIEWS
                     </Text>
                 </View>
 
@@ -197,7 +197,7 @@ function ProductDetail({ route }) {
                 <View style={{ paddingHorizontal: 16, marginVertical: 20 }}>
                     <Text style={{ fontWeight: "bold", fontSize: 23, marginBottom: 10 }}>About</Text>
 
-                    <ProductDescription description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+                    <ProductDescription description={productInfo.you_will_love[0]} />
 
                     <ProductDescription description={productInfo.about} />
 

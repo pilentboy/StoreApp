@@ -17,7 +17,8 @@
         "Lorem ipsum dolor sit amet, consectetur",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
         "Lorem ipsum dolor sit amet, consectetur adipiscing"
-      ]
+      ],
+      "reviews": 14
     },
     {
       "id": 2,
@@ -35,14 +36,15 @@
       "you_will_love": [
         "Lorem ipsum dolor sit amet, consectetur",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-      ]
+      ],
+      "reviews": 16
     },
     {
       "id": 3,
       "name": "Product 3",
       "price": 39.99,
       "size": "S",
-      "type": "Shoes",
+      "type": "Shirt",
       "description": "Sed tempor nisl at augue tempor, ut gravida nunc ullamcorper.",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvpohKNZ_JZiULEz_AYW05kItsoQNT55SUB-qbCjWTOcPLfiRBAMnhgz8clH_OS8QQS_Y&usqp=CAU",
       "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas purus viverra accumsan in nisl nisi",
@@ -53,7 +55,8 @@
       "you_will_love": [
         "Lorem ipsum dolor sit amet, consectetur",
         "Lorem ipsum dolor sit amet"
-      ]
+      ],
+      "reviews": 65
     }
   ]
 }

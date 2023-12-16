@@ -8,7 +8,7 @@ import ProductScore from './product-score';
 // import { ProductContext } from '../context/productContext';
 
 // Product Component
-function Product({ name, price, image, size, type, description, related_products, id, about, you_will_love }) {
+function Product({ name, price, image, size, type, description, related_products, id, about, you_will_love, reviews }) {
 
     const [likeColor, setlikeColor] = useState("#222529")
 
@@ -71,7 +71,10 @@ function Product({ name, price, image, size, type, description, related_products
 
     // Function to navigate to ProductDetailsScreen and pass props
     function displayProductDetails() {
-        navigation.navigate('ProductDetailsScreen', { name, price, image, size, type, description, related_products, id, about, you_will_love });
+        navigation.navigate('ProductDetailsScreen', {
+            name, price, image, size, type, description, related_products, id, about, you_will_love,
+            reviews
+        });
     }
 
 
