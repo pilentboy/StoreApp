@@ -8,7 +8,7 @@ import RequiredTitle from '../componenet/required-title';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import ProductDescription from '../componenet/product-description';
-import DotText from '../componenet/dot-text';
+import TextList from '../componenet/text-list';
 import Product from '../componenet/product';
 
 // ProductDetail Component
@@ -16,11 +16,12 @@ function ProductDetail({ route }) {
 
     const productInfo = route.params
     const { products, updateProducts } = useContext(ProductContext)
-    const [selectedValue, setSelectedValue] = useState('option1');
+    const [selectedValue, setSelectedValue] = useState(productInfo.size);
     const [relatedProducts, setRelatedProducts] = useState([])
 
     // display related products in products-details based on the product's clicked information
     const findRelatedProducts = async () => {
+        setRelatedProducts([])
         const relProducts = await products.filter((p, index) => {
             if (productInfo.related_products.includes(index)) {
                 return products[index]
@@ -31,7 +32,7 @@ function ProductDetail({ route }) {
 
     useEffect(() => {
         findRelatedProducts()
-    }, [ProductDetail])
+    }, [productInfo])
 
     // const chnageProductInfo = () => {
     //     const productIndex = products.findIndex((product) => product.id === productInfo.id);
@@ -77,12 +78,12 @@ function ProductDetail({ route }) {
 
                 {/* priduct title */}
                 <Text style={[style.productName]}>
-                    Striped T shirt
+                    {productInfo.name}
                 </Text>
 
                 {/* product price */}
                 <Text style={style.productPrice}>
-                    $29.40
+                    ${productInfo.price}
                 </Text>
 
                 <View style={style.productStore}>
@@ -94,7 +95,7 @@ function ProductDetail({ route }) {
 
                 {/* product description */}
 
-                <ProductDescription description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+                <ProductDescription description={productInfo.description} />
 
                 {/* product size */}
                 <View style={[style.flex, style.productRequiredOptions]}>
@@ -106,10 +107,11 @@ function ProductDetail({ route }) {
                         onValueChange={(itemValue, itemIndex) =>
                             setSelectedValue(itemValue)
                         } style={style.sizePicker}>
-                        <Picker.Item label="Option 1" value="option1" />
-                        <Picker.Item label="Option 2" value="option2" />
-                        <Picker.Item label="Option 3" value="option3" />
+                        <Picker.Item label={productInfo.size} value={productInfo.size} />
                     </Picker>
+
+
+
                 </View>
 
                 {/* product type */}
@@ -122,7 +124,7 @@ function ProductDetail({ route }) {
                     <View style={[style.flex, { flexDirection: "row", marginTop: 20 }]}>
 
                         <Text style={[style.productType, { backgroundColor: "#b9ac7d" }]}>
-                            HOODIE
+                            {productInfo.type}
                         </Text>
 
                         <Text style={[style.productType, { backgroundColor: "white", color: "#b9ac7d", borderColor: "#b9ac7d", borderWidth: 2, marginLeft: 5 }]}>
@@ -181,7 +183,7 @@ function ProductDetail({ route }) {
 
                 {/* product image */}
 
-                <Image source={require("../assets/images/product-image/image1.webp")} style={style.productImage} />
+                <Image source={{ uri: productInfo.image }} style={style.productImage} />
 
                 {/* product description */}
                 <View style={{ borderBottomWidth: 3, paddingVertical: 20 }}>
@@ -197,44 +199,50 @@ function ProductDetail({ route }) {
 
                     <ProductDescription description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
-                    <ProductDescription description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas purus viverra accumsan in nisl nisi Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque In egestas erat imperdiet sed euismod nisi porta lorem mollis" />
+                    <ProductDescription description={productInfo.about} />
 
                 </View>
 
+
+                {/*  show list of the the product's best features */}
                 <View style={{ paddingHorizontal: 16, marginVertical: 20 }}>
 
                     <Text style={{ fontWeight: "bold", fontSize: 23, marginBottom: 10 }}>You will love</Text>
 
 
-                    <DotText description={"vsed euismod nisi porta lorem mollis."} />
-
-                    <DotText description={"imperdiet sed euismod nisi porta lorem mollis."} />
-                    <DotText description={"vel elit scelerisque In egestas erat imperdiet."} />
-
-
-
-                </View>
-
-            </View>
-
-            {/* related products */}
-
-            <View style={{ paddingHorizontal: 16, marginVertical: 20 }}>
-                <Text style={{ fontWeight: "bold", fontSize: 23, marginBottom: 10 }}>You might also like these</Text>
-
-                {/* related products */}
-
-                <View style={[style.flex, style.productContainer]}>
                     {
-                        relatedProducts.map((product) => {
+                        productInfo.you_will_love.map((i, index) => {
                             return (
-                                <Product key={product.id} {...product} />
+                                <TextList key={index} description={i} />
                             )
                         })
                     }
+
+
+                </View>
+
+                {/* related products */}
+
+                <View style={{ paddingHorizontal: 0, marginVertical: 20 }}>
+                    <Text style={{ fontWeight: "bold", fontSize: 23, marginBottom: 10 }}>You might also like these</Text>
+
+                    {/* related products */}
+
+                    <View style={[style.flex, style.productContainer]}>
+                        {
+                            relatedProducts.map((product) => {
+                                return (
+                                    <Product key={product.id} {...product} />
+                                )
+                            })
+                        }
+                    </View>
+
                 </View>
 
             </View>
+
+
 
         </ScrollView>
 
@@ -273,7 +281,7 @@ const style = StyleSheet.create({
     sizePicker: {
         marginTop: 15,
         paddingVertical: 12,
-        width: "50vw",
+        width: "50%",
         borderColor: "#878e95",
         paddingHorizontal: 20
     },
@@ -335,7 +343,7 @@ const style = StyleSheet.create({
         flexWrap: "wrap",
         justifyContent: "space-between",
 
-    },
+    }
 
 })
 export default ProductDetail

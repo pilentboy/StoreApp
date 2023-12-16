@@ -3,7 +3,7 @@ import { Text, StyleSheet, View } from 'react-native'
 import { Entypo } from '@expo/vector-icons';
 
 
-function DotText({ description }) {
+function TextList({ description }) {
 
     return (
 
@@ -22,5 +22,5 @@ const style = StyleSheet.create({
     },
 })
 
-export default DotText
+export default TextList
 

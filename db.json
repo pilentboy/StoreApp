@@ -8,9 +8,15 @@
       "type": "Shirt",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "image": "https://assets.ajio.com/medias/sys_master/root/20221103/fU54/6363e33caeb269659c70447f/-473Wx593H-441668245-green-MODEL.jpg",
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas purus viverra accumsan in nisl nisi Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque In egestas erat imperdiet sed euismod nisi porta lorem mollis",
       "related_products": [
         2,
         1
+      ],
+      "you_will_love": [
+        "Lorem ipsum dolor sit amet, consectetur",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing"
       ]
     },
     {
@@ -21,9 +27,14 @@
       "type": "Pants",
       "description": "Ut porttitor diam nulla, id interdum metus aliquet et.",
       "image": "https://i1.adis.ws/i/jpl/bl_517070_a?w=364&h=364",
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas purus viverra accumsan in nisl nisi Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque In egestas erat imperdiet sed euismod nisi porta lorem mollis Morbi tristique senectus et netus Mattis pellentesque id nibh tortor id aliquet lectus proin",
       "related_products": [
         0,
         2
+      ],
+      "you_will_love": [
+        "Lorem ipsum dolor sit amet, consectetur",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
       ]
     },
     {
@@ -34,9 +45,14 @@
       "type": "Shoes",
       "description": "Sed tempor nisl at augue tempor, ut gravida nunc ullamcorper.",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvpohKNZ_JZiULEz_AYW05kItsoQNT55SUB-qbCjWTOcPLfiRBAMnhgz8clH_OS8QQS_Y&usqp=CAU",
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas purus viverra accumsan in nisl nisi",
       "related_products": [
         0,
         1
+      ],
+      "you_will_love": [
+        "Lorem ipsum dolor sit amet, consectetur",
+        "Lorem ipsum dolor sit amet"
       ]
     }
   ]
