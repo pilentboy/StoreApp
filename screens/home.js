@@ -1,4 +1,13 @@
-import { View, Text, StyleSheet, Pressable, ScrollView, StatusBar, Modal } from 'react-native'
+import {
+    View,
+    Text,
+    StyleSheet,
+    Pressable,
+    ScrollView,
+    StatusBar,
+    Modal
+} from 'react-native'
+
 import { useState, useContext } from "react";
 import Product from "../componenet/product"
 import { ProductContext } from '../context/productContext';
