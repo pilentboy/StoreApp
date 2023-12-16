@@ -7,7 +7,7 @@ import {
     StatusBar,
     Modal
 } from 'react-native'
-
+import HomeTitle from '../componenet/home-title';
 import { useState, useContext } from "react";
 import Product from "../componenet/product"
 import { ProductContext } from '../context/productContext';
@@ -46,14 +46,8 @@ function Home() {
                 {/* main view */}
                 <View style={style.mainContainer}>
                     {/* home title */}
-                    <View style={style.flex}>
-                        <Text style={style.screenTitle}>
-                            Jackets and
-                        </Text>
-                        <Text style={style.screenTitle}>
-                            tops
-                        </Text>
-                    </View>
+                    <HomeTitle firstText={"Jackets and"} secondText={"tops"} />
+                    
                     {/* home description */}
                     <View style={{ marginTop: 15 }}>
                         <Text style={style.screenDescritipn} >
