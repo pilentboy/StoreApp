@@ -1,5 +1,5 @@
 
-import React, { createContext, useState, useEffect, Children } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 // Create a context
 const ProductContext = createContext();

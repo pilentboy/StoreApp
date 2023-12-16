@@ -30,7 +30,7 @@ function Product({ name, price, image, size, type, description, related_products
             {/* product buttons  */}
             <View style={[style.flex, { flexDirection: "row", marginVertical: 10, alignItems: "center" }]}>
 
-                {/* buy 0*/}
+                {/* buy */}
                 <Pressable>
                     <MaterialCommunityIcons name="purse-outline" size={25} color="#222529" />
                 </Pressable>

@@ -106,7 +106,7 @@ function ProductDetail({ route }) {
                         selectedValue={selectedValue}
                         onValueChange={(itemValue, itemIndex) =>
                             setSelectedValue(itemValue)
-                        } style={style.sizePicker}>
+                        } style={style.pickerSize}>
                         <Picker.Item label={productInfo.size} value={productInfo.size} />
                     </Picker>
 
@@ -128,7 +128,7 @@ function ProductDetail({ route }) {
                         </Text>
 
                         <Text style={[style.productType, { backgroundColor: "white", color: "#b9ac7d", borderColor: "#b9ac7d", borderWidth: 2, marginLeft: 5 }]}>
-                            COLLEGE
+                            Empty
                         </Text>
 
                     </View>
@@ -256,7 +256,7 @@ const style = StyleSheet.create({
     mainContainer: {
         paddingHorizontal: 15,
         paddingVertical: 30,
-        width: "100vw"
+        width: "100%"
     },
     productName: {
         fontWeight: "bold",
@@ -278,7 +278,7 @@ const style = StyleSheet.create({
     productRequiredOptions: {
         marginTop: 25,
     },
-    sizePicker: {
+    pickerSize: {
         marginTop: 15,
         paddingVertical: 12,
         width: "50%",

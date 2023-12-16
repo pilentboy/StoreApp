@@ -81,7 +81,7 @@ function Home() {
 
         return (
             // Render a loading view if data is still being fetched
-            <View style={[style.flex, { alignItems: "center", justifyContent: "center", width: "100vw", height: "100vh" }]}>
+            <View style={[style.flex, { alignItems: "center", justifyContent: "center", width: "100%", height: "100%" }]}>
                 <Text style={{ fontSize: 50 }}>
                     Loading!
                 </Text>
@@ -124,7 +124,7 @@ const style = StyleSheet.create({
     mainContainer: {
         paddingHorizontal: 15,
         paddingVertical: 30,
-        width: "100vw"
+        width: "100%"
     },
     addNewProductBTN: {
         marginTop: 15,
