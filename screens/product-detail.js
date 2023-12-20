@@ -9,16 +9,18 @@ import {
   Pressable,
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { ProductContext } from '../context/productContext';
-import ProductScore from '../componenet/product-score';
 import { Entypo } from '@expo/vector-icons';
-import RequiredTitle from '../componenet/required-title';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import ProductDescription from '../componenet/product-description';
-import TextList from '../componenet/text-list';
-import Product from '../componenet/product';
 import { StatusBar } from 'expo-status-bar';
+
+import ProductDescription from '../componenet/productDetails/productDescription';
+import RequiredTitle from '../componenet/productDetails/requiredTitle';
+import ProductScore from '../componenet/product/productScore';
+import TextList from '../componenet/productDetails/textList';
+import Product from '../componenet/product/product';
+import { ProductContext } from '../context/productContext';
+
 
 // ProductDetail Component
 function ProductDetail({ route }) {
@@ -55,7 +57,7 @@ function ProductDetail({ route }) {
     // ScrollView to enable scrolling
     <ScrollView>
       {/* Status bar for system information */}
-      <StatusBar  style="auto" />
+      <StatusBar style="auto" />
 
       {/* Container for the product details content */}
       <View style={style.mainContainer}>

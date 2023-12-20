@@ -12,7 +12,7 @@ import { StatusBar } from 'expo-status-bar';
 // import custome components
 import ProductPageDescription from "../componenet/home/productPageDescription"
 import ControlProductOptions from '../componenet/home/controlProductOptions';
-import Product from "../componenet/product"
+import Product from "../componenet/product/product"
 import ProductPageTitle from '../componenet/home/productPageTitle';
 
 // Home  component

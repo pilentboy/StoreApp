@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import ProductScore from './product-score';
+import ProductScore from './productScore';
 // import { ProductContext } from '../context/productContext';
 
 // Product Component
