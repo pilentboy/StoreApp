@@ -17,7 +17,7 @@ const ProductProvider = ({ children }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Read data from db.json using require (this is a synchronous operation)
+                // Read data  from db.json using require (this is a synchronous operation)
                 const response = await require('../db.json');
                 const jsonContent = JSON.parse(JSON.stringify(response));
 
