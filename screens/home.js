@@ -13,6 +13,7 @@ import { ProductContext } from '../context/productContext';
 import { Feather } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import ProductPageDescription from "../componenet/home/productPageDescription"
+import ControlProductOptions from '../componenet/home/controlProductOptions';
 
 // Home  component
 function Home() {
@@ -48,13 +49,11 @@ function Home() {
                     {/* home title */}
                     <ProductPageTitle firstText={"Jackets and"} secondText={"tops"} />
 
-                    {/* home description */}
-                    <ProductPageDescription />
+                    {/* product page description */}
+                    <ProductPageDescription description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"} />
 
-                    {/* add a new product button */}
-                    <Pressable style={style.addNewProductBTN} onPress={displayNewProductModel}>
-                        <Feather name="plus-square" size={50} color="white" />
-                    </Pressable>
+                    <ControlProductOptions />
+
 
                     {/* List of Products */}
                     <View style={[style.flex, style.productContainer]}>
@@ -88,10 +87,7 @@ function Home() {
     }
 
 
-    // display add new product modal
-    function displayNewProductModel() {
-        console.log("test")
-    }
+
 
 }
 
@@ -118,10 +114,6 @@ const style = StyleSheet.create({
         paddingHorizontal: 15,
         paddingVertical: 30,
         width: "100%"
-    },
-    addNewProductBTN: {
-        marginTop: 15,
-        backgroundColor: "#222529"
     }
 
 })

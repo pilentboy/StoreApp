@@ -1,13 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 
 
-function ProductPageDescription() {
+function ProductPageDescription({ description }) {
 
     return (
         <View style={{ marginTop: 15 }}>
             <Text style={style.description} >
-                Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed do eiusmod.
+                {description}
             </Text>
         </View>
     )
