@@ -5,7 +5,6 @@ import {
   Text,
   StyleSheet,
   Image,
-  StatusBar,
   ScrollView,
   Pressable,
 } from 'react-native';
@@ -19,6 +18,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import ProductDescription from '../componenet/product-description';
 import TextList from '../componenet/text-list';
 import Product from '../componenet/product';
+import { StatusBar } from 'expo-status-bar';
 
 // ProductDetail Component
 function ProductDetail({ route }) {
@@ -55,7 +55,7 @@ function ProductDetail({ route }) {
     // ScrollView to enable scrolling
     <ScrollView>
       {/* Status bar for system information */}
-      <StatusBar barStyle={'default'} />
+      <StatusBar  style="auto" />
 
       {/* Container for the product details content */}
       <View style={style.mainContainer}>

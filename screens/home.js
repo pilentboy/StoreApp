@@ -4,7 +4,6 @@ import {
     StyleSheet,
     Pressable,
     ScrollView,
-    StatusBar,
     Modal
 } from 'react-native'
 import HomeTitle from '../componenet/home-title';
@@ -12,6 +11,7 @@ import { useState, useContext } from "react";
 import Product from "../componenet/product"
 import { ProductContext } from '../context/productContext';
 import { Feather } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
 
 
 // Home  component
@@ -31,7 +31,7 @@ function Home() {
             // ScrollView to enable scrolling
             <ScrollView >
                 {/* Container for the main content */}
-                <StatusBar barStyle={"default"} />
+                <StatusBar style="auto" />
 
                 {/* Modal to add a new product */}
                 <Modal visible={modal}>
@@ -47,7 +47,7 @@ function Home() {
                 <View style={style.mainContainer}>
                     {/* home title */}
                     <HomeTitle firstText={"Jackets and"} secondText={"tops"} />
-                    
+
                     {/* home description */}
                     <View style={{ marginTop: 15 }}>
                         <Text style={style.screenDescritipn} >
