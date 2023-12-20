@@ -6,13 +6,13 @@ import {
     ScrollView,
     Modal
 } from 'react-native'
-import HomeTitle from '../componenet/home-title';
+import ProductPageTitle from '../componenet/home/productPageTitle';
 import { useState, useContext } from "react";
 import Product from "../componenet/product"
 import { ProductContext } from '../context/productContext';
 import { Feather } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
-
+import ProductPageDescription from "../componenet/home/productPageDescription"
 
 // Home  component
 function Home() {
@@ -46,15 +46,10 @@ function Home() {
                 {/* main view */}
                 <View style={style.mainContainer}>
                     {/* home title */}
-                    <HomeTitle firstText={"Jackets and"} secondText={"tops"} />
+                    <ProductPageTitle firstText={"Jackets and"} secondText={"tops"} />
 
                     {/* home description */}
-                    <View style={{ marginTop: 15 }}>
-                        <Text style={style.screenDescritipn} >
-                            Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit, sed do eiusmod.
-                        </Text>
-                    </View>
+                    <ProductPageDescription />
 
                     {/* add a new product button */}
                     <Pressable style={style.addNewProductBTN} onPress={displayNewProductModel}>
@@ -108,11 +103,6 @@ const style = StyleSheet.create({
     screenTitle: {
         fontSize: 50,
         fontWeight: "bold"
-    },
-    screenDescritipn: {
-        fontSize: 23,
-        color: "#878e95",
-        fontWeight: "400"
     },
     productContainer: {
         flexDirection: "row",

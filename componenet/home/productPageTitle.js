@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet } from 'react-native'
 
 
-function HomeTitle({ firstText, secondText }) {
+function ProductPageTitle({ firstText, secondText }) {
 
     return (
         <View style={style.flex}>
@@ -23,4 +23,4 @@ const style = StyleSheet.create({
         fontWeight: "bold"
     },
 })
-export default HomeTitle
+export default ProductPageTitle
