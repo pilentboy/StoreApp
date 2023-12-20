@@ -1,5 +1,5 @@
 // Import necessary modules
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -13,7 +13,6 @@ import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
-
 import ProductDescription from '../componenet/productDetails/productDescription';
 import RequiredTitle from '../componenet/productDetails/requiredTitle';
 import ProductScore from '../componenet/product/productScore';
@@ -33,6 +32,9 @@ function ProductDetail({ route }) {
   // State for related products
   const [relatedProducts, setRelatedProducts] = useState([]);
 
+  // scroll view ref
+  const scrollViewRef = useRef(null);
+
   // Function to display related products based on the clicked product
   const findRelatedProducts = async () => {
     // Reset relatedProducts before updating
@@ -43,19 +45,33 @@ function ProductDetail({ route }) {
         return products[index];
       }
     });
+
     // Update the relatedProducts state
     setRelatedProducts(relProducts);
   };
 
+
+
+  const scrollToTop = () => {
+    // scrool to top when the component mount
+    scrollViewRef.current.scrollTo({ y: 0, animated: false });
+    console.log("scroll to top")
+  };
+
+
   // useEffect to trigger findRelatedProducts when productInfo changes
   useEffect(() => {
     findRelatedProducts();
+    scrollToTop();
   }, [productInfo]);
+
+
+
 
   // JSX structure for the component
   return (
     // ScrollView to enable scrolling
-    <ScrollView>
+    <ScrollView ref={scrollViewRef}>
       {/* Status bar for system information */}
       <StatusBar style="auto" />
 

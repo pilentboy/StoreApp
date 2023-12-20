@@ -1,5 +1,4 @@
 import { View, StyleSheet, Pressable } from 'react-native'
-
 import { Feather } from '@expo/vector-icons';
 
 
@@ -18,7 +17,7 @@ function ControlProductOptions() {
 
     // display add new product modal
     function displayNewProductModel() {
-        console.log("test")
+        console.log(" add a new product button ")
     }
 }
 
