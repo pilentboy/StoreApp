@@ -2,18 +2,18 @@ import {
     View,
     Text,
     StyleSheet,
-    Pressable,
     ScrollView,
     Modal
 } from 'react-native'
-import ProductPageTitle from '../componenet/home/productPageTitle';
 import { useState, useContext } from "react";
-import Product from "../componenet/product"
 import { ProductContext } from '../context/productContext';
-import { Feather } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
+
+// import custome components
 import ProductPageDescription from "../componenet/home/productPageDescription"
 import ControlProductOptions from '../componenet/home/controlProductOptions';
+import Product from "../componenet/product"
+import ProductPageTitle from '../componenet/home/productPageTitle';
 
 // Home  component
 function Home() {
@@ -45,18 +45,20 @@ function Home() {
                 </Modal>
 
                 {/* main view */}
-                <View style={style.mainContainer}>
+                <View style={style.container}>
+
                     {/* home title */}
                     <ProductPageTitle firstText={"Jackets and"} secondText={"tops"} />
 
                     {/* product page description */}
                     <ProductPageDescription description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"} />
 
+                    {/* control product options */}
                     <ControlProductOptions />
 
 
                     {/* List of Products */}
-                    <View style={[style.flex, style.productContainer]}>
+                    <View style={style.productContainer}>
                         {
                             products.map((product) => {
                                 return (
@@ -78,7 +80,7 @@ function Home() {
 
         return (
             // Render a loading view if data is still being fetched
-            <View style={[style.flex, { alignItems: "center", justifyContent: "center", width: "100%", height: "100%" }]}>
+            <View style={{ alignItems: "center", justifyContent: "center", width: "100%", height: "100%" }}>
                 <Text style={{ fontSize: 50 }}>
                     Loading!
                 </Text>
@@ -93,24 +95,13 @@ function Home() {
 
 
 const style = StyleSheet.create({
-    flex: {
-        display: "flex",
-    },
-    screenTitle: {
-        fontSize: 50,
-        fontWeight: "bold"
-    },
     productContainer: {
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
         paddingVertical: 25
     },
-    addProductBTNBOX: {
-        marginTop: 15,
-        backgroundColor: "#222529"
-    },
-    mainContainer: {
+    container: {
         paddingHorizontal: 15,
         paddingVertical: 30,
         width: "100%"
