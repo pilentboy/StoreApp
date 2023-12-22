@@ -20,7 +20,9 @@ import TextList from '../componenet/productDetails/textList';
 import Product from '../componenet/product/product';
 import { ProductContext } from '../context/productContext';
 import ProductPrice from '../componenet/productDetails/productPrice';
-
+import ProductType
+  from '../componenet/productDetails/productType';
+import AddToCart from '../componenet/productDetails/addToCart'
 
 // ProductDetail Component
 function ProductDetail({ route }) {
@@ -73,15 +75,15 @@ function ProductDetail({ route }) {
   return (
     // ScrollView to enable scrolling
     <ScrollView ref={scrollViewRef}>
-     
+
       <StatusBar style="auto" />
 
       {/* Container for the product details */}
       <View style={style.container}>
 
-   
+
         <Text style={[style.productName]}>{productInfo.name}</Text>
-     
+
         <ProductPrice price={productInfo.price} />
 
         {/* Product store information */}
@@ -96,7 +98,7 @@ function ProductDetail({ route }) {
         <ProductDescription description={productInfo.description} />
 
         {/* Product size selection */}
-        <View style={{ marginTop: 25 }}>
+        <View style={{ marginTop: 20 }}>
 
           <RequiredTitle title="Size" />
 
@@ -112,27 +114,13 @@ function ProductDetail({ route }) {
         </View>
 
         {/* Product type */}
-        <View style={{ marginTop: 25 }}>
-          <RequiredTitle title="Type" />
-          <View style={{ flexDirection: 'row', marginTop: 20 }}>
-            <Text style={[style.productType, { backgroundColor: '#b9ac7d' }]}>{productInfo.type}</Text>
-            <Text
-              style={[style.productType, { backgroundColor: 'white', color: '#b9ac7d', borderColor: '#b9ac7d', borderWidth: 2, marginLeft: 5 }]}>
-              Empty
-            </Text>
-          </View>
-        </View>
+
+        <ProductType type={productInfo.type} />
+
+
 
         {/* Add to cart section */}
-        <View style={[style.addToCart, { flexDirection: 'row' }]}>
-          {/* Count of the product */}
-          <Text style={style.productCount}>1</Text>
-          {/* Add to cart button */}
-          <Pressable style={[style.addToCartBTN, { flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }]}>
-            <Entypo name="shopping-cart" size={20} color="white" />
-            <Text style={style.cartBTNText}>ADD TO CART</Text>
-          </Pressable>
-        </View>
+        <AddToCart count={1} />
 
         {/* Add to wishlist and social media links */}
         <View style={style.wishlistRow}>
@@ -191,7 +179,7 @@ function ProductDetail({ route }) {
           </View>
         </View>
       </View>
-    </ScrollView>
+    </ScrollView >
   );
 }
 
@@ -216,35 +204,6 @@ const style = StyleSheet.create({
     width: '50%',
     borderColor: '#878e95',
     paddingHorizontal: 20,
-  },
-  productType: {
-    paddingHorizontal: 25,
-    paddingVertical: 12,
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  addToCart: {
-    marginTop: 25,
-  },
-  addToCartBTN: {
-    width: '80%',
-    paddingVertical: 15,
-    backgroundColor: '#222529',
-  },
-  cartBTNText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 18,
-    marginLeft: 10,
-  },
-  productCount: {
-    width: '20%',
-    textAlign: 'center',
-    paddingVertical: 15,
-    fontWeight: 'bold',
-    color: 'black',
-    borderWidth: 1,
-    borderColor: '#878e95',
   },
   wishlistRow: {
     flexDirection: 'row',
