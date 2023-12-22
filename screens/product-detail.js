@@ -19,6 +19,7 @@ import ProductScore from '../componenet/product/productScore';
 import TextList from '../componenet/productDetails/textList';
 import Product from '../componenet/product/product';
 import { ProductContext } from '../context/productContext';
+import ProductPrice from '../componenet/productDetails/productPrice';
 
 
 // ProductDetail Component
@@ -72,21 +73,21 @@ function ProductDetail({ route }) {
   return (
     // ScrollView to enable scrolling
     <ScrollView ref={scrollViewRef}>
-      {/* Status bar for system information */}
+     
       <StatusBar style="auto" />
 
-      {/* Container for the product details content */}
+      {/* Container for the product details */}
       <View style={style.container}>
-        {/* Product title */}
-        <Text style={[style.productName]}>{productInfo.name}</Text>
 
-        {/* Product price */}
-        <Text style={style.productPrice}>${productInfo.price}</Text>
+   
+        <Text style={[style.productName]}>{productInfo.name}</Text>
+     
+        <ProductPrice price={productInfo.price} />
 
         {/* Product store information */}
-        <View style={style.productStore}>
+        <View style={{ flexDirection: "row", marginTop: 25 }}>
           <ProductScore />
-          <Text style={{ marginHorizontal: 10, fontSize: 15, fontWeight: 'bold', color: '#878e95' }}>
+          <Text style={style.reviews}>
             {productInfo.reviews} REVIEWS
           </Text>
         </View>
@@ -95,18 +96,23 @@ function ProductDetail({ route }) {
         <ProductDescription description={productInfo.description} />
 
         {/* Product size selection */}
-        <View style={style.productRequiredOptions}>
+        <View style={{ marginTop: 25 }}>
+
           <RequiredTitle title="Size" />
+
           <Picker
             selectedValue={selectedValue}
             onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
             style={style.pickerSize}>
             <Picker.Item label={productInfo.size} value={productInfo.size} />
+            <Picker.Item label={"M"} value={"M"} />
+            <Picker.Item label={"XL"} value={"XL"} />
           </Picker>
+
         </View>
 
         {/* Product type */}
-        <View style={style.productRequiredOptions}>
+        <View style={{ marginTop: 25 }}>
           <RequiredTitle title="Type" />
           <View style={{ flexDirection: 'row', marginTop: 20 }}>
             <Text style={[style.productType, { backgroundColor: '#b9ac7d' }]}>{productInfo.type}</Text>
@@ -194,27 +200,15 @@ const style = StyleSheet.create({
   container: {
     paddingHorizontal: 15,
     paddingVertical: 30,
-    width: '100vw', // Note: 'vw' is not applicable in React Native, consider using 'width: '100%'
+    width: '100%',
   },
   productName: {
     fontWeight: 'bold',
     fontSize: 40,
   },
-  productPrice: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    marginTop: 25,
-  },
-  productStore: {
-    marginTop: 15,
-    flexDirection: 'row',
-  },
   requiredTitle: {
     fontWeight: 'bold',
     fontSize: 20,
-  },
-  productRequiredOptions: {
-    marginTop: 25,
   },
   pickerSize: {
     marginTop: 15,
@@ -271,6 +265,12 @@ const style = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
+  reviews: {
+    marginHorizontal: 10,
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#878e95'
+  }
 });
 
 // Export the component
