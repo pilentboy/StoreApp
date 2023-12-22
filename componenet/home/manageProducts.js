@@ -2,7 +2,7 @@ import { View, StyleSheet, Pressable } from 'react-native'
 import { Feather } from '@expo/vector-icons';
 
 
-function ControlProductOptions() {
+function ManageProducts() {
 
     return (
         <View style={style.container}>
@@ -33,4 +33,4 @@ const style = StyleSheet.create({
     }
 })
 
-export default ControlProductOptions
+export default ManageProducts

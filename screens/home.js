@@ -11,7 +11,7 @@ import { StatusBar } from 'expo-status-bar';
 
 // import custome components
 import ProductPageDescription from "../componenet/home/productPageDescription"
-import ControlProductOptions from '../componenet/home/controlProductOptions';
+import ManageProducts from '../componenet/home/manageProducts';
 import Product from "../componenet/product/product"
 import ProductPageTitle from '../componenet/home/productPageTitle';
 
@@ -54,7 +54,7 @@ function Home() {
                     <ProductPageDescription description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"} />
 
                     {/* control product options */}
-                    <ControlProductOptions />
+                    <ManageProducts />
 
 
                     {/* List of Products */}

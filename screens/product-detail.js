@@ -76,7 +76,7 @@ function ProductDetail({ route }) {
       <StatusBar style="auto" />
 
       {/* Container for the product details content */}
-      <View style={style.mainContainer}>
+      <View style={style.container}>
         {/* Product title */}
         <Text style={[style.productName]}>{productInfo.name}</Text>
 
@@ -95,7 +95,7 @@ function ProductDetail({ route }) {
         <ProductDescription description={productInfo.description} />
 
         {/* Product size selection */}
-        <View style={[style.flex, style.productRequiredOptions]}>
+        <View style={style.productRequiredOptions}>
           <RequiredTitle title="Size" />
           <Picker
             selectedValue={selectedValue}
@@ -106,9 +106,9 @@ function ProductDetail({ route }) {
         </View>
 
         {/* Product type */}
-        <View style={[style.flex, style.productRequiredOptions]}>
+        <View style={style.productRequiredOptions}>
           <RequiredTitle title="Type" />
-          <View style={[style.flex, { flexDirection: 'row', marginTop: 20 }]}>
+          <View style={{ flexDirection: 'row', marginTop: 20 }}>
             <Text style={[style.productType, { backgroundColor: '#b9ac7d' }]}>{productInfo.type}</Text>
             <Text
               style={[style.productType, { backgroundColor: 'white', color: '#b9ac7d', borderColor: '#b9ac7d', borderWidth: 2, marginLeft: 5 }]}>
@@ -118,11 +118,11 @@ function ProductDetail({ route }) {
         </View>
 
         {/* Add to cart section */}
-        <View style={[style.flex, style.addToCart, { flexDirection: 'row' }]}>
+        <View style={[style.addToCart, { flexDirection: 'row' }]}>
           {/* Count of the product */}
           <Text style={style.productCount}>1</Text>
           {/* Add to cart button */}
-          <Pressable style={[style.addToCartBTN, style.flex, { flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }]}>
+          <Pressable style={[style.addToCartBTN, { flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }]}>
             <Entypo name="shopping-cart" size={20} color="white" />
             <Text style={style.cartBTNText}>ADD TO CART</Text>
           </Pressable>
@@ -130,19 +130,19 @@ function ProductDetail({ route }) {
 
         {/* Add to wishlist and social media links */}
         <View style={style.wishlistRow}>
-          <Pressable style={[style.flex, { flexDirection: 'row', alignItems: 'center' }]}>
+          <Pressable style={{ flexDirection: 'row', alignItems: 'center' }}>
             <AntDesign name="hearto" size={20} color="#b9ac7d" />
             <Text style={{ color: '#b9ac7d', fontWeight: 'bold', marginLeft: 5, fontSize: 18 }}>Add to wishlist</Text>
           </Pressable>
           {/* Social media links */}
-          <View style={[style.flex, { flexDirection: 'row' }]}>
+          <View style={{ flexDirection: 'row' }}>
             <FontAwesome name="telegram" size={24} color="black" style={{ marginHorizontal: 5 }} />
             <Entypo name="youtube" size={24} color="black" />
           </View>
         </View>
 
         {/* Category and tags */}
-        <View style={[style.flex, { marginTop: 25 }]}>
+        <View style={{ marginTop: 25 }}>
           <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
             Category: <Text style={style.grayText}>Shirts</Text>
           </Text>
@@ -178,7 +178,7 @@ function ProductDetail({ route }) {
         <View style={{ paddingHorizontal: 0, marginVertical: 20 }}>
           <Text style={{ fontWeight: 'bold', fontSize: 23, marginBottom: 10 }}>You might also like these</Text>
           {/* Related products */}
-          <View style={[style.flex, style.productContainer]}>
+          <View style={style.productContainer}>
             {relatedProducts.map((product) => {
               return <Product key={product.id} {...product} />;
             })}
@@ -191,10 +191,7 @@ function ProductDetail({ route }) {
 
 // Styles for the component
 const style = StyleSheet.create({
-  flex: {
-    display: 'flex',
-  },
-  mainContainer: {
+  container: {
     paddingHorizontal: 15,
     paddingVertical: 30,
     width: '100vw', // Note: 'vw' is not applicable in React Native, consider using 'width: '100%'
