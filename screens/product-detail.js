@@ -117,8 +117,6 @@ function ProductDetail({ route }) {
 
         <ProductType type={productInfo.type} />
 
-
-
         {/* Add to cart section */}
         <AddToCart count={1} />
 
