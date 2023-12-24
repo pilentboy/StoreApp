@@ -24,6 +24,7 @@ import ProductType
   from '../componenet/productDetails/productType';
 import AddToCart from '../componenet/productDetails/addToCart'
 import SocialMediaLink from '../componenet/productDetails/socialMediaLink';
+import Category from '../componenet/productDetails/category';
 
 // ProductDetail Component
 function ProductDetail({ route }) {
@@ -83,7 +84,7 @@ function ProductDetail({ route }) {
       <View style={style.container}>
 
 
-        <Text style={[style.productName]}>{productInfo.name}</Text>
+        <Text style={{ fontWeight: 'bold', fontSize: 40, }} >{productInfo.name} </Text>
 
         <ProductPrice price={productInfo.price} />
 
@@ -122,7 +123,7 @@ function ProductDetail({ route }) {
         <AddToCart count={1} />
 
         {/* Add to wishlist and social media links */}
-        <View style={style.wishlistRow}>
+        <View style={style.wrapperRow}>
 
           <Pressable style={{ flexDirection: 'row', alignItems: 'center' }}>
             <AntDesign name="hearto" size={20} color="#b9ac7d" />
@@ -136,13 +137,24 @@ function ProductDetail({ route }) {
 
         {/* Category and tags */}
         <View style={{ marginTop: 25 }}>
-          <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
-            Category: <Text style={style.grayText}>Shirts</Text>
-          </Text>
-          <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
-            Tags: <Text style={style.grayText}>Leisure, Elegant</Text>
-          </Text>
+          
+          <Category title={"Category"} values={["Shirts"]} />
+          <Category title={"Category"} values={["Leisure", "Elegant"]} />
+
         </View>
+
+
+        {/* <View style={{ marginTop: 25 }}>
+
+          <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
+            Category: <Text style={style.gray}>Shirts</Text>
+          </Text>
+
+          <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
+            Tags: <Text style={style.gray}>Leisure, Elegant</Text>
+          </Text>
+
+        </View> */}
 
         {/* Product image */}
         <Image source={{ uri: productInfo.image }} style={style.productImage} />
@@ -189,14 +201,6 @@ const style = StyleSheet.create({
     paddingVertical: 30,
     width: '100%',
   },
-  productName: {
-    fontWeight: 'bold',
-    fontSize: 40,
-  },
-  requiredTitle: {
-    fontWeight: 'bold',
-    fontSize: 20,
-  },
   pickerSize: {
     marginTop: 15,
     paddingVertical: 12,
@@ -204,13 +208,13 @@ const style = StyleSheet.create({
     borderColor: '#878e95',
     paddingHorizontal: 20,
   },
-  wishlistRow: {
+  wrapperRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 25,
   },
-  grayText: {
+  gray: {
     color: '#878e95',
   },
   productImage: {
