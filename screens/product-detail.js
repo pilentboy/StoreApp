@@ -28,6 +28,8 @@ import Category from '../componenet/productDetails/category';
 
 // ProductDetail Component
 function ProductDetail({ route }) {
+
+  
   // Destructure parameters from the route
   const productInfo = route.params;
   // Access product context
@@ -40,7 +42,7 @@ function ProductDetail({ route }) {
   // scroll view ref
   const scrollViewRef = useRef(null);
 
-  // Function to display related products based on the clicked product
+  // Function to display related products based on the selected product
   const findRelatedProducts = async () => {
     // Reset relatedProducts before updating
     setRelatedProducts([]);
@@ -137,24 +139,10 @@ function ProductDetail({ route }) {
 
         {/* Category and tags */}
         <View style={{ marginTop: 25 }}>
-          
           <Category title={"Category"} values={["Shirts"]} />
-          <Category title={"Category"} values={["Leisure", "Elegant"]} />
-
+          <Category title={"Tag"} values={["Leisure", "Elegant"]} />
         </View>
 
-
-        {/* <View style={{ marginTop: 25 }}>
-
-          <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
-            Category: <Text style={style.gray}>Shirts</Text>
-          </Text>
-
-          <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
-            Tags: <Text style={style.gray}>Leisure, Elegant</Text>
-          </Text>
-
-        </View> */}
 
         {/* Product image */}
         <Image source={{ uri: productInfo.image }} style={style.productImage} />
@@ -174,22 +162,29 @@ function ProductDetail({ route }) {
         {/* List of product's best features */}
         <View style={{ paddingHorizontal: 16, marginVertical: 20 }}>
           <Text style={{ fontWeight: 'bold', fontSize: 23, marginBottom: 10 }}>You will love</Text>
+
           {productInfo.you_will_love.map((i, index) => {
             return <TextList key={index} description={i} />;
           })}
+
         </View>
 
         {/* Related products */}
-        <View style={{ paddingHorizontal: 0, marginVertical: 20 }}>
+        <View style={{ marginVertical: 20 }}>
+
           <Text style={{ fontWeight: 'bold', fontSize: 23, marginBottom: 10 }}>You might also like these</Text>
+
           {/* Related products */}
-          <View style={style.productContainer}>
+          <View style={style.relatedProductsWrapper}>
             {relatedProducts.map((product) => {
               return <Product key={product.id} {...product} />;
             })}
           </View>
+
         </View>
+
       </View>
+
     </ScrollView >
   );
 }
@@ -214,15 +209,12 @@ const style = StyleSheet.create({
     alignItems: 'center',
     marginTop: 25,
   },
-  gray: {
-    color: '#878e95',
-  },
   productImage: {
     marginVertical: 25,
     width: '100%',
     height: 400,
   },
-  productContainer: {
+  relatedProductsWrapper: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
