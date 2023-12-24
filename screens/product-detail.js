@@ -23,6 +23,7 @@ import ProductPrice from '../componenet/productDetails/productPrice';
 import ProductType
   from '../componenet/productDetails/productType';
 import AddToCart from '../componenet/productDetails/addToCart'
+import SocialMediaLink from '../componenet/productDetails/socialMediaLink';
 
 // ProductDetail Component
 function ProductDetail({ route }) {
@@ -122,15 +123,15 @@ function ProductDetail({ route }) {
 
         {/* Add to wishlist and social media links */}
         <View style={style.wishlistRow}>
+
           <Pressable style={{ flexDirection: 'row', alignItems: 'center' }}>
             <AntDesign name="hearto" size={20} color="#b9ac7d" />
             <Text style={{ color: '#b9ac7d', fontWeight: 'bold', marginLeft: 5, fontSize: 18 }}>Add to wishlist</Text>
           </Pressable>
+
           {/* Social media links */}
-          <View style={{ flexDirection: 'row' }}>
-            <FontAwesome name="telegram" size={24} color="black" style={{ marginHorizontal: 5 }} />
-            <Entypo name="youtube" size={24} color="black" />
-          </View>
+          <SocialMediaLink />
+
         </View>
 
         {/* Category and tags */}
