@@ -8,7 +8,7 @@ function SocialMediaLink() {
     return (
 
         <View style={{ flexDirection: 'row' }}>
-            <FontAwesome name="telegram" size={24} color="black" style={{ marginHorizontal: 5 }} />
+            <FontAwesome name="telegram" size={23} color="black" style={{ marginHorizontal: 5 }} />
             <Entypo name="youtube" size={24} color="black" />
         </View>
 
