@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, Image } from 'react-native'
+import { View, Text, StyleSheet, Pressable, Image, Modal, Button } from 'react-native'
 import { useState, useContext } from "react";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
@@ -8,27 +8,49 @@ import ProductScore from './productScore';
 // import { ProductContext } from '../context/productContext';
 
 // Product Component
-function Product({ name, price, image, size, type, description, related_products, id, about, you_will_love, reviews }) {
+function Product(props) {
 
     const [likeColor, setlikeColor] = useState("#222529")
 
+    const [modal, setModal] = useState(false)
 
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
 
+    console.log(props)
+
     // Render the Product component
     return (
-
         <View style={[style.flex, style.productCard]} >
+
+            <Modal
+                visible={modal}
+                animationType='fade'
+                transparent={false}
+
+            >
+
+                <View style={{ flex: 1, padding: "150px", backgroundColor: "black", justifyContent: "center", alignItems: "center" }}>
+
+                    <Button title='close' onPress={() => {
+                        setModal(false)
+                    }} />
+
+
+                </View>
+
+
+            </Modal>
+
             {/* product image  */}
-            <View style={style.productImageContainer}>
+            <View style={style.productImageWrapper}>
                 <Pressable onPress={displayProductDetails}>
-                    <Image style={style.productImage} source={{ uri: image }} />
+                    <Image style={style.productImage} source={{ uri: props.image }} />
                 </Pressable>
             </View>
 
             {/* product buttons  */}
-            <View style={[style.flex, { flexDirection: "row", marginVertical: 10, alignItems: "center" }]}>
+            <View style={style.optionsRow}>
 
                 {/* buy */}
                 <Pressable>
@@ -44,7 +66,9 @@ function Product({ name, price, image, size, type, description, related_products
                     </Pressable>
 
                     {/* edit  */}
-                    <Pressable style={{ marginHorizontal: 5 }} onPress={displayProductDetails}>
+                    <Pressable style={{ marginHorizontal: 5 }} onPress={() => {
+                        displayProductDetails()
+                    }}>
                         <MaterialCommunityIcons name="briefcase-edit-outline" size={25} color="#222529" />
                     </Pressable>
                 </View>
@@ -54,44 +78,49 @@ function Product({ name, price, image, size, type, description, related_products
 
             {/* Product Name  */}
             <Text style={[style.flex, style.productName, { flexDirection: "row" }]}>
-                {name}
+                {props.name}
             </Text>
 
             {/* product price and rate */}
-            <View style={[style.flex, { flexDirection: "row", marginVertical: 10, alignItems: "center" }]}>
+            <View style={style.optionsRow}>
                 {/* price */}
-                <Text style={style.prodcutPrice}>{price}</Text>
+                <Text style={style.prodcutPrice}>{props.price}</Text>
 
                 <ProductScore />
 
             </View>
 
         </View>
+
+
     )
 
     // Function to navigate to ProductDetailsScreen and pass props
     function displayProductDetails() {
         navigation.navigate('ProductDetailsScreen', {
-            name, price, image, size, type, description, related_products, id, about, you_will_love,
-            reviews
+            props
         });
     }
+
+
 
 
 }
 
 // Styles for the component
 const style = StyleSheet.create({
-    flex: {
-        display: "flex",
+    optionsRow: {
         justifyContent: "space-between",
+        flexDirection: "row",
+        marginVertical: 10,
+        alignItems: "center"
     },
     productCard: {
         width: 160,
         height: 350,
         marginVertical: 16,
     },
-    productImageContainer: {
+    productImageWrapper: {
         height: 250,
         overflow: "hidden"
     },

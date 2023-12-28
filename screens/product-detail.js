@@ -29,13 +29,13 @@ import Category from '../componenet/productDetails/category';
 // ProductDetail Component
 function ProductDetail({ route }) {
 
-  
+
   // Destructure parameters from the route
   const productInfo = route.params;
   // Access product context
   const { products, updateProducts } = useContext(ProductContext);
   // State for selected size in picker
-  const [selectedValue, setSelectedValue] = useState(productInfo.size);
+  const [selectedValue, setSelectedValue] = useState(productInfo.props.size);
   // State for related products
   const [relatedProducts, setRelatedProducts] = useState([]);
 
@@ -48,7 +48,7 @@ function ProductDetail({ route }) {
     setRelatedProducts([]);
     // Find related products based on the clicked product's information
     const relProducts = await products.filter((p, index) => {
-      if (productInfo.related_products.includes(index)) {
+      if (productInfo.props.related_products.includes(index)) {
         return products[index];
       }
     });
@@ -86,15 +86,15 @@ function ProductDetail({ route }) {
       <View style={style.container}>
 
 
-        <Text style={{ fontWeight: 'bold', fontSize: 40, }} >{productInfo.name} </Text>
+        <Text style={{ fontWeight: 'bold', fontSize: 40, }} >{productInfo.props.name} </Text>
 
-        <ProductPrice price={productInfo.price} />
+        <ProductPrice price={productInfo.props.price} />
 
         {/* Product store information */}
         <View style={{ flexDirection: "row", marginTop: 25 }}>
           <ProductScore />
           <Text style={style.reviews}>
-            {productInfo.reviews} REVIEWS
+            {productInfo.props.reviews} REVIEWS
           </Text>
         </View>
 
@@ -110,7 +110,7 @@ function ProductDetail({ route }) {
             selectedValue={selectedValue}
             onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
             style={style.pickerSize}>
-            <Picker.Item label={productInfo.size} value={productInfo.size} />
+            <Picker.Item label={productInfo.props.size} value={productInfo.props.size} />
             <Picker.Item label={"M"} value={"M"} />
             <Picker.Item label={"XL"} value={"XL"} />
           </Picker>
@@ -119,7 +119,7 @@ function ProductDetail({ route }) {
 
         {/* Product type */}
 
-        <ProductType type={productInfo.type} />
+        <ProductType type={productInfo.props.type} />
 
         {/* Add to cart section */}
         <AddToCart count={1} />
@@ -145,7 +145,7 @@ function ProductDetail({ route }) {
 
 
         {/* Product image */}
-        <Image source={{ uri: productInfo.image }} style={style.productImage} />
+        <Image source={{ uri: productInfo.props.image }} style={style.productImage} />
 
         {/* Product description */}
         <View style={{ borderBottomWidth: 3, paddingVertical: 20 }}>
@@ -155,15 +155,15 @@ function ProductDetail({ route }) {
         {/* About the product */}
         <View style={{ paddingHorizontal: 16, marginVertical: 20 }}>
           <Text style={{ fontWeight: 'bold', fontSize: 23, marginBottom: 10 }}>About</Text>
-          <ProductDescription description={productInfo.you_will_love[0]} />
-          <ProductDescription description={productInfo.about} />
+          <ProductDescription description={productInfo.props.you_will_love[0]} />
+          <ProductDescription description={productInfo.props.about} />
         </View>
 
         {/* List of product's best features */}
         <View style={{ paddingHorizontal: 16, marginVertical: 20 }}>
           <Text style={{ fontWeight: 'bold', fontSize: 23, marginBottom: 10 }}>You will love</Text>
 
-          {productInfo.you_will_love.map((i, index) => {
+          {productInfo.props.you_will_love.map((i, index) => {
             return <TextList key={index} description={i} />;
           })}
 
