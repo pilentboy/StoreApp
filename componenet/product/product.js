@@ -5,7 +5,6 @@ import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import ProductScore from './productScore';
-import ProductModal from '../productModal';
 // import { ProductContext } from '../context/productContext';
 
 // Product Component
@@ -17,12 +16,9 @@ function Product(props) {
     const navigation = useNavigation();
     console.log(props)
 
-
     // Render the Product component
     return (
-        <View style={[style.flex, style.productCard]} >
-
-            <ProductModal display={false} />
+        <View style={style.productCard} >
 
             {/* product image  */}
             <View style={style.productImageWrapper}>
@@ -49,7 +45,7 @@ function Product(props) {
 
                     {/* edit  */}
                     <Pressable style={{ marginHorizontal: 5 }} onPress={() => {
-                        
+
                     }}>
                         <MaterialCommunityIcons name="briefcase-edit-outline" size={25} color="#222529" />
                     </Pressable>

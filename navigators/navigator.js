@@ -12,7 +12,8 @@ function Navigator() {
             <Stack.Navigator>
 
                 {/* Define the "Home" screen with options to hide the header  */}
-                <Stack.Screen name="Home"
+                <Stack.Screen
+                    name="Home"
                     component={Home}
                     options={{ headerShown: false }}
                 />
