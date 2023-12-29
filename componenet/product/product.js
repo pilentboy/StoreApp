@@ -15,14 +15,13 @@ function Product(props) {
 
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
-    console.log(props)
 
     // Render the Product component
     return (
         <View style={style.productCard} >
 
             {/* edit product modal */}
-            <EditProduct display={modalDisplay} setModalDisplay={setModalDisplay} productInfo={props.name} />
+            <EditProduct display={modalDisplay} setModalDisplay={setModalDisplay} productInfo={props} />
 
 
             {/* product image  */}
@@ -36,7 +35,7 @@ function Product(props) {
             <View style={style.optionsRow}>
 
                 {/* buy */}
-                <Pressable>
+                <Pressable onPress={displayProductDetails}>
                     <MaterialCommunityIcons name="purse-outline" size={25} color="#222529" />
                 </Pressable>
 
@@ -67,7 +66,7 @@ function Product(props) {
             {/* product price and rate */}
             <View style={style.optionsRow}>
                 {/* price */}
-                <Text style={style.prodcutPrice}>{props.price}</Text>
+                <Text style={style.prodcutPrice}>${props.price}</Text>
 
                 <ProductScore />
 

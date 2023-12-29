@@ -12,6 +12,7 @@ const ProductProvider = ({ children }) => {
     // Function to update the products state
     const updateProducts = (newProducts) => {
         setProducts(newProducts);
+        console.log("products updated-- from productContext")
     };
 
     useEffect(() => {
