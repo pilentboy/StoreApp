@@ -2,15 +2,16 @@ import { View, Text, StyleSheet, Pressable, Image, Modal, Button } from 'react-n
 import { useState, useContext } from "react";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import ProductScore from './productScore';
-// import { ProductContext } from '../context/productContext';
+import EditProduct from '../modals/editProduct';
 
 // Product Component
 function Product(props) {
 
     const [likeColor, setlikeColor] = useState("#222529")
+
+    const [modalDisplay, setModalDisplay] = useState(false)
 
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
@@ -19,6 +20,9 @@ function Product(props) {
     // Render the Product component
     return (
         <View style={style.productCard} >
+
+            {/* edit product modal */}
+            <EditProduct display={modalDisplay} setModalDisplay={setModalDisplay} />
 
             {/* product image  */}
             <View style={style.productImageWrapper}>
@@ -35,7 +39,7 @@ function Product(props) {
                     <MaterialCommunityIcons name="purse-outline" size={25} color="#222529" />
                 </Pressable>
 
-                <View style={[style.flex, { flexDirection: "row", alignItems: "center" }]}>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
                     {/* like  */}
                     <Pressable style={{ marginHorizontal: 5 }} onPress={() => {
                         likeColor === "#222529" ? setlikeColor("red") : setlikeColor("#222529")
@@ -45,7 +49,7 @@ function Product(props) {
 
                     {/* edit  */}
                     <Pressable style={{ marginHorizontal: 5 }} onPress={() => {
-
+                        setModalDisplay(true)
                     }}>
                         <MaterialCommunityIcons name="briefcase-edit-outline" size={25} color="#222529" />
                     </Pressable>
