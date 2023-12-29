@@ -22,7 +22,8 @@ function Product(props) {
         <View style={style.productCard} >
 
             {/* edit product modal */}
-            <EditProduct display={modalDisplay} setModalDisplay={setModalDisplay} />
+            <EditProduct display={modalDisplay} setModalDisplay={setModalDisplay} productInfo={props.name} />
+
 
             {/* product image  */}
             <View style={style.productImageWrapper}>
