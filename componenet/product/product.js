@@ -12,7 +12,7 @@ function Product(props) {
 
     const [likeColor, setlikeColor] = useState("#222529")
 
-    const [modalDisplay, setModalDisplay] = useState(true)
+    const [modalDisplay, setModalDisplay] = useState(false)
 
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
@@ -33,7 +33,7 @@ function Product(props) {
             </View>
 
             {/* product buttons  */}
-            <View style={style.optionsRow}>
+            <View style={style.wrapper}>
 
                 {/* buy */}
                 <Pressable onPress={displayProductDetails}>
@@ -65,7 +65,7 @@ function Product(props) {
             </Text>
 
             {/* product price and rate */}
-            <View style={style.optionsRow}>
+            <View style={style.wrapper}>
                 {/* price */}
                 <Text style={style.prodcutPrice}>${props.price}</Text>
 
@@ -92,7 +92,7 @@ function Product(props) {
 
 // Styles for the component
 const style = StyleSheet.create({
-    optionsRow: {
+    wrapper: {
         justifyContent: "space-between",
         flexDirection: "row",
         marginVertical: 10,

@@ -1,14 +1,14 @@
 import { Text, View, TextInput, Pressable, StyleSheet } from 'react-native'
 
 
-function Input({ title, inputValue }) {
+function Input({ title, inputValue, setNewValue }) {
 
     return (
         <View style={style.container}>
             <Text style={style.title}>
                 {title}:
             </Text>
-            <TextInput value={inputValue} style={style.input} />
+            <TextInput value={inputValue} style={style.input} onChangeText={setNewValue} />
         </View>
     )
 }
@@ -35,7 +35,7 @@ const style = StyleSheet.create(
             borderRadius: 5,
             borderWidth: 2,
             borderColor: "black",
-            fontWeight:"bold"
+            fontWeight: "bold"
         }
 
     }
