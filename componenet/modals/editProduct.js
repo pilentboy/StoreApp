@@ -17,12 +17,13 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
         const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
 
-        const updateCurrentProduct = { ...products[currentProductIndex], name: nameP, price: priceP }
+        const updateCurrentProduct = { ...myproducts[currentProductIndex], name: nameP, price: priceP }
 
         const newProducts = [...products]
         newProducts[currentProductIndex] = updateCurrentProduct
         updateProducts(newProducts)
-        console.log("updateding")
+
+        console.log("edit product")
     }
 
     return (
