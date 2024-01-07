@@ -6,12 +6,13 @@ import { useNavigation } from '@react-navigation/native';
 import ProductScore from './productScore';
 import EditProduct from '../modals/editProduct';
 
+
 // Product Component
 function Product(props) {
 
     const [likeColor, setlikeColor] = useState("#222529")
 
-    const [modalDisplay, setModalDisplay] = useState(false)
+    const [modalDisplay, setModalDisplay] = useState(true)
 
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
