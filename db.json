@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Product 1",
-      "price": 19.99,
+      "price": "19.99",
       "size": "M",
       "type": "Shirt",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -23,7 +23,7 @@
     {
       "id": 2,
       "name": "Product 2",
-      "price": 29.99,
+      "price": "29.99",
       "size": "L",
       "type": "Pants",
       "description": "Ut porttitor diam nulla, id interdum metus aliquet et.",
@@ -42,7 +42,7 @@
     {
       "id": 3,
       "name": "Product 3",
-      "price": 39.99,
+      "price": "39.99",
       "size": "S",
       "type": "Shirt",
       "description": "Sed tempor nisl at augue tempor, ut gravida nunc ullamcorper.",

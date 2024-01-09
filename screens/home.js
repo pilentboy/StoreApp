@@ -3,12 +3,10 @@ import {
     Text,
     StyleSheet,
     ScrollView,
-    Modal
+    StatusBar
 } from 'react-native'
 import { useState, useContext } from "react";
 import { ProductContext } from '../context/productContext';
-import { StatusBar } from 'expo-status-bar';
-
 // import custome components
 import ProductPageDescription from "../componenet/home/productPageDescription"
 import ManageProducts from '../componenet/home/manageProducts';
@@ -32,8 +30,7 @@ function Home() {
             // ScrollView to enable scrolling
             <ScrollView >
                 {/* Container for the main content */}
-                <StatusBar style="auto" />
-
+                <StatusBar />
 
                 {/* main view */}
                 <View style={style.container}>
@@ -94,8 +91,7 @@ const style = StyleSheet.create({
     },
     container: {
         paddingHorizontal: 15,
-        paddingVertical: 30,
-        width: "100%"
+        width: "100%",
     }
 
 })

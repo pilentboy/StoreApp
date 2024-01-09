@@ -1,4 +1,4 @@
-import { Text, View, TextInput, Pressable, StyleSheet } from 'react-native'
+import { Text, View, TextInput, StyleSheet } from 'react-native'
 
 
 function Input({ title, inputValue, setNewValue }) {
@@ -21,7 +21,6 @@ const style = StyleSheet.create(
             justifyContent: "space-between",
             width: "100%",
             marginVertical: 10,
-            backgroundColor: "red"
         },
         title: {
             fontSize: 18,

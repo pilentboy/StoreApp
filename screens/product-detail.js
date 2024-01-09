@@ -7,12 +7,12 @@ import {
   Image,
   ScrollView,
   Pressable,
+  StatusBar
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import { StatusBar } from 'expo-status-bar';
 import ProductDescription from '../componenet/productDetails/productDescription';
 import RequiredTitle from '../componenet/productDetails/requiredTitle';
 import ProductScore from '../componenet/product/productScore';
@@ -79,9 +79,7 @@ function ProductDetail({ route }) {
   return (
     // ScrollView to enable scrolling
     <ScrollView ref={scrollViewRef}>
-
-      <StatusBar style="auto" />
-
+      <StatusBar />
       {/* Container for the product details */}
       <View style={style.container}>
 

@@ -1,4 +1,4 @@
-import { Text, Image, View, Modal, Pressable, StyleSheet, Button, TextInput, StatusBar } from "react-native"
+import { Text, Image, View, Modal, Pressable, StyleSheet } from "react-native"
 import { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../../context/productContext";
 import Input from "../product/input";
@@ -33,10 +33,9 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
     return (
 
-        <Modal visible={display} transparent={true} >
+        <Modal visible={display}  >
+
             <View style={style.container}>
-
-
                 <Text style={{ fontWeight: 'bold', fontSize: 40, marginBottom: 40 }} > Editing </Text>
 
 
@@ -53,7 +52,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
                     </Pressable>
 
                     <Pressable onPress={editProduct} style={style.btn}>
-                        <AntDesign name="checksquare" size={35} color="blue" />
+                        <AntDesign name="checksquare" size={35} color="green" />
                     </Pressable>
 
 
