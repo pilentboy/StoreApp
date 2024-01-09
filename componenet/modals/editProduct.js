@@ -1,4 +1,4 @@
-import { Text, Image, View, Modal, Pressable, StyleSheet, Button, TextInput } from "react-native"
+import { Text, Image, View, Modal, Pressable, StyleSheet, Button, TextInput, StatusBar } from "react-native"
 import { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../../context/productContext";
 import Input from "../product/input";
@@ -33,8 +33,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
     return (
 
-        <Modal visible={display} transparent={false} >
-
+        <Modal visible={display} transparent={true} >
             <View style={style.container}>
 
 
@@ -74,7 +73,7 @@ const style = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "white",
         flex: 1,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
     },
     buttonsContainer: {
         flexDirection: "row",

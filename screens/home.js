@@ -34,15 +34,6 @@ function Home() {
                 {/* Container for the main content */}
                 <StatusBar style="auto" />
 
-                {/* Modal to add a new product */}
-                <Modal visible={modal}>
-                    <View>
-                        <Text>
-                            I'm a modal
-                        </Text>
-                    </View>
-
-                </Modal>
 
                 {/* main view */}
                 <View style={style.container}>

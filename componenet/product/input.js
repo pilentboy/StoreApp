@@ -19,8 +19,9 @@ const style = StyleSheet.create(
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            width: "80%",
-            marginVertical: 10
+            width: "100%",
+            marginVertical: 10,
+            backgroundColor: "red"
         },
         title: {
             fontSize: 18,
