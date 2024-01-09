@@ -1,8 +1,9 @@
-import { Text, Image, View, Modal, Pressable, StyleSheet } from "react-native"
+import { Text, Image, View, Modal, Pressable, StyleSheet, ScrollView } from "react-native"
 import { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../../context/productContext";
 import Input from "../product/input";
 import { AntDesign } from '@expo/vector-icons';
+import ImagePicker from "../product/imagePicker";
 
 
 const EditProduct = ({ display, setModalDisplay, productInfo }) => {
@@ -35,31 +36,38 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
         <Modal visible={display}  >
 
-            <View style={style.container}>
-                <Text style={{ fontWeight: 'bold', fontSize: 40, marginBottom: 40 }} > Editing </Text>
+            <ScrollView contentContainerStyle={{ flex: 1 }}>
+
+                <View style={style.container}>
+
+                    <Text style={{ fontWeight: 'bold', fontSize: 40, marginBottom: 30 }} > Editing </Text>
 
 
-                <Image source={{ uri: productImage }} style={style.productImage} />
+                    <Image source={{ uri: productImage }} style={style.productImage} />
 
-                <Input inputValue={productName} title="Name" setNewValue={setProductName} />
-                <Input inputValue={productPrice} title="Price" setNewValue={setProductPrice} />
+                    <ImagePicker />
 
-                <View style={style.buttonsContainer}>
+                    <Input inputValue={productName} title="Name" setNewValue={setProductName} />
+                    <Input inputValue={productPrice} title="Price" setNewValue={setProductPrice} />
 
-
-                    <Pressable onPress={() => setModalDisplay(false)} style={style.btn}>
-                        <AntDesign name="closecircle" size={35} color="red" />
-                    </Pressable>
-
-                    <Pressable onPress={editProduct} style={style.btn}>
-                        <AntDesign name="checksquare" size={35} color="green" />
-                    </Pressable>
+                    <View style={style.buttonsContainer}>
 
 
+                        <Pressable onPress={() => setModalDisplay(false)} style={style.btn}>
+                            <AntDesign name="closecircle" size={35} color="red" />
+                        </Pressable>
+
+                        <Pressable onPress={editProduct} style={style.btn}>
+                            <AntDesign name="checksquare" size={35} color="green" />
+                        </Pressable>
 
 
+
+
+                    </View>
                 </View>
-            </View>
+
+            </ScrollView>
 
         </Modal >
 
