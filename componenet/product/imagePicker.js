@@ -3,17 +3,21 @@ import * as imagePicker from 'expo-image-picker'
 import { useState, useEffect } from "react";
 
 
-function ImagePicker() {
+function ImagePicker({ setProductImage }) {
 
     const [galleryPermission, setGalleryPermission] = useState(null)
-    const [uploadedImage, setUploadedImage] = useState(null)
+    // const [uploadedImage, setUploadedImage] = useState(null)
 
     useEffect(() => {
         (async () => {
             const getGalleryPermission = await imagePicker.getMediaLibraryPermissionsAsync()
             setGalleryPermission(getGalleryPermission.status === 'granted')
         })()
+
+        console.log(galleryPermission, 'gallery permission')
     }, [])
+
+
 
     // get img from media library
     const getImage = async () => {
@@ -25,8 +29,10 @@ function ImagePicker() {
         })
 
         if (!result.canceled) {
-            setUploadedImage(result.assets[0]['uri'])
-            console.log(result.assets[0].uri)
+
+            setProductImage(result.assets[0]['uri'])
+
+            console.log(uploadedImage, 'uploaded img')
         }
 
     }
@@ -34,8 +40,8 @@ function ImagePicker() {
 
     return (
 
-        <Pressable style={style.btn} onPress={() => getImage()}>
-            <Text style={style.title}>Upload Image</Text>
+        <Pressable style={style.btn} onPress={() => getImage()} >
+            <Text style={style.title}>Upload a New Image</Text>
         </Pressable>
 
     )

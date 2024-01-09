@@ -22,15 +22,19 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
         const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
 
-        const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice, image: "https://img.freepik.com/free-photo/sexy-woman-leather-jacket-smile-biting-finger_176420-17779.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704499200&semt=ais" }
+        const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice, image: productImage }
 
         const newProducts = [...products]
         newProducts[currentProductIndex] = updateCurrentProduct
         updateProducts(newProducts)
 
-        console.log("edit product")
         setModalDisplay(false)
     }
+
+
+    useEffect(() => {
+        console.log(productImage, "product")
+    }, [productImage])
 
     return (
 
@@ -45,7 +49,9 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                     <Image source={{ uri: productImage }} style={style.productImage} />
 
-                    <ImagePicker />
+
+
+                    <ImagePicker setProductImage={setProductImage} />
 
                     <Input inputValue={productName} title="Name" setNewValue={setProductName} />
                     <Input inputValue={productPrice} title="Price" setNewValue={setProductPrice} />
