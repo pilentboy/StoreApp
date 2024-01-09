@@ -23,7 +23,8 @@ function ProductScore() {
 // Styles for the component
 const style = StyleSheet.create({
     flex: {
-        display: "flex"
+        display: "flex",
+        color: "#b9ac7d"
     }
 
 })
