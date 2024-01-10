@@ -57,6 +57,25 @@
         "Lorem ipsum dolor sit amet"
       ],
       "reviews": 65
+    },
+    {
+      "id": 4,
+      "name": "Product 4",
+      "price": "60",
+      "size": "S",
+      "type": "Shirt",
+      "description": "Sed tempor nisl at augue tempor, ut gravida nunc ullamcorper.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvpohKNZ_JZiULEz_AYW05kItsoQNT55SUB-qbCjWTOcPLfiRBAMnhgz8clH_OS8QQS_Y&usqp=CAU",
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas purus viverra accumsan in nisl nisi",
+      "related_products": [
+        1,
+        2
+      ],
+      "you_will_love": [
+        "Lorem ipsum dolor sit amet, consectetur",
+        "Lorem ipsum dolor sit amet"
+      ],
+      "reviews": 50
     }
   ]
 }

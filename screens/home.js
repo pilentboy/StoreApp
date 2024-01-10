@@ -87,7 +87,10 @@ const style = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
-        paddingVertical: 25
+        alignItems: "center",
+        alignContent: "center",
+        paddingVertical: 25,
+        width: "100%",
     },
     container: {
         paddingHorizontal: 15,
