@@ -1,4 +1,4 @@
-import { Text, Image, View, Modal, Pressable, StyleSheet, ScrollView } from "react-native"
+import { Text, Image, View, Modal, Pressable, StyleSheet, ScrollView, Alert } from "react-native"
 import { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../../context/productContext";
 import Input from "../product/input";
@@ -18,19 +18,49 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
     // edit price and name of product 
     const editProduct = () => {
-        const myproducts = products
 
-        const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
+        if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
+            console.log("updating")
+            const myproducts = products
 
-        const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice, image: productImage }
+            const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
 
-        const newProducts = [...products]
-        newProducts[currentProductIndex] = updateCurrentProduct
-        updateProducts(newProducts)
+            const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage }
 
-        setModalDisplay(false)
+            const newProducts = [...products]
+            newProducts[currentProductIndex] = updateCurrentProduct
+            updateProducts(newProducts)
+
+            setModalDisplay(false)
+        }
+
     }
 
+    const checkValues = (info) => {
+        for (let i = 0; i < info.length; i++) {
+            if (info[i].length < 1) {
+
+                Alert.alert('Editing Error', 'Please fill all the inputs!', [
+                    { text: 'OK', onPress: () => console.log('OK Pressed') },
+
+                ]);
+
+                return false
+            }
+        }
+        return true
+    }
+    
+    function containsOnlyNumbers(str) {
+        if (/^[0-9]+$/.test(str)) {
+            return true;
+        } else {
+            Alert.alert('Product Price Error', 'Product Price must be a number!', [
+                { text: "ok", onPress: () => console.log("Ok Pressed") }
+            ])
+            return false
+        }
+    }
 
     useEffect(() => {
         console.log(productImage, "product")
@@ -58,11 +88,12 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                     <View style={style.buttonsContainer}>
 
-
+                        {/* cancle editing */}
                         <Pressable onPress={() => setModalDisplay(false)} style={style.btn}>
                             <AntDesign name="closecircle" size={35} color="red" />
                         </Pressable>
 
+                        {/* apply new info */}
                         <Pressable onPress={editProduct} style={style.btn}>
                             <AntDesign name="checksquare" size={35} color="green" />
                         </Pressable>
