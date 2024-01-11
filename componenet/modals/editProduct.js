@@ -21,17 +21,35 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
         if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
             console.log("updating")
-            const myproducts = products
 
-            const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
+            Alert.alert('Warning', 'Apply cahnges?', [
+                { text: "Cancle", onPress: () => console.log("cancle Pressed") },
+                {
+                    text: "Yes", onPress: () => {
+                        const myproducts = products
 
-            const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage }
+                        const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
 
-            const newProducts = [...products]
-            newProducts[currentProductIndex] = updateCurrentProduct
-            updateProducts(newProducts)
+                        const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage }
 
-            setModalDisplay(false)
+                        const newProducts = [...products]
+                        newProducts[currentProductIndex] = updateCurrentProduct
+                        updateProducts(newProducts)
+
+                        setModalDisplay(false)
+
+                        Alert.alert('Notification', 'Updated Scuccessfully!', [
+                            { text: "ok", onPress: () => console.log("Ok Pressed") }
+                        ],
+                            {
+                                cancelable: true
+                            })
+                    }
+                },
+            ],
+                { cancelable: true }
+            )
+
         }
 
     }
@@ -67,8 +85,22 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
 
     const deleteProduct = () => {
-        const myproducts = products.filter((product) => product.id !== productInfo.id)
-        updateProducts(myproducts)
+        Alert.alert('Warning', 'Are you sure you want to delete this product?', [
+            { text: "Cancle", onPress: () => console.log("cancle Pressed") },
+            {
+                text: "Yes", onPress: () => {
+                    const myproducts = products.filter((product) => product.id !== productInfo.id)
+                    updateProducts(myproducts)
+                    Alert.alert('Notification', 'Deleted Scuccessfully!', [
+                        { text: "ok", onPress: () => console.log("Ok Pressed") }
+                    ])
+                }
+            },
+        ],
+            { cancelable: true }
+        )
+
+
     }
 
     useEffect(() => {
