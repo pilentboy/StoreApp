@@ -4,7 +4,7 @@ import { ProductContext } from "../../context/productContext";
 import Input from "../product/input";
 import { AntDesign } from '@expo/vector-icons';
 import ImagePicker from "../product/imagePicker";
-
+import { MaterialIcons } from '@expo/vector-icons';
 
 const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
@@ -65,6 +65,17 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
         }
     }
 
+
+    const deleteProduct = () => {
+        const myproducts = products.filter((product) => product.id !== productInfo.id)
+        console.log(myproducts)
+
+        updateProducts(myproducts)
+
+        
+
+    }
+
     useEffect(() => {
         console.log(productImage, "product")
     }, [productImage])
@@ -90,6 +101,11 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
                     <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
 
                     <View style={style.buttonsContainer}>
+
+                        {/* delete item */}
+                        <Pressable onPress={() => deleteProduct()} style={style.btn}>
+                            <MaterialIcons name="delete-forever" size={35} color="red" />
+                        </Pressable>
 
                         {/* cancle editing */}
                         <Pressable onPress={() => setModalDisplay(false)} style={style.btn}>
