@@ -8,7 +8,7 @@ function Input({ title, inputValue, setNewValue, inputType }) {
             <Text style={style.title}>
                 {title}:
             </Text>
-            <TextInput inputMode={inputType} value={inputValue} style={style.input} onChangeText={setNewValue} />
+            <TextInput inputMode={inputType} textAlign='left' spellCheck value={inputValue} style={style.input} onChangeText={setNewValue} />
         </View>
     )
 }
