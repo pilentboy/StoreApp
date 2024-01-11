@@ -68,12 +68,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
     const deleteProduct = () => {
         const myproducts = products.filter((product) => product.id !== productInfo.id)
-        console.log(myproducts)
-
         updateProducts(myproducts)
-
-        
-
     }
 
     useEffect(() => {
