@@ -5,7 +5,7 @@ import {
     ScrollView,
     StatusBar
 } from 'react-native'
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { ProductContext } from '../context/productContext';
 // import custome components
 import ProductPageDescription from "../componenet/home/productPageDescription"
@@ -22,7 +22,9 @@ function Home() {
     // modal state
     const [modal, setmodal] = useState(false)
     // Render the component based on the loading state
-
+    useEffect(()=>{
+        
+    },[products])
 
     if (!loading) {
 
