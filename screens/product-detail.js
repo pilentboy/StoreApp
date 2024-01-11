@@ -79,7 +79,7 @@ function ProductDetail({ route }) {
   return (
     // ScrollView to enable scrolling
     <ScrollView ref={scrollViewRef}>
-      <StatusBar />
+      <StatusBar backgroundColor='black' barStyle='white' />
       {/* Container for the product details */}
       <View style={style.container}>
 

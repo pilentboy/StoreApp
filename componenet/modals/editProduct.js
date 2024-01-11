@@ -50,11 +50,14 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
         }
         return true
     }
-    
+
+
     function containsOnlyNumbers(str) {
-        if (/^[0-9]+$/.test(str)) {
+
+        if (/^[0-9.]+$/.test(str)) {
             return true;
         } else {
+
             Alert.alert('Product Price Error', 'Product Price must be a number!', [
                 { text: "ok", onPress: () => console.log("Ok Pressed") }
             ])
@@ -83,8 +86,8 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                     <ImagePicker setProductImage={setProductImage} />
 
-                    <Input inputValue={productName} title="Name" setNewValue={setProductName} />
-                    <Input inputValue={productPrice} title="Price" setNewValue={setProductPrice} />
+                    <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
+                    <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
 
                     <View style={style.buttonsContainer}>
 

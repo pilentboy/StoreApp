@@ -1,14 +1,14 @@
 import { Text, View, TextInput, StyleSheet } from 'react-native'
 
 
-function Input({ title, inputValue, setNewValue }) {
+function Input({ title, inputValue, setNewValue, inputType }) {
 
     return (
         <View style={style.container}>
             <Text style={style.title}>
                 {title}:
             </Text>
-            <TextInput value={inputValue} style={style.input} onChangeText={setNewValue} />
+            <TextInput inputMode={inputType} value={inputValue} style={style.input} onChangeText={setNewValue} />
         </View>
     )
 }

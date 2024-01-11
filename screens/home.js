@@ -30,7 +30,7 @@ function Home() {
             // ScrollView to enable scrolling
             <ScrollView >
                 {/* Container for the main content */}
-                <StatusBar />
+                <StatusBar backgroundColor='black' barStyle='white' />
 
                 {/* main view */}
                 <View style={style.container}>
