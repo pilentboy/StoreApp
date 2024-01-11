@@ -61,7 +61,10 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
                 Alert.alert('Editing Error', 'Please fill all the inputs!', [
                     { text: 'OK', onPress: () => console.log('OK Pressed') },
 
-                ]);
+                ],
+                    {
+                        cancelable: true
+                    });
 
                 return false
             }
