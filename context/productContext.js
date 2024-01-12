@@ -32,7 +32,7 @@ const ProductProvider = ({ children }) => {
                 console.error('Error reading db.json:', error);
 
             }
-        }, 5000)
+        }, 200)
 
 
 
