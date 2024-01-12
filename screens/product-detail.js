@@ -70,6 +70,7 @@ function ProductDetail({ route }) {
   useEffect(() => {
     findRelatedProducts();
     scrollToTop();
+    console.log(productInfo.description)
   }, [productInfo]);
 
 
@@ -89,7 +90,7 @@ function ProductDetail({ route }) {
         <ProductPrice price={productInfo.props.price} />
 
         {/* Product store information */}
-        <View style={{ flexDirection: "row", marginTop: 25 }}>
+        <View style={{ flexDirection: "row", marginTop: 14 }}>
           <ProductScore />
           <Text style={style.reviews}>
             {productInfo.props.reviews} REVIEWS
@@ -97,7 +98,7 @@ function ProductDetail({ route }) {
         </View>
 
         {/* Product description */}
-        <ProductDescription description={productInfo.description} />
+        <ProductDescription description={productInfo.props.description} />
 
         {/* Product size selection */}
         <View style={{ marginTop: 20 }}>
@@ -191,7 +192,7 @@ function ProductDetail({ route }) {
 const style = StyleSheet.create({
   container: {
     paddingHorizontal: 15,
-    paddingVertical: 30,
+    paddingVertical: 10,
     width: '100%',
   },
   pickerSize: {

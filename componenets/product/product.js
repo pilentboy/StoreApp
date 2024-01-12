@@ -17,6 +17,7 @@ function Product(props) {
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
 
+
     // Render the Product component
     return (
         <View style={style.productCard} >

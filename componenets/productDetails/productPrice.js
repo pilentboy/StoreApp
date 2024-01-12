@@ -16,7 +16,7 @@ const style = StyleSheet.create({
     productPrice: {
         fontSize: 25,
         fontWeight: 'bold',
-        marginTop: 25,
+        marginTop: 10,
     },
 })
 
