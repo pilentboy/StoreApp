@@ -14,6 +14,7 @@ import ManageProducts from '../componenets/home/manageProducts';
 import Product from "../componenets/product/product"
 import ProductPageTitle from '../componenets/home/productPageTitle';
 
+
 // Home  component
 function Home() {
 

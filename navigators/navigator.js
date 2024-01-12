@@ -15,13 +15,13 @@ function Navigator() {
                 <Stack.Screen
                     name="Home"
                     component={Home}
-                    options={{ headerShown: false }}
+                    options={{ headerShown: true }}
                 />
 
                 <Stack.Screen
-                    name="ProductDetailsScreen"
+                    name="Product Details"
                     component={ProductDetail}
-                    options={{ headerShown: false }}
+                    options={{ headerShown: true }}
                 />
 
             </Stack.Navigator>

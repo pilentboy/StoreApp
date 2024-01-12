@@ -80,7 +80,7 @@ function Product(props) {
 
     // Function to navigate to ProductDetailsScreen and pass props
     function displayProductDetails() {
-        navigation.navigate('ProductDetailsScreen', {
+        navigation.navigate('Product Details', {
             props
         });
     }
