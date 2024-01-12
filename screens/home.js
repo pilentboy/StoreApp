@@ -3,15 +3,16 @@ import {
     Text,
     StyleSheet,
     ScrollView,
-    StatusBar
+    StatusBar,
+    Image
 } from 'react-native'
 import { useState, useContext, useEffect } from "react";
 import { ProductContext } from '../context/productContext';
 // import custome components
-import ProductPageDescription from "../componenet/home/productPageDescription"
-import ManageProducts from '../componenet/home/manageProducts';
-import Product from "../componenet/product/product"
-import ProductPageTitle from '../componenet/home/productPageTitle';
+import ProductPageDescription from "../componenets/home/productPageDescription"
+import ManageProducts from '../componenets/home/manageProducts';
+import Product from "../componenets/product/product"
+import ProductPageTitle from '../componenets/home/productPageTitle';
 
 // Home  component
 function Home() {
@@ -22,9 +23,9 @@ function Home() {
     // modal state
     const [modal, setmodal] = useState(false)
     // Render the component based on the loading state
-    useEffect(()=>{
-        
-    },[products])
+    useEffect(() => {
+
+    }, [products])
 
     if (!loading) {
 
@@ -71,9 +72,13 @@ function Home() {
         return (
             // Render a loading view if data is still being fetched
             <View style={{ alignItems: "center", justifyContent: "center", width: "100%", height: "100%" }}>
-                <Text style={{ fontSize: 50 }}>
+
+                <Image source={require('../assets/icon.png')} style={{ width: 200, height: 100 }} />
+
+                <Text style={{ fontSize: 30, fontWeight: 'bold' }}>
                     Loading!
                 </Text>
+
             </View>
         )
     }

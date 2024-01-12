@@ -22,8 +22,8 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
         if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
             console.log("updating")
 
-            Alert.alert('Warning', 'Apply cahnges?', [
-                { text: "Cancle", onPress: () => console.log("cancle Pressed") },
+            Alert.alert('Warning', 'Apply changles?', [
+                { text: "No", onPress: () => console.log("No Pressed") },
                 {
                     text: "Yes", onPress: () => {
                         const myproducts = products
@@ -38,12 +38,12 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                         setModalDisplay(false)
 
-                        Alert.alert('Notification', 'Updated Scuccessfully!', [
-                            { text: "ok", onPress: () => console.log("Ok Pressed") }
-                        ],
-                            {
-                                cancelable: true
-                            })
+                        // Alert.alert('Notification', 'Updated Scuccessfully!', [
+                        //     { text: "ok", onPress: () => console.log("Ok Pressed") }
+                        // ],
+                        //     {
+                        //         cancelable: true
+                        //     })
                     }
                 },
             ],
@@ -89,14 +89,16 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
     const deleteProduct = () => {
         Alert.alert('Warning', 'Are you sure you want to delete this product?', [
-            { text: "Cancle", onPress: () => console.log("cancle Pressed") },
+            { text: "No", onPress: () => console.log("No Pressed") },
             {
                 text: "Yes", onPress: () => {
                     const myproducts = products.filter((product) => product.id !== productInfo.id)
                     updateProducts(myproducts)
                     Alert.alert('Notification', 'Deleted Scuccessfully!', [
                         { text: "ok", onPress: () => console.log("Ok Pressed") }
-                    ])
+                    ],
+                        { cancelable: true }
+                    )
                 }
             },
         ],

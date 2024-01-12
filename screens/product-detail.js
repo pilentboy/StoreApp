@@ -13,18 +13,18 @@ import { Picker } from '@react-native-picker/picker';
 import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import ProductDescription from '../componenet/productDetails/productDescription';
-import RequiredTitle from '../componenet/productDetails/requiredTitle';
-import ProductScore from '../componenet/product/productScore';
-import TextList from '../componenet/productDetails/textList';
-import Product from '../componenet/product/product';
+import ProductDescription from '../componenets/productDetails/productDescription';
+import RequiredTitle from '../componenets/productDetails/requiredTitle';
+import ProductScore from '../componenets/product/productScore';
+import TextList from '../componenets/productDetails/textList';
+import Product from '../componenets/product/product';
 import { ProductContext } from '../context/productContext';
-import ProductPrice from '../componenet/productDetails/productPrice';
+import ProductPrice from '../componenets/productDetails/productPrice';
 import ProductType
-  from '../componenet/productDetails/productType';
-import AddToCart from '../componenet/productDetails/addToCart'
-import SocialMediaLink from '../componenet/productDetails/socialMediaLink';
-import Category from '../componenet/productDetails/category';
+  from '../componenets/productDetails/productType';
+import AddToCart from '../componenets/productDetails/addToCart'
+import SocialMediaLink from '../componenets/productDetails/socialMediaLink';
+import Category from '../componenets/productDetails/category';
 
 // ProductDetail Component
 function ProductDetail({ route }) {

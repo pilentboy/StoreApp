@@ -8,6 +8,8 @@ const ProductContext = createContext();
 const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [loading, setloading] = useState(true)
+
+
     // Function to update the products state
     const updateProducts = (newProducts) => {
         setProducts(newProducts);
@@ -30,7 +32,7 @@ const ProductProvider = ({ children }) => {
                 console.error('Error reading db.json:', error);
 
             }
-        }, 1500)
+        }, 5000)
 
 
 
