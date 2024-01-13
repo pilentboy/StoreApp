@@ -41,7 +41,20 @@ function StoreChart({ display, setStoreChartDisplay }) {
             legendFontColor: "black",
             legendFontSize: 15
         },
-
+        {
+            name: "Hat",
+            sold: 150,
+            color: "#29ADB2",
+            legendFontColor: "black",
+            legendFontSize: 15
+        },
+        {
+            name: "Gloves",
+            sold: 120,
+            color: "#F4CE14",
+            legendFontColor: "black",
+            legendFontSize: 15
+        },
 
 
     ];
@@ -87,26 +100,21 @@ function StoreChart({ display, setStoreChartDisplay }) {
                         hasLegend={false}
                     />
 
-                    <View>
+                    <ScrollView >
                         {
                             data.map((item, index) => {
                                 return (
-
-                                    <ScrollView >
-
-                                        <View key={index} style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#F3EEEA', marginVertical: 1, paddingHorizontal: 10, paddingVertical: 5 }}>
-                                            <View style={{ width: 25, height: 25, borderRadius: 50, backgroundColor: item.color, marginRight: 10 }} />
-                                            <Text style={{ color: item.legendFontColor, fontSize: 20, fontWeight: 'bold' }}>
-                                                {item.name}
-                                            </Text>
-                                        </View>
-
-                                    </ScrollView>
+                                    <View key={index} style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#F3EEEA', marginVertical: 1, paddingHorizontal: 10, paddingVertical: 5 }}>
+                                        <View style={{ width: 25, height: 25, borderRadius: 50, backgroundColor: item.color, marginRight: 10 }} />
+                                        <Text style={{ color: item.legendFontColor, fontSize: 20, fontWeight: 'bold' }}>
+                                            {item.name}
+                                        </Text>
+                                    </View>
 
                                 )
                             })
                         }
-                    </View>
+                    </ScrollView>
 
 
                 </View>
@@ -128,7 +136,7 @@ function StoreChart({ display, setStoreChartDisplay }) {
 
 
 
-        </Modal>
+        </Modal >
     )
 }
 
