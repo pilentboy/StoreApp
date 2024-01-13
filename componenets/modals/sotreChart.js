@@ -40,22 +40,7 @@ function StoreChart({ display, setStoreChartDisplay }) {
             color: "#F4CE14",
             legendFontColor: "black",
             legendFontSize: 15
-        },
-        {
-            name: "Hat",
-            sold: 150,
-            color: "#29ADB2",
-            legendFontColor: "black",
-            legendFontSize: 15
-        },
-        {
-            name: "Gloves",
-            sold: 120,
-            color: "#F4CE14",
-            legendFontColor: "black",
-            legendFontSize: 15
-        },
-
+        }
 
     ];
 
