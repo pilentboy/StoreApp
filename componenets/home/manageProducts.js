@@ -3,14 +3,21 @@ import { Feather } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker'
 import { Ionicons } from '@expo/vector-icons';
 import { ProductContext } from '../../context/productContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Alert } from 'react-native'
+import StoreChart from '../modals/sotreChart';
 
 function ManageProducts() {
 
+    const [storeChartDisplay, setStoreChartDisplay] = useState(false)
+
+
     const { fetchData } = useContext(ProductContext)
     return (
+
         <View style={style.container}>
+
+            <StoreChart display={storeChartDisplay} />
 
             {/* add a new product  */}
             <Pressable style={style.btn} onPress={displayNewProductModel}>
@@ -27,6 +34,13 @@ function ManageProducts() {
             }}>
                 <Ionicons name="reload-circle-outline" size={50} color='white' />
             </Pressable>
+
+            {/* display sotre chart */}
+            <Pressable style={style.btn} onPress={() => setStoreChartDisplay(true)}>
+                <Feather name="pie-chart" size={50} color="white" />
+            </Pressable>
+
+
 
         </View>
     )
