@@ -6,6 +6,8 @@ import { AntDesign } from '@expo/vector-icons';
 import ImagePicker from "../product/imagePicker";
 import { MaterialIcons } from '@expo/vector-icons';
 import CloseBTN from "../product/closeBTN";
+import ButtonContainer from "../productDetails/buttonContainer";
+
 
 const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
@@ -121,7 +123,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                 <View style={style.container}>
 
-                    <Text style={{ fontWeight: 'bold', fontSize: 40, marginBottom: 30 }} > Editing </Text>
+                    <Text style={{ fontWeight: 'bold', fontSize: 40, marginBottom: 10 }} > Editing </Text>
 
 
                     <Image source={{ uri: productImage }} style={style.productImage} />
@@ -133,8 +135,25 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
                     <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
 
-                    <View style={style.buttonsContainer}>
+                    {/* <View style={style.buttonsContainer}> */}
 
+                    {/* delete item */}
+                    {/* <Pressable onPress={() => deleteProduct()} style={style.btn}>
+                            <MaterialIcons name="delete-forever" size={35} color="red" />
+                        </Pressable> */}
+
+                    {/* cancle editing */}
+                    {/* <CloseBTN action={() => setModalDisplay(false)} /> */}
+
+                    {/* apply new info */}
+                    {/* <Pressable onPress={editProduct} style={style.btn}>
+                            <AntDesign name="checksquare" size={35} color="green" />
+                        </Pressable> */}
+
+
+                    {/* </View> */}
+
+                    <ButtonContainer>
                         {/* delete item */}
                         <Pressable onPress={() => deleteProduct()} style={style.btn}>
                             <MaterialIcons name="delete-forever" size={35} color="red" />
@@ -147,11 +166,8 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
                         <Pressable onPress={editProduct} style={style.btn}>
                             <AntDesign name="checksquare" size={35} color="green" />
                         </Pressable>
+                    </ButtonContainer>
 
-
-
-
-                    </View>
                 </View>
 
             </ScrollView>
