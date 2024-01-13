@@ -21,7 +21,7 @@ function StoreChart({ display, setStoreChartDisplay }) {
             legendFontSize: 15
         },
         {
-            name: "Pent",
+            name: "Pant",
             sold: 20,
             color: "orange",
             legendFontColor: "black",
