@@ -5,6 +5,7 @@ import Input from "../product/input";
 import { AntDesign } from '@expo/vector-icons';
 import ImagePicker from "../product/imagePicker";
 import { MaterialIcons } from '@expo/vector-icons';
+import CloseBTN from "../product/closeBTN";
 
 const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
@@ -140,9 +141,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
                         </Pressable>
 
                         {/* cancle editing */}
-                        <Pressable onPress={() => setModalDisplay(false)} style={style.btn}>
-                            <AntDesign name="closecircle" size={35} color="red" />
-                        </Pressable>
+                        <CloseBTN action={() => setModalDisplay(false)} />
 
                         {/* apply new info */}
                         <Pressable onPress={editProduct} style={style.btn}>

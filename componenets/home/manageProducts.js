@@ -17,7 +17,7 @@ function ManageProducts() {
 
         <View style={style.container}>
 
-            <StoreChart display={storeChartDisplay} />
+            <StoreChart display={storeChartDisplay} setStoreChartDisplay={setStoreChartDisplay} />
 
             {/* add a new product  */}
             <Pressable style={style.btn} onPress={displayNewProductModel}>
