@@ -103,16 +103,21 @@ function StoreChart({ display, setStoreChartDisplay }) {
 
 
                 </View>
+				
+				
                 {/* 
                 <View style={style.buttonsContainer}>
                     <CloseBTN action={() => setStoreChartDisplay(false)} />
                 </View> */}
 
                 <ButtonContainer>
+				
                     <CloseBTN action={() => setStoreChartDisplay(false)} />
 
-                    <Pressable style={{ width: 50, height: 35, borderRadius: 5, backgroundColor: 'black', alignItems: 'center', justifyContent: 'center' }}>
-                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>Print</Text>
+                    <Pressable>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>
+							Print
+						</Text>
                     </Pressable>
 
                 </ButtonContainer>
@@ -145,7 +150,14 @@ const style = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         color: 'white'
-    }
+    },
+	printBTN:{ width: 50,
+	height: 35,
+	borderRadius: 5,
+	backgroundColor: 'black',
+	alignItems: 'center', 
+	justifyContent: 'center' 
+	}
 })
 
 

@@ -31,9 +31,9 @@ function Home() {
     if (!loading) {
 
         return (
-            // ScrollView to enable scrolling
+            
             <ScrollView >
-                {/* Container for the main content */}
+		
                 <StatusBar backgroundColor='black' barStyle='white' />
 
                 {/* main view */}
