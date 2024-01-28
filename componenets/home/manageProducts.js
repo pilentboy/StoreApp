@@ -11,7 +11,7 @@ import AddNewProduct from '../modals/addNewProduct';
 function ManageProducts() {
 
     const [storeChartDisplay, setStoreChartDisplay] = useState(false)
-    const [addNewProductDisplay, setAddNewProductDisplay] = useState(false)
+    const [addNewProductDisplay, setAddNewProductDisplay] = useState(true)
 
     const { fetchData } = useContext(ProductContext)
     return (
