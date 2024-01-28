@@ -40,7 +40,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     const [productDescription, setProductDescription] = useState('')
     const [productAbout, setProductAbout] = useState('')
     const [productFeatures, setProductFeatures] = useState('')
-    const [productImage, setProductImage] = useState('https://assets.ajio.com/medias/sys_master/root/20221103/fU54/6363e33caeb269659c70447f/-473Wx593H-441668245-green-MODEL.jpg')
+    const [productImage, setProductImage] = useState('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png')
 
     return (
 

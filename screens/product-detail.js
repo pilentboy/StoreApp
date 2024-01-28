@@ -212,6 +212,7 @@ const style = StyleSheet.create({
     marginVertical: 25,
     width: '100%',
     height: 400,
+    resizeMode: 'contain'
   },
   relatedProductsWrapper: {
     flexDirection: 'row',
