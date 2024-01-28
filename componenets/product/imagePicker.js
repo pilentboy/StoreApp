@@ -32,7 +32,7 @@ function ImagePicker({ setProductImage }) {
 
             setProductImage(result.assets[0]['uri'])
 
-            console.log(uploadedImage, 'uploaded img')
+            // console.log(uploadedImage, 'uploaded img')
         }
 
     }

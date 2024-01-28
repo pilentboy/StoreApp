@@ -9,6 +9,7 @@ import Input from "../product/input";
 import { useState, useContext } from "react";
 import { ProductContext } from "../../context/productContext";
 import LargeInput from "../product/largInput";
+import ImagePicker from "../product/imagePicker";
 
 function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
@@ -23,7 +24,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
         const spliteProductFeatures = productFeatures.split(".")
 
-        const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, you_will_love: spliteProductFeatures, related_products: [0, 2], image: "https://assets.ajio.com/medias/sys_master/root/20221103/fU54/6363e33caeb269659c70447f/-473Wx593H-441668245-green-MODEL.jpg", size: "M", type: "Shirt", reviews: 24 }
+        const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, you_will_love: spliteProductFeatures, related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
 
         const updatedProducts = [...products]
 
@@ -39,6 +40,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     const [productDescription, setProductDescription] = useState('')
     const [productAbout, setProductAbout] = useState('')
     const [productFeatures, setProductFeatures] = useState('')
+    const [productImage, setProductImage] = useState('https://assets.ajio.com/medias/sys_master/root/20221103/fU54/6363e33caeb269659c70447f/-473Wx593H-441668245-green-MODEL.jpg')
 
     return (
 
@@ -50,6 +52,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                 <View style={style.container}>
 
+
                     <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
 
@@ -58,6 +61,8 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                     <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 
                     <LargeInput inputValue={productAbout} inputType='text' title="About..." maxChar={300} setNewValue={setProductAbout} />
+
+                    <ImagePicker setProductImage={setProductImage} />
 
 
                     <ButtonContainer>
