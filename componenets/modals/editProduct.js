@@ -135,24 +135,6 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
                     <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
 
-                    {/* <View style={style.buttonsContainer}> */}
-
-                    {/* delete item */}
-                    {/* <Pressable onPress={() => deleteProduct()} style={style.btn}>
-                            <MaterialIcons name="delete-forever" size={35} color="red" />
-                        </Pressable> */}
-
-                    {/* cancle editing */}
-                    {/* <CloseBTN action={() => setModalDisplay(false)} /> */}
-
-                    {/* apply new info */}
-                    {/* <Pressable onPress={editProduct} style={style.btn}>
-                            <AntDesign name="checksquare" size={35} color="green" />
-                        </Pressable> */}
-
-
-                    {/* </View> */}
-
                     <ButtonContainer>
                         {/* delete item */}
                         <Pressable onPress={() => deleteProduct()} style={style.btn}>

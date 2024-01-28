@@ -12,7 +12,7 @@ function Product(props) {
 
     const [likeColor, setlikeColor] = useState("#222529")
 
-    const [modalDisplay, setModalDisplay] = useState(false)
+    const [editProductDisplay, setEditProductDisplay] = useState(false)
 
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
@@ -23,7 +23,7 @@ function Product(props) {
         <View style={style.productCard} >
 
             {/* edit product modal */}
-            <EditProduct display={modalDisplay} setModalDisplay={setModalDisplay} productInfo={props} />
+            <EditProduct display={editProductDisplay} setModalDisplay={setEditProductDisplay} productInfo={props} />
 
 
             {/* product image  */}
@@ -51,7 +51,7 @@ function Product(props) {
 
                     {/* edit  */}
                     <Pressable style={{ marginHorizontal: 5 }} onPress={() => {
-                        setModalDisplay(true)
+                        setEditProductDisplay(true)
                     }}>
                         <MaterialCommunityIcons name="briefcase-edit-outline" size={25} color="#222529" />
                     </Pressable>
