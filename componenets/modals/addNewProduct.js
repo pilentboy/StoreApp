@@ -8,6 +8,7 @@ import { AntDesign } from '@expo/vector-icons';
 import Input from "../product/input";
 import { useState, useContext } from "react";
 import { ProductContext } from "../../context/productContext";
+import LargeInput from "../product/largInput";
 
 function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
@@ -16,11 +17,11 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     function AddProduct() {
 
         const myProducts = products
-        
+
         // get the last product id for using a uniqe id for each products
         const lastProductID = myProducts.slice(-1)[0].id
 
-        const newProduct = { id: lastProductID + 1, name: productName, price: productPrice }
+        const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, you_will_love: [productFeatures], related_products: [0, 2], image: "https://assets.ajio.com/medias/sys_master/root/20221103/fU54/6363e33caeb269659c70447f/-473Wx593H-441668245-green-MODEL.jpg", size: "M", type: "Shirt", reviews: 24 }
 
         const updatedProducts = [...products]
 
@@ -33,6 +34,9 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
     const [productName, setProductName] = useState('')
     const [productPrice, setProductPrice] = useState('')
+    const [productDescription, setProductDescription] = useState('')
+    const [productAbout, setProductAbout] = useState('')
+    const [productFeatures, setProductFeatures] = useState('')
 
     return (
 
@@ -46,6 +50,12 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                     <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
+
+                    <Input inputValue={productFeatures} inputType='numeric' title="Features" setNewValue={setProductFeatures} />
+
+                    <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
+
+                    <LargeInput inputValue={productAbout} inputType='text' title="About..." maxChar={300} setNewValue={setProductAbout} />
 
 
                     <ButtonContainer>
