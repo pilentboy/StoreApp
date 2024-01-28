@@ -6,11 +6,12 @@ import { ProductContext } from '../../context/productContext';
 import { useContext, useState } from 'react';
 import { Alert } from 'react-native'
 import StoreChart from '../modals/sotreChart';
+import AddNewProduct from '../modals/addNewProduct';
 
 function ManageProducts() {
 
     const [storeChartDisplay, setStoreChartDisplay] = useState(false)
-
+    const [addNewProductDisplay, setAddNewProductDisplay] = useState(false)
 
     const { fetchData } = useContext(ProductContext)
     return (
@@ -19,8 +20,10 @@ function ManageProducts() {
 
             <StoreChart display={storeChartDisplay} setStoreChartDisplay={setStoreChartDisplay} />
 
+            <AddNewProduct setAddNewProductDisplay={setAddNewProductDisplay} addNewProductDisplay={addNewProductDisplay} />
+
             {/* add a new product  */}
-            <Pressable style={style.btn} onPress={displayNewProductModel}>
+            <Pressable style={style.btn} onPress={() => setAddNewProductDisplay(true)}>
                 <Feather name="plus-square" size={50} color="white" />
             </Pressable>
 
