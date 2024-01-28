@@ -52,11 +52,15 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                 <View style={style.container}>
 
+                    <Text style={{ fontWeight: 'bold', fontSize: 40, paddingVertical: 30 }} > Adding Product </Text>
+
 
                     <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
 
-                    <Input inputValue={productFeatures} inputType='numeric' title="Features" setNewValue={setProductFeatures} />
+                    {/* <Input inputValue={productFeatures} inputType='numeric' title="Features" setNewValue={setProductFeatures} /> */}
+
+                    <LargeInput inputValue={productFeatures} inputType='text' title="Features..." maxChar={150} setNewValue={setProductFeatures} />
 
                     <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 

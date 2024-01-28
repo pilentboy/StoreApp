@@ -1,4 +1,4 @@
-import { Pressable, View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import {StyleSheet, Text, TouchableOpacity } from "react-native";
 import * as imagePicker from 'expo-image-picker'
 import { useState, useEffect } from "react";
 
@@ -32,7 +32,6 @@ function ImagePicker({ setProductImage }) {
 
             setProductImage(result.assets[0]['uri'])
 
-            // console.log(uploadedImage, 'uploaded img')
         }
 
     }
