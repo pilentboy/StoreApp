@@ -47,12 +47,12 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
         <Modal visible={addNewProductDisplay} transparent={false} >
 
-            <ScrollView contentContainerStyle={{ flex: 1 }}>
+            <ScrollView>
 
 
                 <View style={style.container}>
 
-                    <Text style={{ fontWeight: 'bold', fontSize: 40, paddingVertical: 30 }} > Adding Product </Text>
+                    <Text style={{ fontWeight: 'bold', fontSize: 40, paddingVertical: 20 }} > Adding Product </Text>
 
 
                     <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
