@@ -21,7 +21,9 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
         // get the last product id for using a uniqe id for each products
         const lastProductID = myProducts.slice(-1)[0].id
 
-        const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, you_will_love: [productFeatures], related_products: [0, 2], image: "https://assets.ajio.com/medias/sys_master/root/20221103/fU54/6363e33caeb269659c70447f/-473Wx593H-441668245-green-MODEL.jpg", size: "M", type: "Shirt", reviews: 24 }
+        const spliteProductFeatures = productFeatures.split(".")
+
+        const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, you_will_love: spliteProductFeatures, related_products: [0, 2], image: "https://assets.ajio.com/medias/sys_master/root/20221103/fU54/6363e33caeb269659c70447f/-473Wx593H-441668245-green-MODEL.jpg", size: "M", type: "Shirt", reviews: 24 }
 
         const updatedProducts = [...products]
 
