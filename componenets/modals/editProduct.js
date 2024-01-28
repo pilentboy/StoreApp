@@ -125,9 +125,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                     <Text style={{ fontWeight: 'bold', fontSize: 40, marginBottom: 10 }} > Editing </Text>
 
-
                     <Image source={{ uri: productImage }} style={style.productImage} />
-
 
 
                     <ImagePicker setProductImage={setProductImage} />

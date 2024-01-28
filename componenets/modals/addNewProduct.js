@@ -1,4 +1,4 @@
-import { Modal, StyleSheet, Text, View, Pressable, ScrollView, TextInput } from "react-native"
+import { Modal, StyleSheet, Text, View, Pressable, ScrollView, Image, TextInput } from "react-native"
 
 import ButtonContainer from "../productDetails/buttonContainer"
 import CloseBTN from "../product/closeBTN"
@@ -62,6 +62,8 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                     <LargeInput inputValue={productAbout} inputType='text' title="About..." maxChar={300} setNewValue={setProductAbout} />
 
+                    <Image source={{ uri: productImage }} style={style.productImage} />
+
                     <ImagePicker setProductImage={setProductImage} />
 
 
@@ -99,6 +101,10 @@ const style = StyleSheet.create({
         flex: 1,
         paddingHorizontal: 20,
     },
+    productImage: {
+        width: 200,
+        height: 200
+    }
 })
 
 export default AddNewProduct

@@ -1,4 +1,4 @@
-import { Pressable, View, StyleSheet, Text } from "react-native";
+import { Pressable, View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import * as imagePicker from 'expo-image-picker'
 import { useState, useEffect } from "react";
 
@@ -40,9 +40,9 @@ function ImagePicker({ setProductImage }) {
 
     return (
 
-        <Pressable style={style.btn} onPress={() => getImage()} >
+        <TouchableOpacity style={style.btn} onPress={() => getImage()}>
             <Text style={style.title}>Upload a New Image</Text>
-        </Pressable>
+        </TouchableOpacity>
 
     )
 }
