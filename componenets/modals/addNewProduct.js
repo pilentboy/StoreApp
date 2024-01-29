@@ -68,7 +68,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                     <Image source={{ uri: productImage }} style={style.productImage} />
 
-                    <ImagePicker setProductImage={setProductImage} />
+                    <ImagePicker setProductImage={setProductImage} title={'Upload an image'} />
 
 
                     <ButtonContainer>

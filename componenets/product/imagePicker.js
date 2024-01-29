@@ -3,7 +3,7 @@ import * as imagePicker from 'expo-image-picker'
 import { useState, useEffect } from "react";
 
 
-function ImagePicker({ setProductImage }) {
+function ImagePicker({ setProductImage, title }) {
 
     const [galleryPermission, setGalleryPermission] = useState(null)
     // const [uploadedImage, setUploadedImage] = useState(null)
@@ -40,7 +40,7 @@ function ImagePicker({ setProductImage }) {
     return (
 
         <TouchableOpacity style={style.btn} onPress={() => getImage()}>
-            <Text style={style.title}>Upload a New Image</Text>
+            <Text style={style.title}>{title}</Text>
         </TouchableOpacity>
 
     )
