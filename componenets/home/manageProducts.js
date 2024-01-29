@@ -7,6 +7,7 @@ import { useContext, useState } from 'react';
 import { Alert } from 'react-native'
 import StoreChart from '../modals/sotreChart';
 import AddNewProduct from '../modals/addNewProduct';
+import ButtonContainer from './buttonContainer';
 
 function ManageProducts() {
 
@@ -15,9 +16,7 @@ function ManageProducts() {
 
     const { fetchData } = useContext(ProductContext)
     return (
-
-        <View style={style.container}>
-
+        <ButtonContainer >
             <StoreChart display={storeChartDisplay} setStoreChartDisplay={setStoreChartDisplay} />
 
             <AddNewProduct setAddNewProductDisplay={setAddNewProductDisplay} addNewProductDisplay={addNewProductDisplay} />
@@ -44,8 +43,11 @@ function ManageProducts() {
             </Pressable>
 
 
+        </ButtonContainer>
 
-        </View>
+
+
+
     )
 
     // display add new product modal
@@ -56,11 +58,6 @@ function ManageProducts() {
 
 
 const style = StyleSheet.create({
-    container: {
-        marginTop: 15,
-        backgroundColor: "#222529",
-        flexDirection: "row"
-    },
     btn: {
         marginHorizontal: 4
     }

@@ -1,5 +1,5 @@
 import { AntDesign } from '@expo/vector-icons';
-import { View, Pressable, StyleSheet } from "react-native"
+import { Pressable, StyleSheet } from "react-native"
 
 function CloseBTN({ action }) {
 

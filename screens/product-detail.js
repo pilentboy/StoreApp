@@ -10,9 +10,7 @@ import {
   StatusBar
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
 import ProductDescription from '../componenets/productDetails/productDescription';
 import RequiredTitle from '../componenets/productDetails/requiredTitle';
 import ProductScore from '../componenets/product/productScore';
@@ -25,11 +23,15 @@ import ProductType
 import AddToCart from '../componenets/productDetails/addToCart'
 import SocialMediaLink from '../componenets/productDetails/socialMediaLink';
 import Category from '../componenets/productDetails/category';
+import EditProductDetails from '../componenets/modals/editProductDetails';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import ButtonContainer from '../componenets/home/buttonContainer';
+
 
 // ProductDetail Component
 function ProductDetail({ route }) {
 
-
+  const [EditProductDetailsDisplay, setEditProductDetailsDisplay] = useState(false)
   // Destructure parameters from the route
   const productInfo = route.params;
   // Access product context
@@ -83,6 +85,19 @@ function ProductDetail({ route }) {
       <StatusBar backgroundColor='black' barStyle='white' />
       {/* Container for the product details */}
       <View style={style.container}>
+
+        <EditProductDetails EditProductDetailsDisplay={EditProductDetailsDisplay} setEditProductDetailsDisplay={setEditProductDetailsDisplay} />
+
+        <ButtonContainer>
+
+          <Pressable onPress={() => {
+            setEditProductDetailsDisplay(true)
+          }}>
+            <MaterialCommunityIcons name="briefcase-edit-outline" size={45} color="white" />
+          </Pressable>
+
+        </ButtonContainer>
+
 
 
         <Text style={{ fontWeight: 'bold', fontSize: 40, }} >{productInfo.props.name} </Text>
