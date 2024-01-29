@@ -10,7 +10,14 @@ import ButtonContainer from "../productDetails/buttonContainer";
 
 
 const EditProduct = ({ display, setModalDisplay, productInfo }) => {
-
+  
+    useEffect(() => {
+        // Update state when productInfo changes
+        setProductName(productInfo.name);
+        setProductPrice(productInfo.price);
+        setProductImage(productInfo.image);
+      }, [productInfo]);
+    
 
     const [productName, setProductName] = useState(productInfo["name"])
     const [productPrice, setProductPrice] = useState(productInfo["price"])
