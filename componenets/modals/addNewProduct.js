@@ -12,7 +12,7 @@ import LargeInput from "../product/largInput";
 import ImagePicker from "../product/imagePicker";
 
 function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
-
+    const DefaultImage="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png"
     const { products, updateProducts } = useContext(ProductContext)
 
     function AddProduct() {
@@ -39,6 +39,12 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                     updateProducts(updatedProducts)
 
                     setAddNewProductDisplay(false)
+                    setProductName("")
+                    setProductPrice("")
+                    setProductDescription("")
+                    setProductFeatures("")
+                    setProductImage(DefaultImage)
+                    setProductAbout("")
                 })
             }
         ])
@@ -50,7 +56,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     const [productDescription, setProductDescription] = useState('')
     const [productAbout, setProductAbout] = useState('')
     const [productFeatures, setProductFeatures] = useState('')
-    const [productImage, setProductImage] = useState('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png')
+    const [productImage, setProductImage] = useState(DefaultImage)
 
     return (
 
@@ -116,7 +122,7 @@ const style = StyleSheet.create({
         paddingHorizontal: 20,
     },
     productImage: {
-        width: 200,
+        width: 250,
         height: 200
     }
 })
