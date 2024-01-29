@@ -7,7 +7,7 @@ import { useContext, useState } from 'react';
 import { Alert } from 'react-native'
 import StoreChart from '../modals/sotreChart';
 import AddNewProduct from '../modals/addNewProduct';
-import ButtonContainer from './buttonContainer';
+import ManageButtonContainer from './manageButtonContainer';
 
 function ManageProducts() {
 
@@ -16,7 +16,7 @@ function ManageProducts() {
 
     const { fetchData } = useContext(ProductContext)
     return (
-        <ButtonContainer >
+        <ManageButtonContainer >
             <StoreChart display={storeChartDisplay} setStoreChartDisplay={setStoreChartDisplay} />
 
             <AddNewProduct setAddNewProductDisplay={setAddNewProductDisplay} addNewProductDisplay={addNewProductDisplay} />
@@ -43,7 +43,7 @@ function ManageProducts() {
             </Pressable>
 
 
-        </ButtonContainer>
+        </ManageButtonContainer>
 
 
 

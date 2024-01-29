@@ -4,19 +4,86 @@ import { ProductContext } from "../../context/productContext";
 import Input from "../product/input";
 import { AntDesign } from '@expo/vector-icons';
 import ImagePicker from "../product/imagePicker";
-import { MaterialIcons } from '@expo/vector-icons';
 import CloseBTN from "../product/closeBTN";
+import LargeInput from "../product/largInput";
+import ButtonContainer from "../productDetails/buttonContainer";
+
+function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditProductDetailsDisplay }) {
 
 
-function EditProductDetails({ EditProductDetailsDisplay, setEditProductDetailsDisplay }) {
 
+
+
+    const [productName, setProductName] = useState(productInfo.name)
+    const [productPrice, setProductPrice] = useState(productInfo.price)
+    const [productDescription, setProductDescription] = useState(productInfo.description)
+    const [productAbout, setProductAbout] = useState(productInfo.about)
+    const [productFeatures, setProductFeatures] = useState(productInfo.you_will_love)
+    const [productImage, setProductImage] = useState(productInfo.image)
+
+    console.log(productInfo)
     return (
-        <Modal visible={EditProductDetailsDisplay}></Modal>
+        <Modal visible={EditProductDetailsDisplay} transparent={false}>
+            <ScrollView>
+
+
+                <View style={style.container}>
+
+                    <Text style={{ fontWeight: 'bold', fontSize: 40, paddingVertical: 20 }} > Editing Product </Text>
+
+
+                    <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
+                    <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
+
+                    {/* <Input inputValue={productFeatures} inputType='numeric' title="Features" setNewValue={setProductFeatures} /> */}
+
+                    <LargeInput inputValue={productFeatures} inputType='text' title="Features..." maxChar={150} setNewValue={setProductFeatures} />
+
+                    <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
+
+                    <LargeInput inputValue={productAbout} inputType='text' title="About..." maxChar={300} setNewValue={setProductAbout} />
+
+                    <Image source={{ uri: productImage }} style={style.productImage} />
+
+                    <ImagePicker setProductImage={setProductImage} title={'Upload an image'} />
+
+
+                    <ButtonContainer>
+                        {/* cancle  */}
+                        <CloseBTN action={() => setEditProductDetailsDisplay(false)} />
+
+                        {/* apply new info */}
+                        <Pressable style={style.btn}>
+                            <AntDesign name="checksquare" size={35} color="green" />
+                        </Pressable>
+                    </ButtonContainer>
+
+
+                </View>
+
+            </ScrollView>
+        </Modal>
     )
 }
 
 const style = StyleSheet.create({
-
+    btn: {
+        borderRadius: 5,
+        alignItems: "center",
+        justifyContent: "center",
+        marginHorizontal: 10
+    },
+    container: {
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white",
+        flex: 1,
+        paddingHorizontal: 20,
+    },
+    productImage: {
+        width: 250,
+        height: 300,
+    }
 })
 
 export default EditProductDetails

@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native'
 
 
-function ButtonContainer({ children }) {
+function ManageButtonContainer({ children }) {
     return (
         <View style={style.container}>
             {children}
@@ -19,4 +19,4 @@ const style = StyleSheet.create({
     },
 })
 
-export default ButtonContainer
+export default ManageButtonContainer

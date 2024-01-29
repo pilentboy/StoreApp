@@ -25,7 +25,7 @@ import SocialMediaLink from '../componenets/productDetails/socialMediaLink';
 import Category from '../componenets/productDetails/category';
 import EditProductDetails from '../componenets/modals/editProductDetails';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import ButtonContainer from '../componenets/home/buttonContainer';
+import ManageButtonContainer from '../componenets/home/manageButtonContainer';
 
 
 // ProductDetail Component
@@ -86,9 +86,9 @@ function ProductDetail({ route }) {
       {/* Container for the product details */}
       <View style={style.container}>
 
-        <EditProductDetails EditProductDetailsDisplay={EditProductDetailsDisplay} setEditProductDetailsDisplay={setEditProductDetailsDisplay} />
+        <EditProductDetails EditProductDetailsDisplay={EditProductDetailsDisplay} setEditProductDetailsDisplay={setEditProductDetailsDisplay} productInfo={productInfo.props} />
 
-        <ButtonContainer>
+        <ManageButtonContainer>
 
           <Pressable onPress={() => {
             setEditProductDetailsDisplay(true)
@@ -96,7 +96,7 @@ function ProductDetail({ route }) {
             <MaterialCommunityIcons name="briefcase-edit-outline" size={45} color="white" />
           </Pressable>
 
-        </ButtonContainer>
+        </ManageButtonContainer>
 
 
 
