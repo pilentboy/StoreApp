@@ -72,7 +72,6 @@ function ProductDetail({ route }) {
   useEffect(() => {
     findRelatedProducts();
     scrollToTop();
-    console.log(productInfo.description)
   }, [productInfo]);
 
 

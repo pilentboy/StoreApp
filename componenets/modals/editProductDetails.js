@@ -7,19 +7,99 @@ import ImagePicker from "../product/imagePicker";
 import CloseBTN from "../product/closeBTN";
 import LargeInput from "../product/largInput";
 import ButtonContainer from "../productDetails/buttonContainer";
+import { useNavigation } from '@react-navigation/native';
 
 function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditProductDetailsDisplay }) {
 
-
-
-
+    const navigation = useNavigation();
 
     const [productName, setProductName] = useState(productInfo.name)
     const [productPrice, setProductPrice] = useState(productInfo.price)
     const [productDescription, setProductDescription] = useState(productInfo.description)
     const [productAbout, setProductAbout] = useState(productInfo.about)
-    const [productFeatures, setProductFeatures] = useState(productInfo.you_will_love)
+    const [productFeatures, setProductFeatures] = useState(productInfo.you_will_love[0])
     const [productImage, setProductImage] = useState(productInfo.image)
+
+
+    const { products, updateProducts } = useContext(ProductContext)
+
+
+    const editProduct = () => {
+
+        const myproducts = products
+
+        const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
+
+        const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, about: productAbout, you_will_love: ["hi"] }
+
+        const newProducts = [...products]
+        newProducts[currentProductIndex] = updateCurrentProduct
+        updateProducts(newProducts)
+
+        setEditProductDetailsDisplay(false)
+
+        navigation.navigate('Home');
+
+        // if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
+        //     console.log("updating")
+
+        //     Alert.alert('Warning', 'Apply changes?', [
+        //         { text: "No", onPress: () => console.log("No Pressed") },
+        //         {
+        //             text: "Yes", onPress: () => {
+        //                 const myproducts = products
+
+        //                 const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
+
+        //                 const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, about: productAbout, you_will_love: ["hi"] }
+
+        //                 const newProducts = [...products]
+        //                 newProducts[currentProductIndex] = updateCurrentProduct
+        //                 updateProducts(newProducts)
+
+        //                 setEditProductDetailsDisplay(false)
+                       
+        //             }
+        //         },
+        //     ],
+        //         { cancelable: true }
+        //     )
+
+        // }
+
+    }
+
+    const checkValues = (info) => {
+        for (let i = 0; i < info.length; i++) {
+            if (info[i].length < 1) {
+
+                Alert.alert('Editing Error', 'Please fill all the inputs!', [
+                    { text: 'OK', onPress: () => console.log('OK Pressed') },
+
+                ],
+                    {
+                        cancelable: true
+                    });
+
+                return false
+            }
+        }
+        return true
+    }
+
+
+    function containsOnlyNumbers(str) {
+
+        if (/^[0-9.]+$/.test(str)) {
+            return true;
+        } else {
+
+            Alert.alert('Product Price Error', 'Product Price must be a number!', [
+                { text: "ok", onPress: () => console.log("Ok Pressed") }
+            ])
+            return false
+        }
+    }
 
     console.log(productInfo)
     return (
@@ -53,7 +133,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
                         <CloseBTN action={() => setEditProductDetailsDisplay(false)} />
 
                         {/* apply new info */}
-                        <Pressable style={style.btn}>
+                        <Pressable onPress={editProduct} style={style.btn}>
                             <AntDesign name="checksquare" size={35} color="green" />
                         </Pressable>
                     </ButtonContainer>

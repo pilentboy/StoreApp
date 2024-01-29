@@ -111,9 +111,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
     }
 
-    useEffect(() => {
-        console.log(productImage, "product")
-    }, [productImage])
+
 
     return (
 

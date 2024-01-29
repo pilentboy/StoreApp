@@ -21,19 +21,23 @@ function Home() {
     // products list
     const { products, updateProducts, loading } = useContext(ProductContext)
 
-    // modal state
-    const [modal, setmodal] = useState(false)
-    // Render the component based on the loading state
     useEffect(() => {
-
+        loadProducts()
     }, [products])
+
+    function loadProducts() {
+        console.log("loading")
+        return products.map((product) => (
+            <Product key={product.id} {...product}  />
+        ));
+    }
 
     if (!loading) {
 
         return (
-            
+
             <ScrollView >
-		
+
                 <StatusBar backgroundColor='black' barStyle='white' />
 
                 {/* main view */}
@@ -52,13 +56,15 @@ function Home() {
                     {/* List of Products */}
                     <View style={style.productContainer}>
                         {
-                            products.map((product) => {
-                                return (
-                                    <Product key={product.id} {...product} />
-                                )
-                            })
-
+                            // products.map((product) => {
+                            //     return (
+                            //         <Product key={product.id} {...product} />
+                            //     )
+                            // })
+                            loadProducts()
                         }
+
+
                     </View>
 
 

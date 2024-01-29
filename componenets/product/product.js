@@ -1,14 +1,19 @@
 import { View, Text, StyleSheet, Pressable, Image, Modal, Button } from 'react-native'
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import ProductScore from './productScore';
 import EditProduct from '../modals/editProduct';
+import { ProductContext } from '../../context/productContext';
 
 
 // Product Component
 function Product(props) {
+
+    const { products, updateProducts, loading } = useContext(ProductContext)
+
+    console.log(props.loadProducts)
 
     const [likeColor, setlikeColor] = useState("#222529")
 
@@ -17,6 +22,9 @@ function Product(props) {
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
 
+    useEffect(() => {
+        // displayProductDetails()
+    }, [products])
 
     // Render the Product component
     return (
