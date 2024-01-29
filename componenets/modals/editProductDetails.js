@@ -35,46 +35,33 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
     const editProduct = () => {
 
-        const myproducts = products
+        if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
+            console.log("updating")
 
-        const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
+            Alert.alert('Warning', 'Apply changes?', [
+                { text: "No", onPress: () => console.log("No Pressed") },
+                {
+                    text: "Yes", onPress: () => {
+                        const myproducts = products
 
-        const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, about: productAbout, you_will_love: ["hi"] }
+                        const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
 
-        const newProducts = [...products]
-        newProducts[currentProductIndex] = updateCurrentProduct
-        updateProducts(newProducts)
+                        const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, about: productAbout, you_will_love: ["hi"] }
 
-        setEditProductDetailsDisplay(false)
+                        const newProducts = [...products]
+                        newProducts[currentProductIndex] = updateCurrentProduct
+                        updateProducts(newProducts)
 
-        navigation.navigate('Home');
-
-        // if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
-        //     console.log("updating")
-
-        //     Alert.alert('Warning', 'Apply changes?', [
-        //         { text: "No", onPress: () => console.log("No Pressed") },
-        //         {
-        //             text: "Yes", onPress: () => {
-        //                 const myproducts = products
-
-        //                 const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
-
-        //                 const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, about: productAbout, you_will_love: ["hi"] }
-
-        //                 const newProducts = [...products]
-        //                 newProducts[currentProductIndex] = updateCurrentProduct
-        //                 updateProducts(newProducts)
-
-        //                 setEditProductDetailsDisplay(false)
+                        setEditProductDetailsDisplay(false)
+                        navigation.navigate("Home")
                        
-        //             }
-        //         },
-        //     ],
-        //         { cancelable: true }
-        //     )
+                    }
+                },
+            ],
+                { cancelable: true }
+            )
 
-        // }
+        }
 
     }
 

@@ -12,7 +12,7 @@ import LargeInput from "../product/largInput";
 import ImagePicker from "../product/imagePicker";
 
 function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
-    const DefaultImage="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png"
+    const DefaultImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png"
     const { products, updateProducts } = useContext(ProductContext)
 
     function AddProduct() {
@@ -29,6 +29,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                     const lastProductID = myProducts.slice(-1)[0].id
 
                     const spliteProductFeatures = productFeatures.split(".")
+
 
                     const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, you_will_love: spliteProductFeatures, related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
 
@@ -51,11 +52,11 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
     }
 
-    const [productName, setProductName] = useState('')
-    const [productPrice, setProductPrice] = useState('')
-    const [productDescription, setProductDescription] = useState('')
-    const [productAbout, setProductAbout] = useState('')
-    const [productFeatures, setProductFeatures] = useState('')
+    const [productName, setProductName] = useState("")
+    const [productPrice, setProductPrice] = useState("")
+    const [productDescription, setProductDescription] = useState("")
+    const [productAbout, setProductAbout] = useState("")
+    const [productFeatures, setProductFeatures] = useState("")
     const [productImage, setProductImage] = useState(DefaultImage)
 
     return (
