@@ -32,13 +32,10 @@ import ManageButtonContainer from '../componenets/home/manageButtonContainer';
 function ProductDetail({ route }) {
 
   const [EditProductDetailsDisplay, setEditProductDetailsDisplay] = useState(false)
-  // Destructure parameters from the route
+  
   const productInfo = route.params;
-  // Access product context
   const { products, updateProducts } = useContext(ProductContext);
-  // State for selected size in picker
   const [selectedValue, setSelectedValue] = useState(productInfo.props.size);
-  // State for related products
   const [relatedProducts, setRelatedProducts] = useState([]);
 
   // scroll view ref

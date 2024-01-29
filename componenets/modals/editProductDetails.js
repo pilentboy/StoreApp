@@ -13,6 +13,15 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
     const navigation = useNavigation();
 
+    useEffect(()=>{
+        setProductName(productInfo.name)
+        setProductPrice(productInfo.price)
+        setProductDescription(productInfo.description)
+        setProductAbout(productInfo.about)
+        setProductFeatures(productInfo.you_will_love[0])
+        setProductImage(productInfo.image)
+    },[productInfo])
+
     const [productName, setProductName] = useState(productInfo.name)
     const [productPrice, setProductPrice] = useState(productInfo.price)
     const [productDescription, setProductDescription] = useState(productInfo.description)
