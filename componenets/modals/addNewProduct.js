@@ -1,4 +1,4 @@
-import { Modal, StyleSheet, Text, View, Pressable, ScrollView, Image, TextInput } from "react-native"
+import { Modal, Alert, StyleSheet, Text, View, Pressable, ScrollView, Image, TextInput } from "react-native"
 
 import ButtonContainer from "../productDetails/buttonContainer"
 import CloseBTN from "../product/closeBTN"
@@ -17,22 +17,32 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
     function AddProduct() {
 
-        const myProducts = products
+        Alert.alert("Warning", "Are you sure about adding this product?", [
+            {
+                text: "No", onPress: (() => console.log("No"))
+            },
+            {
+                text: "Yes", onPress: (() => {
+                    const myProducts = products
 
-        // get the last product id for using a uniqe id for each products
-        const lastProductID = myProducts.slice(-1)[0].id
+                    // get the last product id for using a uniqe id for each products
+                    const lastProductID = myProducts.slice(-1)[0].id
 
-        const spliteProductFeatures = productFeatures.split(".")
+                    const spliteProductFeatures = productFeatures.split(".")
 
-        const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, you_will_love: spliteProductFeatures, related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
+                    const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, you_will_love: spliteProductFeatures, related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
 
-        const updatedProducts = [...products]
+                    const updatedProducts = [...products]
 
-        updatedProducts.push(newProduct)
+                    updatedProducts.push(newProduct)
 
-        updateProducts(updatedProducts)
+                    updateProducts(updatedProducts)
 
-        setAddNewProductDisplay(false)
+                    setAddNewProductDisplay(false)
+                })
+            }
+        ])
+
     }
 
     const [productName, setProductName] = useState('')

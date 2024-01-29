@@ -18,23 +18,19 @@ const ProductProvider = ({ children }) => {
 
 
     const fetchData = async () => {
-        setTimeout(async () => {
-            try {
-                // Read data  from db.json using require (this is a synchronous operation)
-                const response = await require('../db.json');
-                const jsonContent = JSON.parse(JSON.stringify(response));
+        try {
+            // Read data  from db.json using require (this is a synchronous operation)
+            const response = await require('../db.json');
+            const jsonContent = JSON.parse(JSON.stringify(response));
 
-                // Update the state with the list of products and set loading to false
-                setProducts(jsonContent.products);
-                setloading(false)
+            // Update the state with the list of products and set loading to false
+            setProducts(jsonContent.products);
+            setloading(false)
 
-            } catch (error) {
-                console.error('Error reading db.json:', error);
+        } catch (error) {
+            console.error('Error reading db.json:', error);
 
-            }
-        }, 200)
-
-
+        }
 
     };
 
