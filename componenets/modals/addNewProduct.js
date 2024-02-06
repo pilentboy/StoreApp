@@ -19,9 +19,9 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
         // get the last product id for using a uniqe id for each products
         const lastProductID = myProducts.slice(-1)[0].id
 
+        const categoies=category.split(" ")
 
-
-        const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription,related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
+        const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription,category:categoies,related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
 
         const updatedProducts = [...products]
 
@@ -91,7 +91,8 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                     <Input inputValue={productName} inputType='text' title="Name" inputWidth={"60%"} setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"}  setNewValue={setProductPrice} />
-                    <Input inputValue={category} inputType='text' title="Category" inputWidth={"100%"}  setNewValue={setCategory} />
+
+                    <Input inputValue={category} inputType='text' title="Category..." inputWidth={"100%"}  setNewValue={setCategory} />
 
                     <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 
