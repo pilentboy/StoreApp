@@ -13,7 +13,10 @@
         2,
         1
       ],
-      "reviews": 14
+      "reviews": 14,
+      "category":[
+         "shirt"
+      ]
     },
     {
       "id": 2,
@@ -28,7 +31,10 @@
         0,
         2
       ],
-      "reviews": 16
+      "reviews": 16,
+      "category":[
+         "shirt"
+      ]
     },
     {
       "id": 3,
@@ -43,7 +49,10 @@
         0,
         1
       ],
-      "reviews": 65
+      "reviews": 65,
+      "category":[
+         "shirt"
+      ]
     },
     {
       "id": 4,
@@ -58,7 +67,10 @@
         1,
         2
       ],
-      "reviews": 50
+      "reviews": 50,
+      "category":[
+         "shirt"
+      ]
     }
   ]
 }

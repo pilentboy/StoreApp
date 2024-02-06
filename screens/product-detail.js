@@ -21,7 +21,6 @@ import ProductType
   from '../componenets/productDetails/productType';
 import AddToCart from '../componenets/productDetails/addToCart'
 import SocialMediaLink from '../componenets/productDetails/socialMediaLink';
-import Category from '../componenets/productDetails/category';
 import EditProductDetails from '../componenets/modals/editProductDetails';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ManageButtonContainer from '../componenets/home/manageButtonContainer';
@@ -31,7 +30,7 @@ import ManageButtonContainer from '../componenets/home/manageButtonContainer';
 function ProductDetail({ route }) {
 
   const [EditProductDetailsDisplay, setEditProductDetailsDisplay] = useState(false)
-  
+
   const productInfo = route.params;
   const { products, updateProducts } = useContext(ProductContext);
   const [selectedValue, setSelectedValue] = useState(productInfo.props.size);
@@ -147,9 +146,17 @@ function ProductDetail({ route }) {
         </View>
 
         {/* Category and tags */}
-        <View style={{ marginTop: 25 }}>
-          <Category title={"Category"} values={["Shirts"]} />
-          <Category title={"Tag"} values={["Leisure", "Elegant"]} />
+        <View style={{ marginTop: 25, flexDirection: 'row' }}>
+
+          <Text style={style.categoryTitle}>Categories </Text>{
+
+            productInfo.props.category.map((category, index) => (
+              <Text key={index} style={[style.categoryTitle, {
+                color: '#878e95',
+              }]}>{category}</Text>
+            ))
+
+          }
         </View>
 
 
@@ -223,7 +230,12 @@ const style = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     color: '#878e95'
-  }
+  },
+  categoryTitle: {
+    fontWeight: 'bold',
+    fontSize: 20
+  },
+
 });
 
 // Export the component

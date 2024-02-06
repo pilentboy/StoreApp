@@ -131,6 +131,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
                     <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
+                    {/* <Input inputValue={"te"} inputType='text' title="Category" inputWidth={"100%"}  setNewValue={setProductPrice} /> */}
 
                     <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 

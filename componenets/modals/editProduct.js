@@ -128,11 +128,10 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                     <Image source={{ uri: productImage }} style={style.productImage} />
 
-
                     <ImagePicker setProductImage={setProductImage} title={'Upload a new image'} />
 
-                    <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
-                    <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
+                    <Input inputValue={productName} inputType='text' title="Name" inputWidth={"60%"}  setNewValue={setProductName} />
+                    <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"}  setNewValue={setProductPrice} />
 
                     <ButtonContainer>
                         {/* delete item */}

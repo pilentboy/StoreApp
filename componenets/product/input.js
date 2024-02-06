@@ -1,14 +1,11 @@
 import { Text, View, TextInput, StyleSheet } from 'react-native'
 
 
-function Input({ title, inputValue, setNewValue, inputType }) {
+function Input({ title, inputValue, setNewValue, inputType,inputWidth }) {
 
     return (
         <View style={style.container}>
-            <Text style={style.title}>
-                {title}:
-            </Text>
-            <TextInput inputMode={inputType} textAlign='left' spellCheck value={inputValue} style={style.input} onChangeText={setNewValue} />
+            <TextInput placeholder={title} inputMode={inputType} placeholderTextColor={'gray'}  textAlign='left' spellCheck value={inputValue} style={[style.input,{width:inputWidth}]} onChangeText={setNewValue} />
         </View>
     )
 }
@@ -18,20 +15,14 @@ const style = StyleSheet.create(
         container: {
             flexDirection: "row",
             alignItems: "center",
-            justifyContent: "space-between",
-            width: "100%",
+            justifyContent: "center",
             marginVertical: 10,
-        },
-        title: {
-            fontSize: 18,
-            color: "black",
-            fontWeight: "bold"
+            width:"100%"
         },
         input: {
             fontSize: 18,
             paddingVertical: 8,
             paddingHorizontal: 5,
-            width: "80%",
             borderRadius: 5,
             borderWidth: 2,
             borderColor: "black",

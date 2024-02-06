@@ -7,12 +7,12 @@ function Category({ title, values }) {
     return (
 
         <View style={{ flexDirection: 'row', alignItems: "center" }}>
-
+{/* 
             <Text style={style.title}>
                 {title}:
-            </Text>
+            </Text> */}
 
-            {
+            {/* {
                 values.map((i, index) => {
                     return (
                         <Text style={[style.title, style.gray, { marginLeft: 6 }]} key={index}>
@@ -20,9 +20,13 @@ function Category({ title, values }) {
                         </Text>
                     )
                 })
-            }
+            } */}
 
-        </View>
+            <Text style={[style.title, { marginLeft: 6 }]} key={index}>
+            {i}
+        </Text>
+
+        </View >
 
 
     )
@@ -33,9 +37,7 @@ function Category({ title, values }) {
 const style = StyleSheet.create({
     title: {
         fontWeight: 'bold',
-        fontSize: 20
-    },
-    gray: {
+        fontSize: 20,
         color: '#878e95',
     },
 
