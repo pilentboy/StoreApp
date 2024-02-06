@@ -14,58 +14,39 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     const { products, updateProducts } = useContext(ProductContext)
 
     function AddProduct() {
-        const myProducts = products
-
-        // get the last product id for using a uniqe id for each products
-        const lastProductID = myProducts.slice(-1)[0].id
-
-        const categoies=category.split(" ")
-
-        const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription,category:categoies,related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
-
-        const updatedProducts = [...products]
-
-        updatedProducts.push(newProduct)
-
-        updateProducts(updatedProducts)
-
-        setAddNewProductDisplay(false)
-        setProductName("")
-        setProductPrice("")
-        setProductDescription("")
-        setProductImage(DefaultImage)
-        setProductAbout("")
-
-        // Alert.alert("Warning", "Are you sure about adding this product?", [
-        //     {
-        //         text: "No", onPress: (() => console.log("No"))
-        //     },
-        //     {
-        //         text: "Yes", onPress: (() => {
-        //             const myProducts = products
-
-        //             // get the last product id for using a uniqe id for each products
-        //             const lastProductID = myProducts.slice(-1)[0].id
 
 
+        Alert.alert("Warning", "Are you sure about adding this product?", [
+            {
+                text: "No", onPress: (() => console.log("No"))
+            },
+            {
+                text: "Yes", onPress: (() => {
+                    const myProducts = products
 
-        //             const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription,related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
+                    // get the last product id for using a uniqe id for each products
+                    const lastProductID = myProducts.slice(-1)[0].id
 
-        //             const updatedProducts = [...products]
+                    const categoies = category.split(" ")
 
-        //             updatedProducts.push(newProduct)
+                    const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, category: categoies, about: productAbout, related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
 
-        //             updateProducts(updatedProducts)
+                    const updatedProducts = [...products]
 
-        //             setAddNewProductDisplay(false)
-        //             setProductName("")
-        //             setProductPrice("")
-        //             setProductDescription("")
-        //             setProductImage(DefaultImage)
-        //             setProductAbout("")
-        //         })
-        //     }
-        // ])
+                    updatedProducts.push(newProduct)
+
+                    updateProducts(updatedProducts)
+
+                    setAddNewProductDisplay(false)
+                    setProductName("")
+                    setProductPrice("")
+                    setProductDescription("")
+                    setProductImage(DefaultImage)
+                    setProductAbout("")
+                    setCategory("")
+                })
+            }
+        ])
 
     }
 
@@ -74,7 +55,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     const [productDescription, setProductDescription] = useState("")
     const [productAbout, setProductAbout] = useState("")
     const [productImage, setProductImage] = useState(DefaultImage)
-    const [category, setCategory] = useState("")
+    const [category, setCategory] = useState()
 
 
     return (
@@ -90,9 +71,9 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                     <Text style={{ fontWeight: 'bold', fontSize: 40, paddingVertical: 20 }} > Adding Product </Text>
 
                     <Input inputValue={productName} inputType='text' title="Name" inputWidth={"60%"} setNewValue={setProductName} />
-                    <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"}  setNewValue={setProductPrice} />
+                    <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"} setNewValue={setProductPrice} />
 
-                    <Input inputValue={category} inputType='text' title="Category..." inputWidth={"100%"}  setNewValue={setCategory} />
+                    <Input inputValue={category} inputType='text' title="Category..." inputWidth={"100%"} setNewValue={setCategory} />
 
                     <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 

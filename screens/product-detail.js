@@ -148,15 +148,22 @@ function ProductDetail({ route }) {
         {/* Category and tags */}
         <View style={{ marginTop: 25, flexDirection: 'row' }}>
 
-          <Text style={style.categoryTitle}>Categories: </Text>{
 
-            productInfo.props.category.map((category, index) => (
-              <Text key={index} style={[style.categoryTitle, {
-                color: '#878e95',
-              }]}>{" "}{category}</Text>
-            ))
+          {productInfo.props.category.length > 0 && productInfo.props.category[0] !== " " ? (
+            <>
+              <Text style={style.categoryTitle}>Categories: </Text>
+              {productInfo.props.category.map((category, index) => (
+                <Text key={index} style={[style.categoryTitle, { color: '#878e95' }]}>
+                  {" "}
+                  {category}
+                </Text>
+              ))}
+            </>
+          ) : null}
 
-          }
+
+
+
         </View>
 
 

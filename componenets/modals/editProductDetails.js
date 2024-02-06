@@ -32,7 +32,10 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
     const { products, updateProducts } = useContext(ProductContext)
 
-
+    const removeCategory = (categoryValue) => {
+        const newCategories = productCategoies.filter((category) => category !== categoryValue)
+        setProductCategories(newCategories)
+    }
     const editProduct = () => {
 
         if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
@@ -46,13 +49,17 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
                         const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
 
-                        const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, about: productAbout, you_will_love: ["hi"] }
+                        const categories = newCategory.split(" ")
+                        const updatedCategories = categories.concat(productCategoies)
+
+                        const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, category: updatedCategories, about: productAbout, you_will_love: ["hi"] }
 
                         const newProducts = [...products]
                         newProducts[currentProductIndex] = updateCurrentProduct
                         updateProducts(newProducts)
 
                         setEditProductDetailsDisplay(false)
+                        navigation.navigate("Home")
 
                     }
                 },
@@ -97,16 +104,15 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
     }
 
     const deleteProduct = () => {
-        const myproducts = products.filter((product) => product.id !== productInfo.id)
-        updateProducts(myproducts)
-        setEditProductDetailsDisplay(false)
-        navigation.navigate("Home")
+     
         Alert.alert('Warning', 'Are you sure you want to delete this product?', [
             { text: "No", onPress: () => console.log("No Pressed") },
             {
                 text: "Yes", onPress: () => {
                     const myproducts = products.filter((product) => product.id !== productInfo.id)
                     updateProducts(myproducts)
+                    setEditProductDetailsDisplay(false)
+                    navigation.navigate("Home")
                     Alert.alert('Notification', 'Deleted Scuccessfully!', [
                         { text: "ok", onPress: () => console.log("Ok Pressed") }
                     ],
@@ -132,13 +138,13 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
 
                     <Input inputValue={productName} inputWidth={"60%"} inputType='text' title="Name" setNewValue={setProductName} />
-                    <Input inputValue={productPrice}  inputWidth={"60%"} inputType='numeric' title="Price" setNewValue={setProductPrice} />
+                    <Input inputValue={productPrice} inputWidth={"60%"} inputType='numeric' title="Price" setNewValue={setProductPrice} />
 
-                    
 
-                    <EditCategory category={productCategoies} />
 
-                    <Input inputValue={newCategory} inputType='text' title={"Category..."} inputWidth={"100%"}  setNewValue={setNewCategory} />
+                    <EditCategory category={productCategoies} action={removeCategory} />
+
+                    <Input inputValue={newCategory} inputType='text' title={"Category..."} inputWidth={"100%"} setNewValue={setNewCategory} />
 
                     <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 
@@ -153,7 +159,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
                         {/* delete item */}
                         <Pressable onPress={() => deleteProduct()} style={style.btn}>
-                            <MaterialIcons name="delete-forever" size={35} color="red" 
+                            <MaterialIcons name="delete-forever" size={35} color="red"
                             />
                         </Pressable>
                         {/* cancle editing */}
