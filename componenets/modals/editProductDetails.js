@@ -8,6 +8,7 @@ import CloseBTN from "../product/closeBTN";
 import LargeInput from "../product/largInput";
 import ButtonContainer from "../productDetails/buttonContainer";
 import { useNavigation } from '@react-navigation/native';
+import EditCategory from "../productDetails/editCategory";
 import { MaterialIcons } from '@expo/vector-icons';
 function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditProductDetailsDisplay }) {
 
@@ -26,7 +27,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
     const [productDescription, setProductDescription] = useState(productInfo.description)
     const [productAbout, setProductAbout] = useState(productInfo.about)
     const [productImage, setProductImage] = useState(productInfo.image)
-
+    const [category, setCategory] = useState(productInfo.category)
 
     const { products, updateProducts } = useContext(ProductContext)
 
@@ -131,7 +132,10 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
                     <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
-                    {/* <Input inputValue={"te"} inputType='text' title="Category" inputWidth={"100%"}  setNewValue={setProductPrice} /> */}
+
+                    {/* <Input inputValue={""} inputType='text' title={productInfo.category} inputWidth={"100%"}  setNewValue={setProductPrice} /> */}
+                    
+                    <EditCategory category={productInfo.category} />
 
                     <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 
