@@ -18,7 +18,6 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
         setProductPrice(productInfo.price)
         setProductDescription(productInfo.description)
         setProductAbout(productInfo.about)
-        setProductFeatures(productInfo.you_will_love[0])
         setProductImage(productInfo.image)
     },[productInfo])
 
@@ -26,7 +25,6 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
     const [productPrice, setProductPrice] = useState(productInfo.price)
     const [productDescription, setProductDescription] = useState(productInfo.description)
     const [productAbout, setProductAbout] = useState(productInfo.about)
-    const [productFeatures, setProductFeatures] = useState(productInfo.you_will_love[0])
     const [productImage, setProductImage] = useState(productInfo.image)
 
 
@@ -110,10 +108,6 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
                     <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
-
-                    {/* <Input inputValue={productFeatures} inputType='numeric' title="Features" setNewValue={setProductFeatures} /> */}
-
-                    <LargeInput inputValue={productFeatures} inputType='text' title="Features..." maxChar={150} setNewValue={setProductFeatures} />
 
                     <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 

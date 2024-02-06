@@ -4,7 +4,7 @@
     "slug": "MyStoreApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/mainIcon.png",
+    "icon": "./assets/pi.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/icon.png",

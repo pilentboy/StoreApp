@@ -14,7 +14,6 @@ import { AntDesign } from '@expo/vector-icons';
 import ProductDescription from '../componenets/productDetails/productDescription';
 import RequiredTitle from '../componenets/productDetails/requiredTitle';
 import ProductScore from '../componenets/product/productScore';
-import TextList from '../componenets/productDetails/textList';
 import Product from '../componenets/product/product';
 import { ProductContext } from '../context/productContext';
 import ProductPrice from '../componenets/productDetails/productPrice';
@@ -167,16 +166,6 @@ function ProductDetail({ route }) {
           <Text style={{ fontWeight: 'bold', fontSize: 23, marginBottom: 10 }}>About</Text>
           <ProductDescription description={productInfo.props.you_will_love[0]} />
           <ProductDescription description={productInfo.props.about} />
-        </View>
-
-        {/* List of product's best features */}
-        <View style={{ paddingHorizontal: 16, marginVertical: 20 }}>
-          <Text style={{ fontWeight: 'bold', fontSize: 23, marginBottom: 10 }}>You will love</Text>
-
-          {productInfo.props.you_will_love.map((i, index) => {
-            return <TextList key={index} description={i} />;
-          })}
-
         </View>
 
         {/* Related products */}

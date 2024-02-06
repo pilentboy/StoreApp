@@ -2,8 +2,6 @@ import { Modal, Alert, StyleSheet, Text, View, Pressable, ScrollView, Image, Tex
 
 import ButtonContainer from "../productDetails/buttonContainer"
 import CloseBTN from "../product/closeBTN"
-import { MaterialIcons } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import Input from "../product/input";
 import { useState, useContext } from "react";
@@ -28,10 +26,9 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                     // get the last product id for using a uniqe id for each products
                     const lastProductID = myProducts.slice(-1)[0].id
 
-                    const spliteProductFeatures = productFeatures.split(".")
 
 
-                    const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, you_will_love: spliteProductFeatures, related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
+                    const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription,related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
 
                     const updatedProducts = [...products]
 
@@ -43,7 +40,6 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                     setProductName("")
                     setProductPrice("")
                     setProductDescription("")
-                    setProductFeatures("")
                     setProductImage(DefaultImage)
                     setProductAbout("")
                 })
@@ -56,7 +52,6 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     const [productPrice, setProductPrice] = useState("")
     const [productDescription, setProductDescription] = useState("")
     const [productAbout, setProductAbout] = useState("")
-    const [productFeatures, setProductFeatures] = useState("")
     const [productImage, setProductImage] = useState(DefaultImage)
 
     return (
@@ -74,10 +69,6 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                     <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
-
-                    {/* <Input inputValue={productFeatures} inputType='numeric' title="Features" setNewValue={setProductFeatures} /> */}
-
-                    <LargeInput inputValue={productFeatures} inputType='text' title="Features..." maxChar={150} setNewValue={setProductFeatures} />
 
                     <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 
