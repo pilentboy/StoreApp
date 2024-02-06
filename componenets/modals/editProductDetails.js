@@ -27,7 +27,8 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
     const [productDescription, setProductDescription] = useState(productInfo.description)
     const [productAbout, setProductAbout] = useState(productInfo.about)
     const [productImage, setProductImage] = useState(productInfo.image)
-    const [category, setCategory] = useState(productInfo.category)
+    const [newCategory, setNewCategory] = useState("")
+    const [productCategoies, setProductCategories] = useState(productInfo.category)
 
     const { products, updateProducts } = useContext(ProductContext)
 
@@ -130,12 +131,14 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
                     <Text style={{ fontWeight: 'bold', fontSize: 40, paddingVertical: 20 }} > Editing Product </Text>
 
 
-                    <Input inputValue={productName} inputType='text' title="Name" setNewValue={setProductName} />
-                    <Input inputValue={productPrice} inputType='numeric' title="Price" setNewValue={setProductPrice} />
+                    <Input inputValue={productName} inputWidth={"60%"} inputType='text' title="Name" setNewValue={setProductName} />
+                    <Input inputValue={productPrice}  inputWidth={"60%"} inputType='numeric' title="Price" setNewValue={setProductPrice} />
 
-                    {/* <Input inputValue={""} inputType='text' title={productInfo.category} inputWidth={"100%"}  setNewValue={setProductPrice} /> */}
                     
-                    <EditCategory category={productInfo.category} />
+
+                    <EditCategory category={productCategoies} />
+
+                    <Input inputValue={newCategory} inputType='text' title={"Category..."} inputWidth={"100%"}  setNewValue={setNewCategory} />
 
                     <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 
