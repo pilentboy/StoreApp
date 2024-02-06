@@ -164,7 +164,6 @@ function ProductDetail({ route }) {
         {/* About the product */}
         <View style={{ paddingHorizontal: 16, marginVertical: 20 }}>
           <Text style={{ fontWeight: 'bold', fontSize: 23, marginBottom: 10 }}>About</Text>
-          <ProductDescription description={productInfo.props.you_will_love[0]} />
           <ProductDescription description={productInfo.props.about} />
         </View>
 

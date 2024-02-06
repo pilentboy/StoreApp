@@ -8,18 +8,18 @@ import CloseBTN from "../product/closeBTN";
 import LargeInput from "../product/largInput";
 import ButtonContainer from "../productDetails/buttonContainer";
 import { useNavigation } from '@react-navigation/native';
-
+import { MaterialIcons } from '@expo/vector-icons';
 function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditProductDetailsDisplay }) {
 
     const navigation = useNavigation();
 
-    useEffect(()=>{
+    useEffect(() => {
         setProductName(productInfo.name)
         setProductPrice(productInfo.price)
         setProductDescription(productInfo.description)
         setProductAbout(productInfo.about)
         setProductImage(productInfo.image)
-    },[productInfo])
+    }, [productInfo])
 
     const [productName, setProductName] = useState(productInfo.name)
     const [productPrice, setProductPrice] = useState(productInfo.price)
@@ -51,8 +51,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
                         updateProducts(newProducts)
 
                         setEditProductDetailsDisplay(false)
-                        navigation.navigate("Home")
-                       
+
                     }
                 },
             ],
@@ -95,7 +94,31 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
         }
     }
 
-    console.log(productInfo)
+    const deleteProduct = () => {
+        const myproducts = products.filter((product) => product.id !== productInfo.id)
+        updateProducts(myproducts)
+        setEditProductDetailsDisplay(false)
+        navigation.navigate("Home")
+        Alert.alert('Warning', 'Are you sure you want to delete this product?', [
+            { text: "No", onPress: () => console.log("No Pressed") },
+            {
+                text: "Yes", onPress: () => {
+                    const myproducts = products.filter((product) => product.id !== productInfo.id)
+                    updateProducts(myproducts)
+                    Alert.alert('Notification', 'Deleted Scuccessfully!', [
+                        { text: "ok", onPress: () => console.log("Ok Pressed") }
+                    ],
+                        { cancelable: true }
+                    )
+                }
+            },
+        ],
+            { cancelable: true }
+        )
+
+
+    }
+
     return (
         <Modal visible={EditProductDetailsDisplay} transparent={false}>
             <ScrollView>
@@ -119,7 +142,14 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
 
                     <ButtonContainer>
-                        {/* cancle  */}
+
+                        {/* delete item */}
+                        <Pressable onPress={() => deleteProduct()} style={style.btn}>
+                            <MaterialIcons name="delete-forever" size={35} color="red" 
+                            />
+                        </Pressable>
+                        {/* cancle editing */}
+
                         <CloseBTN action={() => setEditProductDetailsDisplay(false)} />
 
                         {/* apply new info */}

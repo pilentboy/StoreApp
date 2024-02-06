@@ -48,12 +48,6 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                         setModalDisplay(false)
 
-                        // Alert.alert('Notification', 'Updated Scuccessfully!', [
-                        //     { text: "ok", onPress: () => console.log("Ok Pressed") }
-                        // ],
-                        //     {
-                        //         cancelable: true
-                        //     })
                     }
                 },
             ],
@@ -98,12 +92,14 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
 
     const deleteProduct = () => {
+   
         Alert.alert('Warning', 'Are you sure you want to delete this product?', [
             { text: "No", onPress: () => console.log("No Pressed") },
             {
                 text: "Yes", onPress: () => {
                     const myproducts = products.filter((product) => product.id !== productInfo.id)
                     updateProducts(myproducts)
+                    setModalDisplay(false)
                     Alert.alert('Notification', 'Deleted Scuccessfully!', [
                         { text: "ok", onPress: () => console.log("Ok Pressed") }
                     ],
