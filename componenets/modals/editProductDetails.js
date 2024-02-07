@@ -20,6 +20,8 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
         setProductDescription(productInfo.description)
         setProductAbout(productInfo.about)
         setProductImage(productInfo.image)
+        setNewCategory('')
+        setProductCategories(productInfo.category)
     }, [productInfo])
 
     const [productName, setProductName] = useState(productInfo.name)
@@ -27,9 +29,9 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
     const [productDescription, setProductDescription] = useState(productInfo.description)
     const [productAbout, setProductAbout] = useState(productInfo.about)
     const [productImage, setProductImage] = useState(productInfo.image)
-    const [newCategory, setNewCategory] = useState("")
+    const [newCategory, setNewCategory] = useState('')
     const [productCategoies, setProductCategories] = useState(productInfo.category)
-
+    console.log("new",newCategory)
     const { products, updateProducts } = useContext(ProductContext)
 
     const removeCategory = (categoryValue) => {
@@ -38,36 +40,53 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
     }
     const editProduct = () => {
 
-        if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
-            console.log("updating")
-
-            Alert.alert('Warning', 'Apply changes?', [
-                { text: "No", onPress: () => console.log("No Pressed") },
-                {
-                    text: "Yes", onPress: () => {
-                        const myproducts = products
+        const myproducts = products
 
                         const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
-
-                        const categories = newCategory.split(" ")
+                
+                        const categories = newCategory !== '' ? newCategory.split(" ") : []
                         const updatedCategories = categories.concat(productCategoies)
-
+                
                         const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, category: updatedCategories, about: productAbout, you_will_love: ["hi"] }
-
+                
                         const newProducts = [...products]
                         newProducts[currentProductIndex] = updateCurrentProduct
                         updateProducts(newProducts)
-
+                
                         setEditProductDetailsDisplay(false)
                         navigation.navigate("Home")
+       
 
-                    }
-                },
-            ],
-                { cancelable: true }
-            )
+        // if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
+        //     console.log("updating")
 
-        }
+        //     Alert.alert('Warning', 'Apply changes?', [
+        //         { text: "No", onPress: () => console.log("No Pressed") },
+        //         {
+        //             text: "Yes", onPress: () => {
+        //                 const myproducts = products
+
+        //                 const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
+                
+        //                 const categories = newCategory !== '' ? newCategory.split(" ") : []
+        //                 const updatedCategories = categories.concat(productCategoies)
+                
+        //                 const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, category: updatedCategories, about: productAbout, you_will_love: ["hi"] }
+                
+        //                 const newProducts = [...products]
+        //                 newProducts[currentProductIndex] = updateCurrentProduct
+        //                 updateProducts(newProducts)
+                
+        //                 setEditProductDetailsDisplay(false)
+        //                 navigation.navigate("Home")
+
+        //             }
+        //         },
+        //     ],
+        //         { cancelable: true }
+        //     )
+
+        // }
 
     }
 

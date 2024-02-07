@@ -27,9 +27,11 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                     // get the last product id for using a uniqe id for each products
                     const lastProductID = myProducts.slice(-1)[0].id
 
-                    const categoies = category.split(" ")
+                    const categories = category !== '' ? category.split(" ") : []
 
-                    const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, category: categoies, about: productAbout, related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
+                    console.log(categories)
+
+                    const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, category: categories, about: productAbout, related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
 
                     const updatedProducts = [...products]
 
@@ -43,7 +45,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                     setProductDescription("")
                     setProductImage(DefaultImage)
                     setProductAbout("")
-                    setCategory("")
+                    setCategory('')
                 })
             }
         ])
@@ -55,7 +57,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     const [productDescription, setProductDescription] = useState("")
     const [productAbout, setProductAbout] = useState("")
     const [productImage, setProductImage] = useState(DefaultImage)
-    const [category, setCategory] = useState()
+    const [category, setCategory] = useState('')
 
 
     return (
