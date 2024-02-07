@@ -7,7 +7,7 @@ const ProductContext = createContext();
 // Create a context provider component
 const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
-    const [loading, setloading] = useState(true)
+    const [loading, setloading] = useState(false)
 
 
     // Function to update the products state

@@ -36,6 +36,8 @@ function ProductDetail({ route }) {
   const [selectedValue, setSelectedValue] = useState(productInfo.props.size);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
+
+
   // scroll view ref
   const scrollViewRef = useRef(null);
 
@@ -72,7 +74,6 @@ function ProductDetail({ route }) {
 
 
 
-  // JSX structure for the component
   return (
     // ScrollView to enable scrolling
     <ScrollView ref={scrollViewRef}>

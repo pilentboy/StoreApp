@@ -31,7 +31,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
     const [productImage, setProductImage] = useState(productInfo.image)
     const [newCategory, setNewCategory] = useState('')
     const [productCategoies, setProductCategories] = useState(productInfo.category)
-    console.log("new",newCategory)
+    console.log("new", newCategory)
     const { products, updateProducts } = useContext(ProductContext)
 
     const removeCategory = (categoryValue) => {
@@ -40,53 +40,35 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
     }
     const editProduct = () => {
 
-        const myproducts = products
+        if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
+            console.log("updating")
+
+            Alert.alert('Warning', 'Apply changes?', [
+                { text: "No", onPress: () => console.log("No Pressed") },
+                {
+                    text: "Yes", onPress: () => {
+                        const myproducts = products
 
                         const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
-                
+
                         const categories = newCategory !== '' ? newCategory.split(" ") : []
                         const updatedCategories = categories.concat(productCategoies)
-                
+
                         const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, category: updatedCategories, about: productAbout, you_will_love: ["hi"] }
-                
+
                         const newProducts = [...products]
                         newProducts[currentProductIndex] = updateCurrentProduct
                         updateProducts(newProducts)
-                
                         setEditProductDetailsDisplay(false)
                         navigation.navigate("Home")
-       
 
-        // if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
-        //     console.log("updating")
+                    }
+                },
+            ],
+                { cancelable: true }
+            )
 
-        //     Alert.alert('Warning', 'Apply changes?', [
-        //         { text: "No", onPress: () => console.log("No Pressed") },
-        //         {
-        //             text: "Yes", onPress: () => {
-        //                 const myproducts = products
-
-        //                 const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
-                
-        //                 const categories = newCategory !== '' ? newCategory.split(" ") : []
-        //                 const updatedCategories = categories.concat(productCategoies)
-                
-        //                 const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, category: updatedCategories, about: productAbout, you_will_love: ["hi"] }
-                
-        //                 const newProducts = [...products]
-        //                 newProducts[currentProductIndex] = updateCurrentProduct
-        //                 updateProducts(newProducts)
-                
-        //                 setEditProductDetailsDisplay(false)
-        //                 navigation.navigate("Home")
-
-        //             }
-        //         },
-        //     ],
-        //         { cancelable: true }
-        //     )
-
-        // }
+        }
 
     }
 
@@ -123,7 +105,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
     }
 
     const deleteProduct = () => {
-     
+
         Alert.alert('Warning', 'Are you sure you want to delete this product?', [
             { text: "No", onPress: () => console.log("No Pressed") },
             {
