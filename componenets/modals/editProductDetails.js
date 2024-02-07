@@ -12,6 +12,8 @@ import EditCategory from "../productDetails/editCategory";
 import { MaterialIcons } from '@expo/vector-icons';
 function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditProductDetailsDisplay }) {
 
+    const defaultImage = "https://gnetradio.com/wp-content/uploads/2019/10/no-image.jpg"
+
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -147,14 +149,23 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
                     <Input inputValue={newCategory} inputType='text' title={"Category..."} inputWidth={"100%"} setNewValue={setNewCategory} />
 
-                    <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
+                    <LargeInput inputHeight={100} inputValue={productDescription} inputType='text'   title="Description..." maxChar={130} setNewValue={setProductDescription} />
 
-                    <LargeInput inputValue={productAbout} inputType='text' title="About..." maxChar={300} setNewValue={setProductAbout} />
+                    <LargeInput inputHeight={200}  inputValue={productAbout} inputType='text' title="About..." maxChar={300} setNewValue={setProductAbout} />
 
                     <Image source={{ uri: productImage }} style={style.productImage} />
 
-                    <ImagePicker setProductImage={setProductImage} title={'Upload an image'} />
+                    {/* <ImagePicker setProductImage={setProductImage} title={'Upload an image'} /> */}
 
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <ImagePicker setProductImage={setProductImage} title={'Upload a new image'} />
+
+                        <Pressable style={style.btn} onPress={() => setProductImage(defaultImage)}>
+                            <MaterialIcons name="delete-forever" size={35} color="red"
+                            />
+                        </Pressable>
+
+                    </View>
 
                     <ButtonContainer>
 

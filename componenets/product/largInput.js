@@ -1,12 +1,12 @@
 import { Text, View, TextInput, StyleSheet } from 'react-native'
 
 
-function LargeInput({ title, inputValue, setNewValue, inputType, maxChar}) {
+function LargeInput({ title, inputValue, setNewValue, inputType, maxChar,inputHeight}) {
 
     return (
 
         <View style={style.container}>
-            <TextInput textAlignVertical='top' maxLength={maxChar} multiline placeholder={title} placeholderTextColor={'gray'} inputMode={inputType} textAlign='left' spellCheck value={inputValue} style={style.input} onChangeText={setNewValue} />
+            <TextInput textAlignVertical='top' maxLength={maxChar} multiline placeholder={title} placeholderTextColor={'gray'} inputMode={inputType} textAlign='left' spellCheck value={inputValue} style={[style.input,{height:inputHeight}]} onChangeText={setNewValue} />
         </View>
     )
 }
@@ -30,7 +30,6 @@ const style = StyleSheet.create(
             paddingVertical: 6,
             paddingHorizontal: 5,
             width: "100%",
-            height: 100,
             borderRadius: 5,
             borderWidth: 2,
             borderColor: "black",

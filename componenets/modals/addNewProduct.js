@@ -10,7 +10,8 @@ import LargeInput from "../product/largInput";
 import ImagePicker from "../product/imagePicker";
 
 function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
-    const DefaultImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png"
+    const DefaultImage = "https://gnetradio.com/wp-content/uploads/2019/10/no-image.jpg"
+
     const { products, updateProducts } = useContext(ProductContext)
 
     function AddProduct() {
@@ -77,9 +78,9 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                     <Input inputValue={category} inputType='text' title="Category..." inputWidth={"100%"} setNewValue={setCategory} />
 
-                    <LargeInput inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
+                    <LargeInput inputHeight={100} inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 
-                    <LargeInput inputValue={productAbout} inputType='text' title="About..." maxChar={300} setNewValue={setProductAbout} />
+                    <LargeInput inputHeight={200} inputValue={productAbout} inputType='text' title="About..." maxChar={300} setNewValue={setProductAbout} />
 
                     <Image source={{ uri: productImage }} style={style.productImage} />
 

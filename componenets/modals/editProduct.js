@@ -10,20 +10,23 @@ import ButtonContainer from "../productDetails/buttonContainer";
 
 
 const EditProduct = ({ display, setModalDisplay, productInfo }) => {
-  
+
+    const defaultImage = "https://gnetradio.com/wp-content/uploads/2019/10/no-image.jpg"
+
     useEffect(() => {
         // Update state when productInfo changes
         setProductName(productInfo.name);
         setProductPrice(productInfo.price);
         setProductImage(productInfo.image);
-      }, [productInfo]);
-    
+    }, [productInfo]);
+
 
     const [productName, setProductName] = useState(productInfo["name"])
     const [productPrice, setProductPrice] = useState(productInfo["price"])
     const [productImage, setProductImage] = useState(productInfo["image"])
 
     const { products, updateProducts } = useContext(ProductContext)
+
 
 
     // edit price and name of product 
@@ -36,11 +39,12 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
                 { text: "No", onPress: () => console.log("No Pressed") },
                 {
                     text: "Yes", onPress: () => {
+
                         const myproducts = products
 
                         const currentProductIndex = myproducts.findIndex((i) => i["id"] === productInfo["id"])
-
                         const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage }
+
 
                         const newProducts = [...products]
                         newProducts[currentProductIndex] = updateCurrentProduct
@@ -92,7 +96,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
 
     const deleteProduct = () => {
-   
+
         Alert.alert('Warning', 'Are you sure you want to delete this product?', [
             { text: "No", onPress: () => console.log("No Pressed") },
             {
@@ -114,8 +118,6 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
     }
 
-
-
     return (
 
         <Modal visible={display}  >
@@ -128,10 +130,18 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                     <Image source={{ uri: productImage }} style={style.productImage} />
 
-                    <ImagePicker setProductImage={setProductImage} title={'Upload a new image'} />
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <ImagePicker setProductImage={setProductImage} title={'Upload a new image'} />
 
-                    <Input inputValue={productName} inputType='text' title="Name" inputWidth={"60%"}  setNewValue={setProductName} />
-                    <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"}  setNewValue={setProductPrice} />
+                        <Pressable style={style.btn} onPress={() => setProductImage(defaultImage)}>
+                            <MaterialIcons name="delete-forever" size={35} color="red"
+                            />
+                        </Pressable>
+
+                    </View>
+
+                    <Input inputValue={productName} inputType='text' title="Name" inputWidth={"60%"} setNewValue={setProductName} />
+                    <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"} setNewValue={setProductPrice} />
 
                     <ButtonContainer>
                         {/* delete item */}
@@ -187,7 +197,8 @@ const style = StyleSheet.create({
     },
     productImage: {
         width: "100%",
-        height: "50%"
+        height: "50%",
+        resizeMode: 'contain'
     }
 })
 
