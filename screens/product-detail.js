@@ -152,7 +152,7 @@ function ProductDetail({ route }) {
           {productInfo.props.category.length > 0 && productInfo.props.category[0] !== " " ? (
             <>
               <Text style={style.categoryTitle}>Categories: </Text>
-              <ScrollView horizontal>
+              <ScrollView horizontal paddingVertical={5}>
                 {productInfo.props.category.map((category, index) => (
                   <Text key={index} style={[style.categoryTitle, { color: '#878e95' }]}>
                     {" "}

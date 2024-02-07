@@ -1,4 +1,4 @@
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { ScrollView, Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
 
 
@@ -7,21 +7,24 @@ function EditCategory({ category, action }) {
 
 
     return (
-        <View style={{ flexDirection: "row", alignSelf: 'flex-start', alignItems: "center", flexWrap: 'wrap', marginVertical: 10 }}>
+        <View style={{ flexDirection: "row", alignSelf: 'flex-start', alignItems: "center", marginVertical: 10, paddingVertical: 10}}>
 
             <Text style={{ color: "black", fontSize: 18, fontWeight: 'bold' }}>Categories: </Text>
-            {category.length > 0 ? category.map((catagory, index) => (
-                (
-                    <View key={index} style={style.catagoryContainer}>
-                        <Text style={style.value}>{catagory}</Text>
+            {category.length > 0 ? (<ScrollView horizontal paddingVertical={5}>
+                {
+                    category.map((catagory, index) => (
+                        (
+                            <View key={index} style={style.catagoryContainer}>
+                                <Text style={style.value}>{catagory}</Text>
 
-                        <TouchableOpacity style={style.categoryBTN} onPress={() => action(catagory)}>
-                            <AntDesign name="closecircle" size={20} color="red" />
-                        </TouchableOpacity>
+                                <TouchableOpacity style={style.categoryBTN} onPress={() => action(catagory)}>
+                                    <AntDesign name="closecircle" size={20} color="red" />
+                                </TouchableOpacity>
 
-                    </View>
-                )
-            )) : <Text style={{ color: "red", fontWeight: 'bold', fontSize: 18 }}> No Category</Text>}
+                            </View>
+                        )
+                    ))}
+            </ScrollView>) : <Text style={{ color: "red", fontWeight: 'bold', fontSize: 18 }}> No Category</Text>}
 
         </View>
     )
@@ -51,8 +54,9 @@ const style = StyleSheet.create({
     },
     categoryBTN: {
         position: "absolute",
-        top: -5,
-        right: -5
+        top: -1,
+        right: -5,
+        overflow:'visible'
     }
 })
 
