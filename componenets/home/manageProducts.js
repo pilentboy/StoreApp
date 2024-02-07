@@ -8,6 +8,8 @@ import { Alert } from 'react-native'
 import StoreChart from '../modals/sotreChart';
 import AddNewProduct from '../modals/addNewProduct';
 import ManageButtonContainer from './manageButtonContainer';
+import { Fontisto } from '@expo/vector-icons';
+
 
 function ManageProducts() {
 
@@ -26,6 +28,17 @@ function ManageProducts() {
                 <Feather name="plus-square" size={50} color="white" />
             </Pressable>
 
+            <Pressable style={style.btn} >
+                <Fontisto name="search" size={45} color="white" />
+            </Pressable>
+
+
+            {/* display sotre chart */}
+            <Pressable style={style.btn} onPress={() => setStoreChartDisplay(true)}>
+                <Feather name="pie-chart" size={50} color="white" />
+            </Pressable>
+
+
             {/* reload products */}
             <Pressable style={style.btn} onPress={() => {
                 fetchData()
@@ -34,13 +47,11 @@ function ManageProducts() {
                 ]
                 )
             }}>
-                <Ionicons name="reload-circle-outline" size={50} color='white' />
+                <Ionicons name="reload-circle-outline" size={55} color='white' />
             </Pressable>
 
-            {/* display sotre chart */}
-            <Pressable style={style.btn} onPress={() => setStoreChartDisplay(true)}>
-                <Feather name="pie-chart" size={50} color="white" />
-            </Pressable>
+
+
 
 
         </ManageButtonContainer>

@@ -15,7 +15,8 @@ const style = StyleSheet.create({
         backgroundColor: "#222529",
         flexDirection: "row",
         paddingVertical: 5,
-        paddingHorizontal: 5
+        paddingHorizontal: 5,
+        alignItems:'center'
     },
 })
 
