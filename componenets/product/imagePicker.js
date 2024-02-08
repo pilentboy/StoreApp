@@ -1,9 +1,9 @@
 import {StyleSheet, Text, TouchableOpacity } from "react-native";
 import * as imagePicker from 'expo-image-picker'
 import { useState, useEffect } from "react";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-
-function ImagePicker({ setProductImage, title }) {
+function ImagePicker({ setProductImage}) {
 
     const [galleryPermission, setGalleryPermission] = useState(null)
     // const [uploadedImage, setUploadedImage] = useState(null)
@@ -40,7 +40,7 @@ function ImagePicker({ setProductImage, title }) {
     return (
 
         <TouchableOpacity style={style.btn} onPress={() => getImage()}>
-            <Text style={style.title}>{title}</Text>
+            <MaterialCommunityIcons name="file-image-plus" size={50} color="green" />
         </TouchableOpacity>
 
     )
@@ -50,7 +50,7 @@ const style = StyleSheet.create({
     btn: {
         paddingHorizontal: 40,
         paddingVertical: 10,
-        backgroundColor: "black",
+        // backgroundColor: "black",
         marginVertical: 10
     },
     title: {

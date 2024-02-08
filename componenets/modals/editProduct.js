@@ -7,7 +7,7 @@ import ImagePicker from "../product/imagePicker";
 import { MaterialIcons } from '@expo/vector-icons';
 import CloseBTN from "../product/closeBTN";
 import ButtonContainer from "../productDetails/buttonContainer";
-
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
@@ -131,11 +131,10 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
                     <Image source={{ uri: productImage }} style={style.productImage} />
 
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <ImagePicker setProductImage={setProductImage} title={'Upload a new image'} />
+                        <ImagePicker setProductImage={setProductImage} />
 
                         <Pressable style={style.btn} onPress={() => setProductImage(defaultImage)}>
-                            <MaterialIcons name="delete-forever" size={35} color="red"
-                            />
+                            <MaterialCommunityIcons name="file-image-remove" size={50} color="red" />
                         </Pressable>
 
                     </View>

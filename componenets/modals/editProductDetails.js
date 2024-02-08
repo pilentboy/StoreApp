@@ -10,6 +10,8 @@ import ButtonContainer from "../productDetails/buttonContainer";
 import { useNavigation } from '@react-navigation/native';
 import EditCategory from "../productDetails/editCategory";
 import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditProductDetailsDisplay }) {
 
     const defaultImage = "https://gnetradio.com/wp-content/uploads/2019/10/no-image.jpg"
@@ -155,14 +157,13 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
                     <Image source={{ uri: productImage }} style={style.productImage} />
 
-                    {/* <ImagePicker setProductImage={setProductImage} title={'Upload an image'} /> */}
-
+               
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <ImagePicker setProductImage={setProductImage} title={'Upload a new image'} />
+                        <ImagePicker setProductImage={setProductImage} />
 
                         <Pressable style={style.btn} onPress={() => setProductImage(defaultImage)}>
-                            <MaterialIcons name="delete-forever" size={35} color="red"
-                            />
+                        <MaterialCommunityIcons name="file-image-remove" size={50} color="red" />
+
                         </Pressable>
 
                     </View>
