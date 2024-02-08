@@ -1,12 +1,12 @@
 import { AntDesign } from '@expo/vector-icons';
-import { Pressable, StyleSheet } from "react-native"
+import { StyleSheet ,TouchableOpacity} from "react-native"
 
 function CloseBTN({ action }) {
 
     return (
-        <Pressable onPress={action} style={style.btn}>
+        <TouchableOpacity onPress={action} style={style.btn}>
             <AntDesign name="closecircle" size={35} color="red" />
-        </Pressable>
+        </TouchableOpacity>
     )
 }
 

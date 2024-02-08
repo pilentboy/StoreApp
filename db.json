@@ -4,7 +4,11 @@
       "id": 1,
       "name": "Product 1",
       "price": "19.99",
-      "size": "M",
+      "size": [
+        "S",
+        "M",
+        "L"
+      ],
       "type": "Shirt",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "image": "https://assets.ajio.com/medias/sys_master/root/20221103/fU54/6363e33caeb269659c70447f/-473Wx593H-441668245-green-MODEL.jpg",
@@ -14,15 +18,16 @@
         1
       ],
       "reviews": 14,
-      "category":[
-      
-      ]
+      "category": []
     },
     {
       "id": 2,
       "name": "Product 2",
       "price": "29.99",
-      "size": "L",
+      "size": [
+        "XL",
+        "2XL"
+      ],
       "type": "Pants",
       "description": "Ut porttitor diam nulla, id interdum metus aliquet et.",
       "image": "https://i1.adis.ws/i/jpl/bl_517070_a?w=364&h=364",
@@ -32,15 +37,19 @@
         2
       ],
       "reviews": 16,
-      "category":[
-         "shirt"
+      "category": [
+        "shirt"
       ]
     },
     {
       "id": 3,
       "name": "Product 3",
       "price": "39.99",
-      "size": "S",
+      "size": [
+        "S",
+        "XL",
+        "2XL"
+      ],
       "type": "Shirt",
       "description": "Sed tempor nisl at augue tempor, ut gravida nunc ullamcorper.",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvpohKNZ_JZiULEz_AYW05kItsoQNT55SUB-qbCjWTOcPLfiRBAMnhgz8clH_OS8QQS_Y&usqp=CAU",
@@ -50,15 +59,17 @@
         1
       ],
       "reviews": 65,
-      "category":[
-         "shirt"
+      "category": [
+        "shirt"
       ]
     },
     {
       "id": 4,
       "name": "Product 4",
       "price": "60",
-      "size": "S",
+      "size": [
+    
+      ],
       "type": "Shirt",
       "description": "Sed tempor nisl at augue tempor, ut gravida nunc ullamcorper.",
       "image": "https://img.freepik.com/free-photo/sexy-woman-leather-jacket-smile-biting-finger_176420-17779.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704499200&semt=ais",
@@ -68,8 +79,8 @@
         2
       ],
       "reviews": 50,
-      "category":[
-         "shirt"
+      "category": [
+        "shirt"
       ]
     }
   ]

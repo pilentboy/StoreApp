@@ -1,4 +1,4 @@
-import { Modal, View, Text, Pressable, StyleSheet, Dimensions, ScrollView } from "react-native";
+import { Modal, View, Text, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from "react-native";
 import CloseBTN from "../product/closeBTN";
 import { PieChart } from "react-native-chart-kit";
 import ButtonContainer from "../productDetails/buttonContainer";
@@ -114,11 +114,11 @@ function StoreChart({ display, setStoreChartDisplay }) {
 				
                     <CloseBTN action={() => setStoreChartDisplay(false)} />
 
-                    <Pressable>
+                    <TouchableOpacity>
                         <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>
 							Print
 						</Text>
-                    </Pressable>
+                    </TouchableOpacity>
 
                 </ButtonContainer>
 

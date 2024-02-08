@@ -1,4 +1,4 @@
-import { Modal, Alert, StyleSheet, Text, View, Pressable, ScrollView, Image, TextInput } from "react-native"
+import { Modal, Alert, StyleSheet, Text, View, TouchableOpacity, ScrollView, Image, CheckBox } from "react-native"
 
 import ButtonContainer from "../productDetails/buttonContainer"
 import CloseBTN from "../product/closeBTN"
@@ -8,11 +8,14 @@ import { useState, useContext } from "react";
 import { ProductContext } from "../../context/productContext";
 import LargeInput from "../product/largInput";
 import ImagePicker from "../product/imagePicker";
+import ProductSizeBox from "../product/productSizeBox";
 
 function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     const DefaultImage = "https://gnetradio.com/wp-content/uploads/2019/10/no-image.jpg"
 
     const { products, updateProducts } = useContext(ProductContext)
+
+
 
     function AddProduct() {
 
@@ -61,6 +64,13 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     const [category, setCategory] = useState('')
 
 
+
+    const [sSize, setSSize] = useState(false)
+    const [mSize, setMSize] = useState(false)
+    const [lSize, setLSize] = useState(false)
+    const [xlSize, setXLSize] = useState(false)
+    const [xl2Size, setXL2Size] = useState(false)
+
     return (
 
 
@@ -76,6 +86,16 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                     <Input inputValue={productName} inputType='text' title="Name" inputWidth={"60%"} setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"} setNewValue={setProductPrice} />
 
+                    <View style={{ flexDirection: 'row', marginVertical: 5 }}>
+
+                        <ProductSizeBox title={'S'} productSize={sSize} setProductSize={setSSize} />
+                        <ProductSizeBox title={'M'} productSize={mSize} setProductSize={setMSize} />
+                        <ProductSizeBox title={'L'} productSize={lSize} setProductSize={setLSize} />
+                        <ProductSizeBox title={'XL'} productSize={xlSize} setProductSize={setXLSize} />
+                        <ProductSizeBox title={'2XL'} productSize={xl2Size} setProductSize={setXL2Size} />
+
+                    </View>
+
                     <Input inputValue={category} inputType='text' title="Category..." inputWidth={"100%"} setNewValue={setCategory} />
 
                     <LargeInput inputHeight={100} inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
@@ -84,7 +104,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                     <Image source={{ uri: productImage }} style={style.productImage} />
 
-                    <ImagePicker setProductImage={setProductImage}  />
+                    <ImagePicker setProductImage={setProductImage} />
 
 
                     <ButtonContainer>
@@ -92,9 +112,9 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                         <CloseBTN action={() => setAddNewProductDisplay(false)} />
 
                         {/* apply new info */}
-                        <Pressable onPress={AddProduct} style={style.btn}>
+                        <TouchableOpacity onPress={AddProduct} style={style.btn}>
                             <AntDesign name="checksquare" size={35} color="green" />
-                        </Pressable>
+                        </TouchableOpacity>
                     </ButtonContainer>
 
 

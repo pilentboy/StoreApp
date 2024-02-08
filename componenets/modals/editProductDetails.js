@@ -1,4 +1,4 @@
-import { Text, Image, View, Modal, Pressable, StyleSheet, ScrollView, Alert } from "react-native"
+import { Text, Image, View, Modal, TouchableOpacity, StyleSheet, ScrollView, Alert } from "react-native"
 import { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../../context/productContext";
 import Input from "../product/input";
@@ -161,28 +161,28 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <ImagePicker setProductImage={setProductImage} />
 
-                        <Pressable style={style.btn} onPress={() => setProductImage(defaultImage)}>
+                        <TouchableOpacity style={style.btn} onPress={() => setProductImage(defaultImage)}>
                         <MaterialCommunityIcons name="file-image-remove" size={50} color="red" />
 
-                        </Pressable>
+                        </TouchableOpacity>
 
                     </View>
 
                     <ButtonContainer>
 
                         {/* delete item */}
-                        <Pressable onPress={() => deleteProduct()} style={style.btn}>
+                        <TouchableOpacity onPress={() => deleteProduct()} style={style.btn}>
                             <MaterialIcons name="delete-forever" size={35} color="red"
                             />
-                        </Pressable>
+                        </TouchableOpacity>
                         {/* cancle editing */}
 
                         <CloseBTN action={() => setEditProductDetailsDisplay(false)} />
 
                         {/* apply new info */}
-                        <Pressable onPress={editProduct} style={style.btn}>
+                        <TouchableOpacity onPress={editProduct} style={style.btn}>
                             <AntDesign name="checksquare" size={35} color="green" />
-                        </Pressable>
+                        </TouchableOpacity>
                     </ButtonContainer>
 
 

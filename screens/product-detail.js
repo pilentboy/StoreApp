@@ -33,7 +33,7 @@ function ProductDetail({ route }) {
 
   const productInfo = route.params;
   const { products, updateProducts } = useContext(ProductContext);
-  const [selectedValue, setSelectedValue] = useState(productInfo.props.size);
+  const [selectedValue, setSelectedValue] = useState(productInfo.props.size.length > 0 ? productInfo.props.size[0] : undefined);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
 
@@ -111,20 +111,31 @@ function ProductDetail({ route }) {
         <ProductDescription description={productInfo.props.description} />
 
         {/* Product size selection */}
-        <View style={{ marginTop: 20 }}>
 
-          <RequiredTitle title="Size" />
+        {
+          productInfo.props.size.length > 0 ? <View style={{ marginTop: 20 }}>
 
-          <Picker
-            selectedValue={selectedValue}
-            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-            style={style.pickerSize}>
-            <Picker.Item label={productInfo.props.size} value={productInfo.props.size} />
-            <Picker.Item label={"M"} value={"M"} />
-            <Picker.Item label={"XL"} value={"XL"} />
-          </Picker>
+            <RequiredTitle title="Size" />
 
-        </View>
+            <Picker
+              selectedValue={selectedValue}
+              onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+              style={style.pickerSize}>
+
+              {
+
+                productInfo.props.size.map((size, index) => (
+                  <Picker.Item label={size} key={index} />
+                ))
+
+              }
+
+            </Picker>
+
+          </View> : null
+
+        }
+
 
         {/* Product type */}
 
@@ -218,6 +229,7 @@ const style = StyleSheet.create({
     width: '50%',
     borderColor: '#878e95',
     paddingHorizontal: 20,
+    borderWidth: 1
   },
   wrapperRow: {
     flexDirection: 'row',
