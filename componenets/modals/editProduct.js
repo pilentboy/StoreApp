@@ -130,11 +130,12 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                     <Image source={{ uri: productImage }} style={style.productImage} />
 
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: 120 }}>
+
                         <ImagePicker setProductImage={setProductImage} />
 
-                        <TouchableOpacity style={style.btn} onPress={() => setProductImage(defaultImage)}>
-                            <MaterialCommunityIcons name="file-image-remove" size={10} color="red" />
+                        <TouchableOpacity style={{}} onPress={() => setProductImage(defaultImage)}>
+                            <MaterialCommunityIcons name="file-image-remove" size={50} color="red" />
                         </TouchableOpacity>
 
                     </View>

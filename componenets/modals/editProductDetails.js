@@ -151,20 +151,21 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
                     <Input inputValue={newCategory} inputType='text' title={"Category..."} inputWidth={"100%"} setNewValue={setNewCategory} />
 
-                    <LargeInput inputHeight={100} inputValue={productDescription} inputType='text'   title="Description..." maxChar={130} setNewValue={setProductDescription} />
+                    <LargeInput inputHeight={100} inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 
-                    <LargeInput inputHeight={200}  inputValue={productAbout} inputType='text' title="About..." maxChar={300} setNewValue={setProductAbout} />
+                    <LargeInput inputHeight={200} inputValue={productAbout} inputType='text' title="About..." maxChar={300} setNewValue={setProductAbout} />
 
                     <Image source={{ uri: productImage }} style={style.productImage} />
 
-               
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center', paddingBottom: 10 }}>
                         <ImagePicker setProductImage={setProductImage} />
 
                         <TouchableOpacity style={style.btn} onPress={() => setProductImage(defaultImage)}>
-                        <MaterialCommunityIcons name="file-image-remove" size={50} color="red" />
+                            <MaterialCommunityIcons name="file-image-remove" size={50} color="red" />
 
                         </TouchableOpacity>
+
 
                     </View>
 
@@ -210,6 +211,7 @@ const style = StyleSheet.create({
     productImage: {
         width: 250,
         height: 300,
+        borderRadius:5
     }
 })
 

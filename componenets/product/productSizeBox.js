@@ -1,6 +1,8 @@
-import { View, CheckBox, Text } from 'react-native'
+import { View, Text } from 'react-native'
+import CheckBox from '@react-native-community/checkbox'
 
-export default function ProductSizeBox({ title, productSize, setProductSize }) {
+
+function ProductSizeBox({ title, productSize, setProductSize }) {
 
     return (
         <View>
@@ -16,7 +18,11 @@ export default function ProductSizeBox({ title, productSize, setProductSize }) {
                     disabled={false}
                 />
 
+
+
             </View>
         </View>
     )
 }
+
+export default ProductSizeBox

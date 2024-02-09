@@ -88,11 +88,11 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                     <View style={{ flexDirection: 'row', marginVertical: 5 }}>
 
-                        <ProductSizeBox title={'S'} productSize={sSize} setProductSize={setSSize} />
+                        {/* <ProductSizeBox title={'S'} productSize={sSize} setProductSize={setSSize} />
                         <ProductSizeBox title={'M'} productSize={mSize} setProductSize={setMSize} />
                         <ProductSizeBox title={'L'} productSize={lSize} setProductSize={setLSize} />
                         <ProductSizeBox title={'XL'} productSize={xlSize} setProductSize={setXLSize} />
-                        <ProductSizeBox title={'2XL'} productSize={xl2Size} setProductSize={setXL2Size} />
+                        <ProductSizeBox title={'2XL'} productSize={xl2Size} setProductSize={setXL2Size} /> */}
 
                     </View>
 
