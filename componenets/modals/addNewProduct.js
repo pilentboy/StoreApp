@@ -85,9 +85,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     //     return selectedSize
     // }
 
-    useEffect(() => {
-        console.log(productSize)
-    }, [productSize])
+
 
     return (
 

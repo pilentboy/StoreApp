@@ -69,26 +69,32 @@ function ProductDetail({ route }) {
   useEffect(() => {
     findRelatedProducts();
     scrollToTop();
-    checkSelectedSize()
   }, [productInfo]);
 
-
-  const [productSize, setProductSize] = useState([])
-
-  const checkSelectedSize =async () => {
-    const selectedSizes = await productInfo.props.size.filter((size) => size.selected === true);
+  const checkSelectedSize = () => {
+    const selectedSizes = productInfo.props.size.filter((size) => size.selected === true);
 
     if (selectedSizes.length > 0) {
-      setProductSize(selectedSizes)
-      return true
+      return selectedSizes
     }
-    return false
+    return []
   }
+
+
+
+  const [productSize, setProductSize] = useState(checkSelectedSize())
+
+
+
+  // useEffect(() => {
+  //   checkSelectedSize();
+  // }, [productInfo.props.size]);
 
   return (
     // ScrollView to enable scrolling
     <ScrollView ref={scrollViewRef}>
       <StatusBar backgroundColor='black' barStyle='white' />
+
       {/* Container for the product details */}
       <View style={style.container}>
 
@@ -122,31 +128,25 @@ function ProductDetail({ route }) {
         <ProductDescription description={productInfo.props.description} />
 
         {/* Product size selection */}
-
         {
-
-          checkSelectedSize() ? <View style={{ marginTop: 20 }}>
-
-            <RequiredTitle title="Size" />
-
-            <Picker
-              selectedValue={productSize.length > 0 ?productSize[0].value : undefined}
-              onValueChange={(itemValue, itemIndex) => setProductSize(itemValue)}
-              style={style.pickerSize}>
-
-              {
-
-                productSize.map((size, index) => (
-                  <Picker.Item label={size.value} key={index} />
-                ))
-
-              }
-
-            </Picker>
-
-          </View> : null
-
+          productSize.length > 0 ? (
+            <View style={{ marginTop: 20 }}>
+              <RequiredTitle title="Size" />
+              <Picker
+                selectedValue={productSize[0].value}
+                onValueChange={(itemValue, itemIndex) => setProductSize([{ value: itemValue, selected: true }])}
+                style={style.pickerSize}
+              >
+                {productSize.map((size, index) =>
+                  size.selected ? (
+                    <Picker.Item label={size.value} value={size.value} key={index} />
+                  ) : null
+                )}
+              </Picker>
+            </View>
+          ) : null
         }
+
 
 
         {/* Product type */}
