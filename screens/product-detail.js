@@ -33,7 +33,6 @@ function ProductDetail({ route }) {
 
   const productInfo = route.params;
   const { products, updateProducts } = useContext(ProductContext);
-  const [selectedValue, setSelectedValue] = useState(productInfo.props.size.length > 0 ? productInfo.props.size[0] : undefined);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
 
@@ -65,14 +64,26 @@ function ProductDetail({ route }) {
   };
 
 
+
   // useEffect to trigger findRelatedProducts when productInfo changes
   useEffect(() => {
     findRelatedProducts();
     scrollToTop();
+    checkSelectedSize()
   }, [productInfo]);
 
 
+  const [productSize, setProductSize] = useState([])
 
+  const checkSelectedSize =async () => {
+    const selectedSizes = await productInfo.props.size.filter((size) => size.selected === true);
+
+    if (selectedSizes.length > 0) {
+      setProductSize(selectedSizes)
+      return true
+    }
+    return false
+  }
 
   return (
     // ScrollView to enable scrolling
@@ -113,19 +124,20 @@ function ProductDetail({ route }) {
         {/* Product size selection */}
 
         {
-          productInfo.props.size.length > 0 ? <View style={{ marginTop: 20 }}>
+
+          checkSelectedSize() ? <View style={{ marginTop: 20 }}>
 
             <RequiredTitle title="Size" />
 
             <Picker
-              selectedValue={selectedValue}
-              onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+              selectedValue={productSize.length > 0 ?productSize[0].value : undefined}
+              onValueChange={(itemValue, itemIndex) => setProductSize(itemValue)}
               style={style.pickerSize}>
 
               {
 
-                productInfo.props.size.map((size, index) => (
-                  <Picker.Item label={size} key={index} />
+                productSize.map((size, index) => (
+                  <Picker.Item label={size.value} key={index} />
                 ))
 
               }

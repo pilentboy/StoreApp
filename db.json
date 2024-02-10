@@ -5,9 +5,26 @@
       "name": "Product 1",
       "price": "19.99",
       "size": [
-        "S",
-        "M",
-        "L"
+        {
+          "selected": false,
+          "value": "S"
+        },
+        {
+          "selected": false,
+          "value": "M"
+        },
+        {
+          "selected": false,
+          "value": "L"
+        },
+        {
+          "selected": false,
+          "value": "XL"
+        },
+        {
+          "selected": true,
+          "value": "2XL"
+        }
       ],
       "type": "Shirt",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -25,8 +42,26 @@
       "name": "Product 2",
       "price": "29.99",
       "size": [
-        "XL",
-        "2XL"
+        {
+          "selected": false,
+          "value": "S"
+        },
+        {
+          "selected": false,
+          "value": "M"
+        },
+        {
+          "selected": false,
+          "value": "L"
+        },
+        {
+          "selected": false,
+          "value": "XL"
+        },
+        {
+          "selected": false,
+          "value": "2XL"
+        }
       ],
       "type": "Pants",
       "description": "Ut porttitor diam nulla, id interdum metus aliquet et.",
@@ -46,9 +81,26 @@
       "name": "Product 3",
       "price": "39.99",
       "size": [
-        "S",
-        "XL",
-        "2XL"
+        {
+          "selected": false,
+          "value": "S"
+        },
+        {
+          "selected": true,
+          "value": "M"
+        },
+        {
+          "selected": true,
+          "value": "L"
+        },
+        {
+          "selected": false,
+          "value": "XL"
+        },
+        {
+          "selected": true,
+          "value": "2XL"
+        }
       ],
       "type": "Shirt",
       "description": "Sed tempor nisl at augue tempor, ut gravida nunc ullamcorper.",
@@ -67,16 +119,32 @@
       "id": 4,
       "name": "Product 4",
       "price": "60",
-      "size": [
-    
-      ],
+      "size": [],
       "type": "Shirt",
       "description": "Sed tempor nisl at augue tempor, ut gravida nunc ullamcorper.",
       "image": "https://img.freepik.com/free-photo/sexy-woman-leather-jacket-smile-biting-finger_176420-17779.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704499200&semt=ais",
       "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas purus viverra accumsan in nisl nisi",
       "related_products": [
-        1,
-        2
+        {
+          "selected": false,
+          "value": "S"
+        },
+        {
+          "selected": false,
+          "value": "M"
+        },
+        {
+          "selected": false,
+          "value": "L"
+        },
+        {
+          "selected": false,
+          "value": "XL"
+        },
+        {
+          "selected": false,
+          "value": "2XL"
+        }
       ],
       "reviews": 50,
       "category": [

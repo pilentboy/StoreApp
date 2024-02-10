@@ -4,11 +4,12 @@ import ButtonContainer from "../productDetails/buttonContainer"
 import CloseBTN from "../product/closeBTN"
 import { AntDesign } from '@expo/vector-icons';
 import Input from "../product/input";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../../context/productContext";
 import LargeInput from "../product/largInput";
 import ImagePicker from "../product/imagePicker";
 import ProductSizeBox from "../product/productSizeBox";
+
 
 function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     const DefaultImage = "https://gnetradio.com/wp-content/uploads/2019/10/no-image.jpg"
@@ -33,9 +34,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                     const categories = category !== '' ? category.split(" ") : []
 
-                    console.log(categories)
-
-                    const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, category: categories, about: productAbout, related_products: [0, 2], image: productImage, size: "M", type: "Shirt", reviews: 24 }
+                    const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, category: categories, about: productAbout, related_products: [0, 2], image: productImage, size: productSize, type: "Shirt", reviews: 24 }
 
                     const updatedProducts = [...products]
 
@@ -64,12 +63,31 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     const [category, setCategory] = useState('')
 
 
+    const [productSize, setProductSize] = useState([
+        { selected: false, value: "S" },
+        { selected: false, value: "M" },
+        { selected: false, value: "L" },
+        { selected: false, value: "XL" },
+        { selected: false, value: "2XL" },
 
-    const [sSize, setSSize] = useState(false)
-    const [mSize, setMSize] = useState(false)
-    const [lSize, setLSize] = useState(false)
-    const [xlSize, setXLSize] = useState(false)
-    const [xl2Size, setXL2Size] = useState(false)
+    ])
+
+
+    const handleSelectedSize = (index) => {
+
+        const updatedProudctSize = [...productSize]
+        updatedProudctSize[index].selected = !updatedProudctSize[index].selected
+        setProductSize(updatedProudctSize)
+      }
+
+    // const checkSelectedSize = () => {
+    //     const selectedSize = productSize.filter((size, index) => size.selected === true)
+    //     return selectedSize
+    // }
+
+    useEffect(() => {
+        console.log(productSize)
+    }, [productSize])
 
     return (
 
@@ -86,13 +104,23 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                     <Input inputValue={productName} inputType='text' title="Name" inputWidth={"60%"} setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"} setNewValue={setProductPrice} />
 
-                    <View style={{ flexDirection: 'row', marginVertical: 5 }}>
+                    <View style={{ marginVertical: 5, alignItems: "center" }}>
 
-                        {/* <ProductSizeBox title={'S'} productSize={sSize} setProductSize={setSSize} />
-                        <ProductSizeBox title={'M'} productSize={mSize} setProductSize={setMSize} />
-                        <ProductSizeBox title={'L'} productSize={lSize} setProductSize={setLSize} />
-                        <ProductSizeBox title={'XL'} productSize={xlSize} setProductSize={setXLSize} />
-                        <ProductSizeBox title={'2XL'} productSize={xl2Size} setProductSize={setXL2Size} /> */}
+                        <Text style={{ color: 'black', fontSize: 18, fontWeight: 500, marginBottom: 5 }}>Product Size</Text>
+
+                        <View style={{ flexDirection: 'row' }}>
+
+
+
+                            {
+                                productSize.map((size, index) => (
+                                    <ProductSizeBox key={index} title={productSize[index].value} selected={productSize[index].selected} setProductSize={() => handleSelectedSize(index)} />
+                                ))
+                            }
+
+
+                        </View>
+
 
                     </View>
 

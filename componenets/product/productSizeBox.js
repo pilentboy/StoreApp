@@ -1,21 +1,32 @@
 import { View, Text } from 'react-native'
-import CheckBox from '@react-native-community/checkbox'
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
+import { useEffect, useState } from 'react';
 
-function ProductSizeBox({ title, productSize, setProductSize }) {
+function ProductSizeBox({ title, selected, setProductSize }) {
 
     return (
         <View>
             <View style={{ flexDirection: 'row', alignItems: 'center', marginHorizontal: 5 }}>
 
-                <Text style={{ fontWeight: 'bold', fontSize: 15, color: "black", marginRight: 5 }}>{title}</Text>
+                <BouncyCheckbox
+                    text={title}
+                    onPress={setProductSize}
+                    isChecked={selected}
 
-                <CheckBox
-                    value={productSize}
-                    onValueChange={setProductSize}
-                    color='green'
-                    style={{ width: 22, height: 22 }}
-                    disabled={false}
+                    size={20}
+                    fillColor="#362FD9"
+                    unfillColor="white"
+                    iconStyle={{ borderColor: "white", borderRadius: 0 }}
+                    innerIconStyle={{ borderWidth: 2, borderRadius: 0 }}
+
+                    textStyle={{
+                        textDecorationLine: "none", fontWeight: 'bold', fontSize: 16, color: "#27374D"
+                    }}
+
+                    textContainerStyle={{ margin: 5 }}
+
+                    bounceEffectIn={0.5}
                 />
 
 
@@ -24,5 +35,5 @@ function ProductSizeBox({ title, productSize, setProductSize }) {
         </View>
     )
 }
+export default ProductSizeBox;
 
-export default ProductSizeBox

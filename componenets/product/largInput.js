@@ -1,4 +1,4 @@
-import { Text, View, TextInput, StyleSheet } from 'react-native'
+import {View, TextInput, StyleSheet } from 'react-native'
 
 
 function LargeInput({ title, inputValue, setNewValue, inputType, maxChar,inputHeight}) {

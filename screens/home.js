@@ -26,7 +26,6 @@ function Home() {
     }, [products])
 
     function loadProducts() {
-        console.log("loading")
         return products.map((product) => (
             <Product key={product.id} {...product}  />
         ));
