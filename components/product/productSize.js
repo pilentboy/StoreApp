@@ -6,10 +6,11 @@ const ProductSize = ({ productSize, setProductSize }) => {
 
 
     const handleSelectedSize = (index) => {
-
+        
         const updatedProudctSize = [...productSize]
         updatedProudctSize[index].selected = !updatedProudctSize[index].selected
         setProductSize(updatedProudctSize)
+
     }
 
     return (
@@ -24,7 +25,7 @@ const ProductSize = ({ productSize, setProductSize }) => {
 
                 {
                     productSize.map((size, index) => (
-                        <CheckBoxSize key={index} title={productSize[index].value} selected={productSize[index].selected} setProductSize={() => handleSelectedSize(index)} />
+                        <CheckBoxSize key={index} title={size.value} selected={size.selected} setProductSize={() => handleSelectedSize(index)} />
                     ))
                 }
 

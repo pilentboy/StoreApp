@@ -25,7 +25,6 @@ import EditProductDetails from '../components/modals/editProductDetails';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ManageButtonContainer from '../components/home/manageButtonContainer';
 
-
 // ProductDetail Component
 function ProductDetail({ route }) {
 

@@ -11,6 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 import EditCategory from "../productDetails/editCategory";
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import ProductSize from "../product/productSize";
 
 function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditProductDetailsDisplay }) {
 
@@ -35,13 +36,14 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
     const [productImage, setProductImage] = useState(productInfo.image)
     const [newCategory, setNewCategory] = useState('')
     const [productCategoies, setProductCategories] = useState(productInfo.category)
-    console.log("new", newCategory)
+    const [productSize, setProductSize] = useState(productInfo.size)
     const { products, updateProducts } = useContext(ProductContext)
 
     const removeCategory = (categoryValue) => {
         const newCategories = productCategoies.filter((category) => category !== categoryValue)
         setProductCategories(newCategories)
     }
+    
     const editProduct = () => {
 
         if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
@@ -58,7 +60,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
                         const categories = newCategory !== '' ? newCategory.split(" ") : []
                         const updatedCategories = categories.concat(productCategoies)
 
-                        const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, category: updatedCategories, about: productAbout, you_will_love: ["hi"] }
+                        const updateCurrentProduct = { ...myproducts[currentProductIndex], name: productName, price: productPrice === '0' ? 'free!' : productPrice, image: productImage, description: productDescription, category: updatedCategories, size: productSize, about: productAbout, you_will_love: ["hi"] }
 
                         const newProducts = [...products]
                         newProducts[currentProductIndex] = updateCurrentProduct
@@ -145,6 +147,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
                     <Input inputValue={productName} inputWidth={"60%"} inputType='text' title="Name" setNewValue={setProductName} />
                     <Input inputValue={productPrice} inputWidth={"60%"} inputType='numeric' title="Price" setNewValue={setProductPrice} />
 
+                    <ProductSize productSize={productSize} setProductSize={setProductSize} />
 
 
                     <EditCategory category={productCategoies} action={removeCategory} />
@@ -211,7 +214,7 @@ const style = StyleSheet.create({
     productImage: {
         width: 250,
         height: 300,
-        borderRadius:5
+        borderRadius: 5
     }
 })
 
