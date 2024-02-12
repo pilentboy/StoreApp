@@ -1,9 +1,7 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
-import { useEffect, useState } from 'react';
-
-function ProductSizeBox({ title, selected, setProductSize }) {
+function CheckBoxSize({ title, selected, setProductSize }) {
 
     return (
         <View>
@@ -35,5 +33,5 @@ function ProductSizeBox({ title, selected, setProductSize }) {
         </View>
     )
 }
-export default ProductSizeBox;
+export default CheckBoxSize;
 

@@ -8,7 +8,7 @@ import { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../../context/productContext";
 import LargeInput from "../product/largInput";
 import ImagePicker from "../product/imagePicker";
-import ProductSizeBox from "../product/productSizeBox";
+import CheckBoxSize from "../product/checkBoxsSize";
 
 
 function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
@@ -19,7 +19,6 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
 
     function AddProduct() {
-
 
         Alert.alert("Warning", "Are you sure about adding this product?", [
             {
@@ -80,10 +79,6 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
         setProductSize(updatedProudctSize)
       }
 
-    // const checkSelectedSize = () => {
-    //     const selectedSize = productSize.filter((size, index) => size.selected === true)
-    //     return selectedSize
-    // }
 
 
 
@@ -112,7 +107,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                             {
                                 productSize.map((size, index) => (
-                                    <ProductSizeBox key={index} title={productSize[index].value} selected={productSize[index].selected} setProductSize={() => handleSelectedSize(index)} />
+                                    <CheckBoxSize key={index} title={size.value} selected={size.selected} setProductSize={() => handleSelectedSize(index)} />
                                 ))
                             }
 
