@@ -1,7 +1,17 @@
+import { View, Text } from 'react-native'
 import CheckBoxSize from "./checkBoxsSize";
 
 
-const ProductSize = () => {
+const ProductSize = ({ productSize, setProductSize }) => {
+
+
+    const handleSelectedSize = (index) => {
+
+        const updatedProudctSize = [...productSize]
+        updatedProudctSize[index].selected = !updatedProudctSize[index].selected
+        setProductSize(updatedProudctSize)
+    }
+
     return (
 
         <View style={{ marginVertical: 5, alignItems: "center" }}>
