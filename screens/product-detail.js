@@ -87,7 +87,7 @@ function ProductDetail({ route }) {
       setAvailableProductSize(availableSizes);
       setSelectedProductSize(availableSizes[0].value); 
     } else {
-      setProductSize([])
+      setAvailableProductSize([])
       setSelectedProductSize('')
     }
 

@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "name": "Product 1",
+      "name": "Jacket 213",
       "price": "19.99",
       "size": [
         {
@@ -39,7 +39,7 @@
     },
     {
       "id": 2,
-      "name": "Product 2",
+      "name": "Black h21",
       "price": "29.99",
       "size": [
         {
@@ -78,7 +78,7 @@
     },
     {
       "id": 3,
-      "name": "Product 3",
+      "name": "Soft W22",
       "price": "39.99",
       "size": [
         {
@@ -117,7 +117,7 @@
     },
     {
       "id": 4,
-      "name": "Product 4",
+      "name": "Jacket 24",
       "price": "60",
       "size": [],
       "type": "Shirt",
@@ -126,7 +126,7 @@
       "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas purus viverra accumsan in nisl nisi",
       "related_products": [
         {
-          "selected": true,
+          "selected": false,
           "value": "S"
         },
         {
@@ -142,7 +142,7 @@
           "value": "XL"
         },
         {
-          "selected": true,
+          "selected": false,
           "value": "2XL"
         }
       ],
