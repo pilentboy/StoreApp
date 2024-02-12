@@ -14,15 +14,15 @@
           "value": "M"
         },
         {
-          "selected": false,
+          "selected": true,
           "value": "L"
         },
         {
-          "selected": false,
+          "selected": true,
           "value": "XL"
         },
         {
-          "selected": true,
+          "selected": false,
           "value": "2XL"
         }
       ],
@@ -43,7 +43,7 @@
       "price": "29.99",
       "size": [
         {
-          "selected": false,
+          "selected": true,
           "value": "S"
         },
         {
@@ -55,7 +55,7 @@
           "value": "L"
         },
         {
-          "selected": false,
+          "selected": true,
           "value": "XL"
         },
         {
@@ -82,7 +82,7 @@
       "price": "39.99",
       "size": [
         {
-          "selected": false,
+          "selected": true,
           "value": "S"
         },
         {
@@ -94,7 +94,7 @@
           "value": "L"
         },
         {
-          "selected": false,
+          "selected": true,
           "value": "XL"
         },
         {
@@ -126,7 +126,7 @@
       "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas purus viverra accumsan in nisl nisi",
       "related_products": [
         {
-          "selected": false,
+          "selected": true,
           "value": "S"
         },
         {
@@ -142,7 +142,7 @@
           "value": "XL"
         },
         {
-          "selected": false,
+          "selected": true,
           "value": "2XL"
         }
       ],

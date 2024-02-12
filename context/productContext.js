@@ -21,8 +21,9 @@ const ProductProvider = ({ children }) => {
         try {
             // Read data  from db.json using require (this is a synchronous operation)
             const response = await require('../db.json');
-            const jsonContent = JSON.parse(JSON.stringify(response));
 
+            const jsonContent = JSON.parse(JSON.stringify(response));
+        
             // Update the state with the list of products and set loading to false
             setProducts(jsonContent.products);
             setloading(false)

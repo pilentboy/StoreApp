@@ -64,31 +64,42 @@ function ProductDetail({ route }) {
   };
 
 
+  const [availableProductSize, setAvailableProductSize] = useState([])
+  const [selectedPorudctSize, setSelectedProductSize] = useState('')
 
-  // useEffect to trigger findRelatedProducts when productInfo changes
+
+
   useEffect(() => {
-    findRelatedProducts();
+    const fetchData = async () => {
+      await findRelatedProducts();
+      handleAvailableProductSize();
+    };
+
+    fetchData();
     scrollToTop();
   }, [productInfo]);
 
-  const checkSelectedSize = () => {
-    const selectedSizes = productInfo.props.size.filter((size) => size.selected === true);
+  const handleAvailableProductSize = () => {
 
-    if (selectedSizes.length > 0) {
-      return selectedSizes
+    const availableSizes = productInfo.props.size.filter((size) => size.selected === true);
+
+    if (availableSizes.length > 0) {
+      setAvailableProductSize(availableSizes);
+      setSelectedProductSize(availableSizes[0].value); 
+    } else {
+      setProductSize([])
+      setSelectedProductSize('')
     }
-    return []
+
+  };
+
+
+  const handlePickerChange = (itemValue) => {
+    const selectedSize = availableProductSize.find((option) => option.value === itemValue)
+    setSelectedProductSize(selectedSize.value)
   }
 
 
-
-  const [productSize, setProductSize] = useState(checkSelectedSize())
-
-
-
-  // useEffect(() => {
-  //   checkSelectedSize();
-  // }, [productInfo.props.size]);
 
   return (
     // ScrollView to enable scrolling
@@ -129,18 +140,18 @@ function ProductDetail({ route }) {
 
         {/* Product size selection */}
         {
-          productSize.length > 0 ? (
+          availableProductSize.length > 0 ? (
             <View style={{ marginTop: 20 }}>
               <RequiredTitle title="Size" />
               <Picker
-                selectedValue={productSize[0].value}
-                onValueChange={(itemValue, itemIndex) => setProductSize([{ value: itemValue, selected: true }])}
+                selectedValue={selectedPorudctSize}
+                onValueChange={handlePickerChange}
                 style={style.pickerSize}
               >
-                {productSize.map((size, index) =>
-                  size.selected ? (
+                {availableProductSize.map((size, index) =>
+                  
                     <Picker.Item label={size.value} value={size.value} key={index} />
-                  ) : null
+                  
                 )}
               </Picker>
             </View>
