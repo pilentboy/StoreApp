@@ -15,16 +15,16 @@ function CheckBoxSize({ title, selected, setProductSize }) {
                     size={20}
                     fillColor="#362FD9"
                     unfillColor="white"
-                    iconStyle={{ borderColor: "white", borderRadius: 0 }}
+                    iconStyle={{ borderColor: "white", borderRadius: 0, margin: -8 }}
                     innerIconStyle={{ borderWidth: 2, borderRadius: 0 }}
 
                     textStyle={{
                         textDecorationLine: "none", fontWeight: 'bold', fontSize: 16, color: "#27374D"
                     }}
 
-                    textContainerStyle={{ margin: 5 }}
+                    textContainerStyle={{ margin: 5, justifyContent: 'center', alignItems: 'center' }}
 
-                    bounceEffectIn={0.5}
+                    bounceEffectIn={0.9}
                 />
 
 

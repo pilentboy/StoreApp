@@ -11,19 +11,19 @@ import {
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { AntDesign } from '@expo/vector-icons';
-import ProductDescription from '../componenets/productDetails/productDescription';
-import RequiredTitle from '../componenets/productDetails/requiredTitle';
-import ProductScore from '../componenets/product/productScore';
-import Product from '../componenets/product/product';
+import ProductDescription from '../components/productDetails/productDescription';
+import RequiredTitle from '../components/productDetails/requiredTitle';
+import ProductScore from '../components/product/productScore';
+import Product from '../components/product/product';
 import { ProductContext } from '../context/productContext';
-import ProductPrice from '../componenets/productDetails/productPrice';
+import ProductPrice from '../components/productDetails/productPrice';
 import ProductType
-  from '../componenets/productDetails/productType';
-import AddToCart from '../componenets/productDetails/addToCart'
-import SocialMediaLink from '../componenets/productDetails/socialMediaLink';
-import EditProductDetails from '../componenets/modals/editProductDetails';
+  from '../components/productDetails/productType';
+import AddToCart from '../components/productDetails/addToCart'
+import SocialMediaLink from '../components/productDetails/socialMediaLink';
+import EditProductDetails from '../components/modals/editProductDetails';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import ManageButtonContainer from '../componenets/home/manageButtonContainer';
+import ManageButtonContainer from '../components/home/manageButtonContainer';
 
 
 // ProductDetail Component

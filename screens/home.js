@@ -9,10 +9,10 @@ import {
 import { useState, useContext, useEffect } from "react";
 import { ProductContext } from '../context/productContext';
 // import custome components
-import ProductPageDescription from "../componenets/home/productPageDescription"
-import ManageProducts from '../componenets/home/manageProducts';
-import Product from "../componenets/product/product"
-import ProductPageTitle from '../componenets/home/productPageTitle';
+import ProductPageDescription from "../components/home/productPageDescription"
+import ManageProducts from '../components/home/manageProducts';
+import Product from "../components/product/product"
+import ProductPageTitle from '../components/home/productPageTitle';
 
 
 // Home  component
