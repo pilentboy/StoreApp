@@ -16,7 +16,8 @@ const style = StyleSheet.create({
         flexDirection: "row",
         paddingVertical: 5,
         paddingHorizontal: 5,
-        alignItems:'center'
+        alignItems: 'center',
+        borderRadius: 10
     },
 })
 

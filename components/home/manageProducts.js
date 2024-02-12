@@ -1,4 +1,4 @@
-import { View, StyleSheet, Pressable } from 'react-native'
+import { View, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
 import { Feather } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker'
 import { Ionicons } from '@expo/vector-icons';
@@ -24,23 +24,23 @@ function ManageProducts() {
             <AddNewProduct setAddNewProductDisplay={setAddNewProductDisplay} addNewProductDisplay={addNewProductDisplay} />
 
             {/* add a new product  */}
-            <Pressable style={style.btn} onPress={() => setAddNewProductDisplay(true)}>
+            <TouchableOpacity style={style.btn} onPress={() => setAddNewProductDisplay(true)}>
                 <Feather name="plus-square" size={50} color="white" />
-            </Pressable>
+            </TouchableOpacity>
 
-            <Pressable style={style.btn} >
+            <TouchableOpacity style={style.btn} >
                 <Fontisto name="search" size={45} color="white" />
-            </Pressable>
+            </TouchableOpacity>
 
 
             {/* display sotre chart */}
-            <Pressable style={style.btn} onPress={() => setStoreChartDisplay(true)}>
+            <TouchableOpacity style={style.btn} onPress={() => setStoreChartDisplay(true)}>
                 <Feather name="pie-chart" size={50} color="white" />
-            </Pressable>
+            </TouchableOpacity>
 
 
             {/* reload products */}
-            <Pressable style={style.btn} onPress={() => {
+            <TouchableOpacity style={style.btn} onPress={() => {
                 fetchData()
                 Alert.alert("Reloading", "Products Reloaded Successfully", [
                     { text: "Ok", onPress: () => console.log("Ok pressed!") }
@@ -48,7 +48,7 @@ function ManageProducts() {
                 )
             }}>
                 <Ionicons name="reload-circle-outline" size={55} color='white' />
-            </Pressable>
+            </TouchableOpacity>
 
 
 

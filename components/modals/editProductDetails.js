@@ -43,7 +43,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
         const newCategories = productCategoies.filter((category) => category !== categoryValue)
         setProductCategories(newCategories)
     }
-    
+
     const editProduct = () => {
 
         if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
@@ -135,7 +135,8 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
     }
 
     return (
-        <Modal visible={EditProductDetailsDisplay} transparent={false}>
+        <Modal visible={EditProductDetailsDisplay} transparent={false} >
+
             <ScrollView>
 
 
@@ -193,6 +194,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
                 </View>
 
             </ScrollView>
+
         </Modal>
     )
 }
@@ -208,7 +210,7 @@ const style = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "white",
-        flex: 1,
+        flex:1,
         paddingHorizontal: 20,
     },
     productImage: {
