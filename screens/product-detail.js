@@ -6,8 +6,8 @@ import {
   StyleSheet,
   Image,
   ScrollView,
-  Pressable,
-  StatusBar
+  StatusBar,
+  TouchableOpacity
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { AntDesign } from '@expo/vector-icons';
@@ -112,11 +112,11 @@ function ProductDetail({ route }) {
 
         <ManageButtonContainer>
 
-          <Pressable onPress={() => {
+          <TouchableOpacity onPress={() => {
             setEditProductDetailsDisplay(true)
           }}>
             <MaterialCommunityIcons name="briefcase-edit-outline" size={45} color="white" />
-          </Pressable>
+          </TouchableOpacity>
 
         </ManageButtonContainer>
 
@@ -169,10 +169,10 @@ function ProductDetail({ route }) {
         {/* Add to wishlist and social media links */}
         <View style={style.wrapperRow}>
 
-          <Pressable style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
             <AntDesign name="hearto" size={20} color="#b9ac7d" />
             <Text style={{ color: '#b9ac7d', fontWeight: 'bold', marginLeft: 5, fontSize: 18 }}>Add to wishlist</Text>
-          </Pressable>
+          </TouchableOpacity>
 
           {/* Social media links */}
           <SocialMediaLink />

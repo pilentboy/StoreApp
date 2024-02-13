@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, Image, Modal, Button } from 'react-native'
+import { View, Text, StyleSheet, Pressable, TouchableOpacity, Image, Modal, Button } from 'react-native'
 import { useState, useContext, useEffect } from "react";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
@@ -6,24 +6,39 @@ import { useNavigation } from '@react-navigation/native';
 import ProductScore from './productScore';
 import EditProduct from '../modals/editProduct';
 import { ProductContext } from '../../context/productContext';
-
+import { FontAwesome } from '@expo/vector-icons';
 
 // Product Component
 function Product(props) {
 
     const { products, updateProducts, loading } = useContext(ProductContext)
 
-    console.log(props.loadProducts)
-
-    const [likeColor, setlikeColor] = useState("#222529")
+    const [likeColor, setlikeColor] = useState()
 
     const [editProductDisplay, setEditProductDisplay] = useState(false)
 
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
 
+    const updateProduct = () => {
+
+        const myProducts = products
+        const productIndex = myProducts.findIndex((product) => product.id === props.id)
+        const updatedProduct = { ...myProducts[productIndex], favourite: !props.favourite }
+        const newProducts = [...products]
+        newProducts[productIndex] = updatedProduct
+        updateProducts(newProducts)
+
+        console.log(productIndex)
+    }
+
     useEffect(() => {
         // displayProductDetails()
+        if(props.favourite){
+            setlikeColor("#B31312")
+        }else{
+            setlikeColor("#222529")
+        }
     }, [products])
 
     // Render the Product component
@@ -45,24 +60,23 @@ function Product(props) {
             <View style={style.wrapper}>
 
                 {/* buy */}
-                <Pressable onPress={displayProductDetails}>
+                <TouchableOpacity onPress={displayProductDetails}>
                     <MaterialCommunityIcons name="purse-outline" size={25} color="#222529" />
-                </Pressable>
+                </TouchableOpacity>
 
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                     {/* like  */}
-                    <Pressable style={{ marginHorizontal: 5 }} onPress={() => {
-                        likeColor === "#222529" ? setlikeColor("red") : setlikeColor("#222529")
-                    }}>
-                        <AntDesign name="hearto" size={25} color={likeColor} />
-                    </Pressable>
+                    <TouchableOpacity style={{ marginHorizontal: 5 }} onPress={updateProduct}>
+                     
+                        <FontAwesome name="heart" size={25} color={likeColor} />
+                    </TouchableOpacity>
 
                     {/* edit  */}
-                    <Pressable style={{ marginHorizontal: 5 }} onPress={() => {
+                    <TouchableOpacity style={{ marginHorizontal: 5 }} onPress={() => {
                         setEditProductDisplay(true)
                     }}>
                         <MaterialCommunityIcons name="briefcase-edit-outline" size={25} color="#222529" />
-                    </Pressable>
+                    </TouchableOpacity>
                 </View>
 
 
