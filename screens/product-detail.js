@@ -24,6 +24,7 @@ import SocialMediaLink from '../components/productDetails/socialMediaLink';
 import EditProductDetails from '../components/modals/editProductDetails';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ManageButtonContainer from '../components/home/manageButtonContainer';
+import { FontAwesome } from '@expo/vector-icons';
 
 // ProductDetail Component
 function ProductDetail({ route }) {
@@ -84,7 +85,7 @@ function ProductDetail({ route }) {
 
     if (availableSizes.length > 0) {
       setAvailableProductSize(availableSizes);
-      setSelectedProductSize(availableSizes[0].value); 
+      setSelectedProductSize(availableSizes[0].value);
     } else {
       setAvailableProductSize([])
       setSelectedProductSize('')
@@ -98,6 +99,37 @@ function ProductDetail({ route }) {
     setSelectedProductSize(selectedSize.value)
   }
 
+  const [likeIcon, setLikeIcon] = useState(productInfo.props.favourite)
+
+  const handleProductLike = () => {
+
+    const myProducts = products
+    const productIndex = myProducts.findIndex((p) => p.id === productInfo.props.id)
+    const updatedProduct = { ...myProducts[productIndex], favourite: !productInfo.props.favourite }
+    const newProducts = [...products]
+    newProducts[productIndex] = updatedProduct
+    updateProducts(newProducts)
+
+
+    if (likeIcon) {
+      setLikeIcon(false)
+    } else {
+      setLikeIcon(true)
+    }
+
+
+  }
+
+  // useEffect(() => {
+  //   if (likeIcon) {
+  //     setLikeIcon(false)
+  //   } else {
+  //     setLikeIcon(true)
+  //   }
+
+  //   console.log("like icon",likeIcon)
+
+  // }, [products])
 
 
   return (
@@ -148,9 +180,9 @@ function ProductDetail({ route }) {
                 style={style.pickerSize}
               >
                 {availableProductSize.map((size, index) =>
-                  
-                    <Picker.Item label={size.value} value={size.value} key={index} />
-                  
+
+                  <Picker.Item label={size.value} value={size.value} key={index} />
+
                 )}
               </Picker>
             </View>
@@ -169,9 +201,14 @@ function ProductDetail({ route }) {
         {/* Add to wishlist and social media links */}
         <View style={style.wrapperRow}>
 
-          <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <AntDesign name="hearto" size={20} color="#b9ac7d" />
-            <Text style={{ color: '#b9ac7d', fontWeight: 'bold', marginLeft: 5, fontSize: 18 }}>Add to wishlist</Text>
+          <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }} onPress={handleProductLike}>
+
+            <FontAwesome name={!likeIcon ? "heart-o" : "heart"} size={20} color={"#b9ac7d"} />
+
+            {
+              !likeIcon ? (<Text style={{ color: '#b9ac7d', fontWeight: 'bold', marginLeft: 5, fontSize: 18 }}>Add to wishlist</Text>) : null
+
+            }
           </TouchableOpacity>
 
           {/* Social media links */}

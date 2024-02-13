@@ -20,7 +20,7 @@ function Product(props) {
     // Access the navigation object using useNavigation hook
     const navigation = useNavigation();
 
-    const updateProduct = () => {
+    const handleProductLike = () => {
 
         const myProducts = products
         const productIndex = myProducts.findIndex((product) => product.id === props.id)
@@ -33,12 +33,12 @@ function Product(props) {
     }
 
     useEffect(() => {
-        // displayProductDetails()
         if(props.favourite){
             setlikeColor("#B31312")
         }else{
             setlikeColor("#222529")
         }
+
     }, [products])
 
     // Render the Product component
@@ -66,7 +66,7 @@ function Product(props) {
 
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                     {/* like  */}
-                    <TouchableOpacity style={{ marginHorizontal: 5 }} onPress={updateProduct}>
+                    <TouchableOpacity style={{ marginHorizontal: 5 }} onPress={handleProductLike}>
                      
                         <FontAwesome name="heart" size={25} color={likeColor} />
                     </TouchableOpacity>
