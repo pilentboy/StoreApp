@@ -1,10 +1,9 @@
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import { StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import { Feather } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker'
 import { Ionicons } from '@expo/vector-icons';
 import { ProductContext } from '../../context/productContext';
 import { useContext, useState } from 'react';
-import { Alert } from 'react-native'
 import StoreChart from '../modals/sotreChart';
 import AddNewProduct from '../modals/addNewProduct';
 import ManageButtonContainer from './manageButtonContainer';
@@ -28,7 +27,11 @@ function ManageProducts() {
                 <Feather name="plus-square" size={50} color="white" />
             </TouchableOpacity>
 
-            <TouchableOpacity style={style.btn} >
+            <TouchableOpacity style={style.btn} onPress={() => {
+                Alert.alert("searching", "sorry! it's not available yet!", [
+                    { "text": "ok", onPress: console.log("ok pressed") }
+                ], { cancelable: true })
+            }}>
                 <Fontisto name="search" size={45} color="white" />
             </TouchableOpacity>
 

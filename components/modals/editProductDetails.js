@@ -49,7 +49,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
         if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
             console.log("updating")
 
-            Alert.alert('Warning', 'Apply changes?', [
+            Alert.alert('Editing Product', 'Apply changes?', [
                 { text: "No", onPress: () => console.log("No Pressed") },
                 {
                     text: "Yes", onPress: () => {
@@ -112,7 +112,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
     const deleteProduct = () => {
 
-        Alert.alert('Warning', 'Are you sure you want to delete this product?', [
+        Alert.alert('Deleting Product', 'Are you sure you want to delete this product?', [
             { text: "No", onPress: () => console.log("No Pressed") },
             {
                 text: "Yes", onPress: () => {

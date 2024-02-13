@@ -39,60 +39,39 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
     function AddProduct() {
 
-        const myProducts = products
 
-        // get the last product id for using a uniqe id for each products
-        const lastProductID = myProducts.slice(-1)[0].id
+        Alert.alert("Adding Product", "Are you sure about adding this product?", [
+            {
+                text: "No", onPress: (() => console.log("No"))
+            },
+            {
+                text: "Yes", onPress: (() => {
 
-        const categories = category !== '' ? category.split(" ") : []
+                    const myProducts = products
 
-        const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, category: categories, about: productAbout, related_products: [0, 2], image: productImage, size: productSize, type: "Shirt", reviews: 24 }
+                    // get the last product id for using a uniqe id for each products
+                    const lastProductID = myProducts.slice(-1)[0].id
 
-        const updatedProducts = [...products]
+                    const categories = category !== '' ? category.split(" ") : []
 
-        updatedProducts.push(newProduct)
+                    const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, category: categories, about: productAbout, related_products: [0, 2], image: productImage, size: productSize, type: "Shirt", reviews: 24 }
 
-        updateProducts(updatedProducts)
+                    const updatedProducts = [...products]
 
-        setAddNewProductDisplay(false)
-        setProductName("")
-        setProductPrice("")
-        setProductDescription("")
-        setProductImage(DefaultImage)
-        setProductAbout("")
-        setCategory('')
+                    updatedProducts.push(newProduct)
 
-        // Alert.alert("Warning", "Are you sure about adding this product?", [
-        //     {
-        //         text: "No", onPress: (() => console.log("No"))
-        //     },
-        //     {
-        //         text: "Yes", onPress: (() => {
-        //             const myProducts = products
+                    updateProducts(updatedProducts)
 
-        //             // get the last product id for using a uniqe id for each products
-        //             const lastProductID = myProducts.slice(-1)[0].id
-
-        //             const categories = category !== '' ? category.split(" ") : []
-
-        //             const newProduct = { id: lastProductID + 1, name: productName, price: productPrice, description: productDescription, category: categories, about: productAbout, related_products: [0, 2], image: productImage, size: productSize, type: "Shirt", reviews: 24 }
-
-        //             const updatedProducts = [...products]
-
-        //             updatedProducts.push(newProduct)
-
-        //             updateProducts(updatedProducts)
-
-        //             setAddNewProductDisplay(false)
-        //             setProductName("")
-        //             setProductPrice("")
-        //             setProductDescription("")
-        //             setProductImage(DefaultImage)
-        //             setProductAbout("")
-        //             setCategory('')
-        //         })
-        //     }
-        // ])
+                    setAddNewProductDisplay(false)
+                    setProductName("")
+                    setProductPrice("")
+                    setProductDescription("")
+                    setProductImage(DefaultImage)
+                    setProductAbout("")
+                    setCategory('')
+                })
+            }
+        ])
 
     }
 

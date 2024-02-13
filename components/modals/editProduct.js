@@ -35,7 +35,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
         if (checkValues([productName, productImage, productPrice]) && containsOnlyNumbers(productPrice)) {
             console.log("updating")
 
-            Alert.alert('Warning', 'Apply changes?', [
+            Alert.alert('Editing Product', 'Apply changes?', [
                 { text: "No", onPress: () => console.log("No Pressed") },
                 {
                     text: "Yes", onPress: () => {
@@ -97,8 +97,8 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
     const deleteProduct = () => {
 
-        Alert.alert('Warning', 'Are you sure you want to delete this product?', [
-            { text: "No", onPress: () => console.log("No Pressed") },
+        Alert.alert('Deleting Product', 'Are you sure you want to delete this product?', [
+            { text: "No", onPress: () => console.log("No Pressed") , },
             {
                 text: "Yes", onPress: () => {
                     const myproducts = products.filter((product) => product.id !== productInfo.id)
