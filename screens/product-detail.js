@@ -120,16 +120,7 @@ function ProductDetail({ route }) {
 
   }
 
-  // useEffect(() => {
-  //   if (likeIcon) {
-  //     setLikeIcon(false)
-  //   } else {
-  //     setLikeIcon(true)
-  //   }
 
-  //   console.log("like icon",likeIcon)
-
-  // }, [products])
 
 
   return (
@@ -142,7 +133,7 @@ function ProductDetail({ route }) {
 
         <EditProductDetails EditProductDetailsDisplay={EditProductDetailsDisplay} setEditProductDetailsDisplay={setEditProductDetailsDisplay} productInfo={productInfo.props} />
 
-        <ManageButtonContainer>
+        <ManageButtonContainer justifyContent={"flex-start"} >
 
           <TouchableOpacity onPress={() => {
             setEditProductDetailsDisplay(true)

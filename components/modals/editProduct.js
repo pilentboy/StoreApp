@@ -98,7 +98,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
     const deleteProduct = () => {
 
         Alert.alert('Deleting Product', 'Are you sure you want to delete this product?', [
-            { text: "No", onPress: () => console.log("No Pressed") , },
+            { text: "No", onPress: () => console.log("No Pressed"), },
             {
                 text: "Yes", onPress: () => {
                     const myproducts = products.filter((product) => product.id !== productInfo.id)
@@ -132,11 +132,12 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: 120 }}>
 
+                        <TouchableOpacity style={{}} onPress={() => setProductImage(defaultImage)}>
+                            <MaterialCommunityIcons name="file-image-remove" size={50} color="#45474B" />
+                        </TouchableOpacity>
+
                         <ImagePicker setProductImage={setProductImage} />
 
-                        <TouchableOpacity style={{}} onPress={() => setProductImage(defaultImage)}>
-                            <MaterialCommunityIcons name="file-image-remove" size={50} color="red" />
-                        </TouchableOpacity>
 
                     </View>
 
@@ -146,7 +147,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
                     <ButtonContainer>
                         {/* delete item */}
                         <TouchableOpacity onPress={() => deleteProduct()} style={style.btn}>
-                            <MaterialIcons name="delete-forever" size={35} color="red" />
+                            <MaterialIcons name="delete-forever" size={35} color="#45474B" />
                         </TouchableOpacity>
 
                         {/* cancle editing */}

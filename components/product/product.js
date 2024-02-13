@@ -51,9 +51,9 @@ function Product(props) {
 
             {/* product image  */}
             <View style={style.productImageWrapper}>
-                <Pressable onPress={displayProductDetails}>
+                <TouchableOpacity onPress={displayProductDetails}>
                     <Image style={style.productImage} source={{ uri: props.image }} />
-                </Pressable>
+                </TouchableOpacity>
             </View>
 
             {/* product buttons  */}

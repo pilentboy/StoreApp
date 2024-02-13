@@ -17,7 +17,7 @@ function ManageProducts() {
 
     const { fetchData } = useContext(ProductContext)
     return (
-        <ManageButtonContainer >
+        <ManageButtonContainer justifyContent={"space-evenly"} >
             <StoreChart display={storeChartDisplay} setStoreChartDisplay={setStoreChartDisplay} />
 
             <AddNewProduct setAddNewProductDisplay={setAddNewProductDisplay} addNewProductDisplay={addNewProductDisplay} />
@@ -73,7 +73,7 @@ function ManageProducts() {
 
 const style = StyleSheet.create({
     btn: {
-        marginHorizontal: 4
+        marginHorizontal: 4,
     }
 })
 

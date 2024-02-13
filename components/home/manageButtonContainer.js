@@ -1,9 +1,9 @@
 import { StyleSheet, View } from 'react-native'
 
 
-function ManageButtonContainer({ children }) {
+function ManageButtonContainer({ children , justifyContent}) {
     return (
-        <View style={style.container}>
+        <View style={[style.container,{justifyContent:justifyContent}]}>
             {children}
         </View>
     )
@@ -12,7 +12,7 @@ function ManageButtonContainer({ children }) {
 const style = StyleSheet.create({
     container: {
         marginTop: 15,
-        backgroundColor: "#222529",
+        backgroundColor: "#45474B",
         flexDirection: "row",
         paddingVertical: 5,
         paddingHorizontal: 5,

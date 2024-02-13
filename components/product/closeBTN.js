@@ -5,7 +5,7 @@ function CloseBTN({ action }) {
 
     return (
         <TouchableOpacity onPress={action} style={style.btn}>
-            <AntDesign name="closecircle" size={35} color="red" />
+            <AntDesign name="closecircle" size={35} color="#45474B" />
         </TouchableOpacity>
     )
 }

@@ -163,13 +163,14 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
 
                     <View style={{ flexDirection: 'row', alignItems: 'center', paddingBottom: 10 }}>
-                        <ImagePicker setProductImage={setProductImage} />
+
 
                         <TouchableOpacity style={style.btn} onPress={() => setProductImage(defaultImage)}>
-                            <MaterialCommunityIcons name="file-image-remove" size={50} color="red" />
+                            <MaterialCommunityIcons name="file-image-remove" size={50} color="#45474B" />
 
                         </TouchableOpacity>
 
+                        <ImagePicker setProductImage={setProductImage} />
 
                     </View>
 
@@ -177,7 +178,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
                         {/* delete item */}
                         <TouchableOpacity onPress={() => deleteProduct()} style={style.btn}>
-                            <MaterialIcons name="delete-forever" size={35} color="red"
+                            <MaterialIcons name="delete-forever" size={35} color="#45474B"
                             />
                         </TouchableOpacity>
                         {/* cancle editing */}
@@ -210,7 +211,7 @@ const style = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "white",
-        flex:1,
+        flex: 1,
         paddingHorizontal: 20,
     },
     productImage: {

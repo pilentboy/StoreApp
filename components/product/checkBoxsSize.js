@@ -13,7 +13,7 @@ function CheckBoxSize({ title, selected, setProductSize }) {
                     isChecked={selected}
 
                     size={20}
-                    fillColor="#362FD9"
+                    fillColor="#495E57"
                     unfillColor="white"
                     iconStyle={{ borderColor: "white", borderRadius: 0, margin: -8 }}
                     innerIconStyle={{ borderWidth: 2, borderRadius: 0 }}

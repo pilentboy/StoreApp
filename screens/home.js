@@ -27,7 +27,7 @@ function Home() {
 
     function loadProducts() {
         return products.map((product) => (
-            <Product key={product.id} {...product}  />
+            <Product key={product.id} {...product} />
         ));
     }
 
@@ -43,10 +43,10 @@ function Home() {
                 <View style={style.container}>
 
                     {/* home title */}
-                    <ProductPageTitle firstText={"Jackets and"} secondText={"tops"} />
+                    <ProductPageTitle firstText={"All the clothes"} secondText={"You Need!"} />
 
                     {/* product page description */}
-                    <ProductPageDescription description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"} />
+                    <ProductPageDescription description={"you can find the best and cheapest products for every seasons here!"} />
 
                     {/* control product options */}
                     <ManageProducts />
@@ -55,11 +55,6 @@ function Home() {
                     {/* List of Products */}
                     <View style={style.productContainer}>
                         {
-                            // products.map((product) => {
-                            //     return (
-                            //         <Product key={product.id} {...product} />
-                            //     )
-                            // })
                             loadProducts()
                         }
 
@@ -108,6 +103,7 @@ const style = StyleSheet.create({
     container: {
         paddingHorizontal: 15,
         width: "100%",
+        backgroundColor: "#F5F7F8"
     }
 
 })
