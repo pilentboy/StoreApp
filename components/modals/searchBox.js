@@ -48,8 +48,18 @@ const SearchBox = ({ searchBoxDisplay, setSearchBoxDisplay }) => {
 
 
     const searching = () => {
-        console.log("test")
+        if (searchValue !== "") {
+            fadeOut()
+            displaySearchedPoructs()
+        }
     }
+
+    function displaySearchedPoructs() {
+        navigation.navigate('Search', {
+            searchValue
+        });
+    }
+
 
     return (
 

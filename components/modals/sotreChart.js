@@ -46,9 +46,7 @@ function StoreChart({ display, setStoreChartDisplay }) {
 
 
     const windowWidth = Dimensions.get('window').width;
-    const windowHeight = Dimensions.get('window').height;
 
-    console.log(windowWidth)
 
     return (
         <Modal visible={display} >

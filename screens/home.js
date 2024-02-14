@@ -18,11 +18,7 @@ import ProductPageTitle from '../components/home/productPageTitle';
 
 // Home  component
 
-function Home({ route }) {
-
-    const searchedProducts = route.params
-
-    console.log(searchedProducts, "route")
+function Home() {
 
     // products list
     const { products, updateProducts, loading } = useContext(ProductContext)
@@ -30,6 +26,8 @@ function Home({ route }) {
     useEffect(() => {
         loadProducts()
     }, [products])
+
+
 
     function loadProducts() {
         return products.map((product) => (
@@ -63,7 +61,6 @@ function Home({ route }) {
                         {
                             loadProducts()
                         }
-
 
                     </View>
 
