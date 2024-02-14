@@ -145,7 +145,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
                     <Text style={{ fontWeight: 'bold', fontSize: 40, paddingVertical: 20 }} > Editing Product </Text>
 
 
-                    <Input inputValue={productName} inputWidth={"60%"} inputType='text' title="Name" setNewValue={setProductName} textColor={"black"} borderColor={"black"}  />
+                    <Input inputValue={productName} inputWidth={"60%"} inputType='text' title="Name" setNewValue={setProductName} textColor={"black"} borderColor={"black"} />
                     <Input inputValue={productPrice} inputWidth={"60%"} inputType='numeric' title="Price" setNewValue={setProductPrice} textColor={"black"} borderColor={"black"} />
 
                     <ProductSize productSize={productSize} setProductSize={setProductSize} />
@@ -153,7 +153,7 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
                     <EditCategory category={productCategoies} action={removeCategory} />
 
-                    <Input inputValue={newCategory} inputType='text' title={"Category..."} inputWidth={"100%"} setNewValue={setNewCategory} textColor={"black"} borderColor={"black"}  />
+                    <Input inputValue={newCategory} inputType='text' title={"Category..."} inputWidth={"100%"} setNewValue={setNewCategory} textColor={"black"} borderColor={"black"} />
 
                     <LargeInput inputHeight={100} inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 
@@ -178,12 +178,12 @@ function EditProductDetails({ productInfo, EditProductDetailsDisplay, setEditPro
 
                         {/* delete item */}
                         <TouchableOpacity onPress={() => deleteProduct()} style={style.btn}>
-                            <MaterialIcons name="delete-forever" size={35} color="#45474B"
+                            <MaterialIcons name="delete-forever" size={35} color="red"
                             />
                         </TouchableOpacity>
                         {/* cancle editing */}
 
-                        <CloseBTN action={() => setEditProductDetailsDisplay(false)} />
+                        <CloseBTN action={() => setEditProductDetailsDisplay(false)} color={"black"} />
 
                         {/* apply new info */}
                         <TouchableOpacity onPress={editProduct} style={style.btn}>

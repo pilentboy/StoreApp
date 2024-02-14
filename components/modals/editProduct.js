@@ -149,11 +149,11 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
                     <ButtonContainer>
                         {/* delete item */}
                         <TouchableOpacity onPress={() => deleteProduct()} style={style.btn}>
-                            <MaterialIcons name="delete-forever" size={35} color="#45474B" />
+                            <MaterialIcons name="delete-forever" size={35} color="red" />
                         </TouchableOpacity>
 
                         {/* cancle editing */}
-                        <CloseBTN action={() => setModalDisplay(false)} />
+                        <CloseBTN action={() => setModalDisplay(false)} color={"black"} />
 
                         {/* apply new info */}
                         <TouchableOpacity onPress={editProduct} style={style.btn}>

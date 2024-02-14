@@ -1,4 +1,12 @@
-import { Modal, Alert, StyleSheet, Text, View, TouchableOpacity, ScrollView, Image, CheckBox } from "react-native"
+import {
+    Modal,
+    Alert,
+    StyleSheet,
+    Text, View,
+    TouchableOpacity,
+    ScrollView,
+    Image
+} from "react-native"
 
 import ButtonContainer from "../productDetails/buttonContainer"
 import CloseBTN from "../product/closeBTN"
@@ -8,7 +16,6 @@ import { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../../context/productContext";
 import LargeInput from "../product/largInput";
 import ImagePicker from "../product/imagePicker";
-import CheckBoxSize from "../product/checkBoxsSize";
 import ProductSize from "../product/productSize";
 
 function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
@@ -75,9 +82,6 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
     }
 
-
-
-
     return (
 
 
@@ -91,11 +95,11 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                     <Text style={{ fontWeight: 'bold', fontSize: 40, paddingVertical: 20 }} > Adding Product </Text>
 
                     <Input inputValue={productName} inputType='text' title="Name" inputWidth={"60%"} setNewValue={setProductName} textColor={"black"} borderColor={"black"} />
-                    <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"} setNewValue={setProductPrice} textColor={"black"} borderColor={"black"}  />
+                    <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"} setNewValue={setProductPrice} textColor={"black"} borderColor={"black"} />
 
                     <ProductSize productSize={productSize} setProductSize={setProductSize} />
 
-                    <Input inputValue={category} inputType='text' title="Category..." inputWidth={"100%"} setNewValue={setCategory} textColor={"black"} borderColor={"black"}  />
+                    <Input inputValue={category} inputType='text' title="Category..." inputWidth={"100%"} setNewValue={setCategory} textColor={"black"} borderColor={"black"} />
 
                     <LargeInput inputHeight={100} inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 
@@ -108,7 +112,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                     <ButtonContainer>
                         {/* cancle  */}
-                        <CloseBTN action={() => setAddNewProductDisplay(false)} />
+                        <CloseBTN action={() => setAddNewProductDisplay(false)} color={"black"} />
 
                         {/* apply new info */}
                         <TouchableOpacity onPress={AddProduct} style={style.btn}>
