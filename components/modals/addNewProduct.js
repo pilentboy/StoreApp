@@ -90,12 +90,12 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
                     <Text style={{ fontWeight: 'bold', fontSize: 40, paddingVertical: 20 }} > Adding Product </Text>
 
-                    <Input inputValue={productName} inputType='text' title="Name" inputWidth={"60%"} setNewValue={setProductName} />
-                    <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"} setNewValue={setProductPrice} />
+                    <Input inputValue={productName} inputType='text' title="Name" inputWidth={"60%"} setNewValue={setProductName} textColor={"black"} borderColor={"black"} />
+                    <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"} setNewValue={setProductPrice} textColor={"black"} borderColor={"black"}  />
 
                     <ProductSize productSize={productSize} setProductSize={setProductSize} />
 
-                    <Input inputValue={category} inputType='text' title="Category..." inputWidth={"100%"} setNewValue={setCategory} />
+                    <Input inputValue={category} inputType='text' title="Category..." inputWidth={"100%"} setNewValue={setCategory} textColor={"black"} borderColor={"black"}  />
 
                     <LargeInput inputHeight={100} inputValue={productDescription} inputType='text' title="Description..." maxChar={130} setNewValue={setProductDescription} />
 

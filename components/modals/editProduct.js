@@ -141,8 +141,8 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                     </View>
 
-                    <Input inputValue={productName} inputType='text' title="Name" inputWidth={"60%"} setNewValue={setProductName} />
-                    <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"} setNewValue={setProductPrice} />
+                    <Input inputValue={productName} inputType='text' title="Name" inputWidth={"60%"} setNewValue={setProductName} textColor={"black"} borderColor={"black"} />
+                    <Input inputValue={productPrice} inputType='numeric' title="Price" inputWidth={"60%"} setNewValue={setProductPrice} textColor={"black"} borderColor={"black"} />
 
                     <ButtonContainer>
                         {/* delete item */}

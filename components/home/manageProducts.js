@@ -8,30 +8,45 @@ import StoreChart from '../modals/sotreChart';
 import AddNewProduct from '../modals/addNewProduct';
 import ManageButtonContainer from './manageButtonContainer';
 import { Fontisto } from '@expo/vector-icons';
-
+import SearchBox from '../modals/searchBox';
 
 function ManageProducts() {
 
     const [storeChartDisplay, setStoreChartDisplay] = useState(false)
     const [addNewProductDisplay, setAddNewProductDisplay] = useState(false)
+    const [searchBoxDisplay, setSearchBoxDisplay] = useState(false)
+
 
     const { fetchData } = useContext(ProductContext)
+
+ 
+
     return (
         <ManageButtonContainer justifyContent={"space-evenly"} >
-            <StoreChart display={storeChartDisplay} setStoreChartDisplay={setStoreChartDisplay} />
 
-            <AddNewProduct setAddNewProductDisplay={setAddNewProductDisplay} addNewProductDisplay={addNewProductDisplay} />
+            <StoreChart
+                display={storeChartDisplay}
+                setStoreChartDisplay={setStoreChartDisplay}
+            />
+
+            <AddNewProduct
+                setAddNewProductDisplay={setAddNewProductDisplay}
+                addNewProductDisplay={addNewProductDisplay}
+            />
+
+            <SearchBox
+                searchBoxDisplay={searchBoxDisplay}
+                setSearchBoxDisplay={setSearchBoxDisplay}
+            />
+
+
 
             {/* add a new product  */}
             <TouchableOpacity style={style.btn} onPress={() => setAddNewProductDisplay(true)}>
                 <Feather name="plus-square" size={50} color="white" />
             </TouchableOpacity>
 
-            <TouchableOpacity style={style.btn} onPress={() => {
-                Alert.alert("searching", "sorry! it's not available yet!", [
-                    { "text": "ok", onPress: console.log("ok pressed") }
-                ], { cancelable: true })
-            }}>
+            <TouchableOpacity style={style.btn} onPress={() => setSearchBoxDisplay(true)}>
                 <Fontisto name="search" size={45} color="white" />
             </TouchableOpacity>
 

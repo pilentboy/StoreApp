@@ -60,7 +60,6 @@ function ProductDetail({ route }) {
   const scrollToTop = () => {
     // scrool to top when the component mount
     scrollViewRef.current.scrollTo({ y: 0, animated: false });
-    console.log("scroll to top")
   };
 
 

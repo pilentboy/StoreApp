@@ -6,6 +6,7 @@ import {
     StatusBar,
     Image
 } from 'react-native'
+
 import { useState, useContext, useEffect } from "react";
 import { ProductContext } from '../context/productContext';
 // import custome components
