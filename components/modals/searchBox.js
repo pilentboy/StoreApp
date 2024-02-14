@@ -2,6 +2,8 @@ import { View, Modal, Text, TouchableOpacity, StyleSheet, Animated } from 'react
 import CloseBTN from '../product/closeBTN'
 import Input from '../product/input'
 import { useState, useRef, useEffect } from 'react'
+import ButtonContainer from '../productDetails/buttonContainer'
+import { AntDesign } from '@expo/vector-icons';
 
 
 const SearchBox = ({ searchBoxDisplay, setSearchBoxDisplay }) => {
@@ -52,9 +54,19 @@ const SearchBox = ({ searchBoxDisplay, setSearchBoxDisplay }) => {
                 ]}
             >
 
-                <Input inputValue={searchValue} inputType='text' title="Search.." inputWidth={"80%"} setNewValue={setSearchValue} textColor={"white"} borderColor={"white"} />
+                <Input inputValue={searchValue} inputType='text' title="Search..." inputWidth={"100%"} setNewValue={setSearchValue} textColor={"white"} borderColor={"white"} />
 
-                <CloseBTN action={() => fadeOut()} color={"red"} />
+                <ButtonContainer>
+
+                    <CloseBTN action={() => fadeOut()} color={"red"} />
+
+                    <TouchableOpacity onPress={() => setSearchBoxDisplay(false)} style={style.btn}>
+                        <AntDesign name="checksquare" size={35} color="green" />
+                    </TouchableOpacity>
+
+
+                </ButtonContainer>
+
             </Animated.View>
 
         </Modal>
@@ -69,8 +81,14 @@ const style = StyleSheet.create({
         flex: 1,
         marginTop: 40,
         backgroundColor: "rgba(0,0,0,0.9)",
-
-    }
+        paddingHorizontal: 30
+    },
+    btn: {
+        borderRadius: 5,
+        alignItems: "center",
+        justifyContent: "center",
+        marginHorizontal: 10
+    },
 })
 
 export default SearchBox
