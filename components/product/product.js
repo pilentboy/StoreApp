@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, TouchableOpacity,TouchableWithoutFeedback, Image, Modal, Button } from 'react-native'
+import { View, Text, StyleSheet, Pressable, TouchableOpacity, TouchableWithoutFeedback, Image, Modal, Button } from 'react-native'
 import { useState, useContext, useEffect } from "react";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
@@ -33,9 +33,9 @@ function Product(props) {
     }
 
     useEffect(() => {
-        if(props.favourite){
+        if (props.favourite) {
             setlikeColor("#B31312")
-        }else{
+        } else {
             setlikeColor("#222529")
         }
 
@@ -67,7 +67,7 @@ function Product(props) {
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                     {/* like  */}
                     <TouchableOpacity style={{ marginHorizontal: 5 }} onPress={handleProductLike}>
-                     
+
                         <FontAwesome name="heart" size={25} color={likeColor} />
                     </TouchableOpacity>
 
@@ -124,11 +124,12 @@ const style = StyleSheet.create({
     productCard: {
         width: 160,
         height: 350,
-        marginVertical: 16,
+        marginVertical: 16
     },
     productImageWrapper: {
         height: 250,
-        overflow: "hidden"
+        overflow: "hidden",
+        borderRadius: 12
     },
     productImage: {
         width: "100%",
