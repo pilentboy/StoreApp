@@ -4,9 +4,13 @@ import Input from '../product/input'
 import { useState, useRef, useEffect } from 'react'
 import ButtonContainer from '../productDetails/buttonContainer'
 import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 
 const SearchBox = ({ searchBoxDisplay, setSearchBoxDisplay }) => {
+
+
+    const navigation = useNavigation();
 
     const [searchValue, setSearchValue] = useState("")
 
@@ -35,11 +39,17 @@ const SearchBox = ({ searchBoxDisplay, setSearchBoxDisplay }) => {
         }).start();
     };
 
+
     useEffect(() => {
         if (searchBoxDisplay) {
             fadeIn()
         }
     }, [searchBoxDisplay])
+
+
+    const searching = () => {
+        console.log("test")
+    }
 
     return (
 
@@ -60,10 +70,9 @@ const SearchBox = ({ searchBoxDisplay, setSearchBoxDisplay }) => {
 
                     <CloseBTN action={() => fadeOut()} color={"red"} />
 
-                    <TouchableOpacity onPress={() => setSearchBoxDisplay(false)} style={style.btn}>
+                    <TouchableOpacity onPress={searching} style={style.btn}>
                         <AntDesign name="checksquare" size={35} color="green" />
                     </TouchableOpacity>
-
 
                 </ButtonContainer>
 

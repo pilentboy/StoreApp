@@ -17,7 +17,12 @@ import ProductPageTitle from '../components/home/productPageTitle';
 
 
 // Home  component
-function Home() {
+
+function Home({ route }) {
+
+    const searchedProducts = route.params
+
+    console.log(searchedProducts, "route")
 
     // products list
     const { products, updateProducts, loading } = useContext(ProductContext)
