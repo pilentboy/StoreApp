@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, TouchableOpacity, Image, Modal, Button } from 'react-native'
+import { View, Text, StyleSheet, Pressable, TouchableOpacity,TouchableWithoutFeedback, Image, Modal, Button } from 'react-native'
 import { useState, useContext, useEffect } from "react";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
@@ -51,9 +51,9 @@ function Product(props) {
 
             {/* product image  */}
             <View style={style.productImageWrapper}>
-                <TouchableOpacity onPress={displayProductDetails}>
+                <TouchableWithoutFeedback onPress={displayProductDetails}>
                     <Image style={style.productImage} source={{ uri: props.image }} />
-                </TouchableOpacity>
+                </TouchableWithoutFeedback>
             </View>
 
             {/* product buttons  */}

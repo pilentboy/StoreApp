@@ -1,4 +1,4 @@
-import { View, Modal, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native'
+import { Modal, Alert, TouchableOpacity, StyleSheet, Animated } from 'react-native'
 import CloseBTN from '../product/closeBTN'
 import Input from '../product/input'
 import { useState, useRef, useEffect, useContext } from 'react'
@@ -28,7 +28,7 @@ const SearchBox = ({ searchBoxDisplay, setSearchBoxDisplay }) => {
             duration: fadeDurration,
             useNativeDriver: true,
         }).start();
-
+        setSearchValue("")
         setTimeout(() => setSearchBoxDisplay(false), fadeDurration)
 
     };
@@ -56,8 +56,10 @@ const SearchBox = ({ searchBoxDisplay, setSearchBoxDisplay }) => {
             fadeOut()
             displaySearchedPoructs()
             setSearchValue("")
-        }else{
-            console.log("error")
+        } else {
+            Alert.alert("Searching Failed", "No products found!", [
+                { text: "Ok", onPress: console.log("Ok preesed") }
+            ], { cancelable: true })
         }
     }
 
@@ -115,7 +117,6 @@ const style = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         flex: 1,
-        marginTop: 40,
         backgroundColor: "rgba(0,0,0,0.9)",
         paddingHorizontal: 30
     },

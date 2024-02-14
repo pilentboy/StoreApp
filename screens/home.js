@@ -39,7 +39,7 @@ function Home() {
 
         return (
 
-            <ScrollView >
+            <ScrollView scrollEnabled={true} >
 
                 <StatusBar backgroundColor='black' barStyle='white' />
 

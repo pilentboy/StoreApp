@@ -8,6 +8,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import CloseBTN from "../product/closeBTN";
 import ButtonContainer from "../productDetails/buttonContainer";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
@@ -28,7 +29,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
     const { products, updateProducts } = useContext(ProductContext)
 
 
-
+    const navigation = useNavigation()
     // edit price and name of product 
     const editProduct = () => {
 
@@ -51,6 +52,7 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
                         updateProducts(newProducts)
 
                         setModalDisplay(false)
+                        navigation.navigate("Home")
 
                     }
                 },
