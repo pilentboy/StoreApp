@@ -196,7 +196,12 @@ function ProductDetail({ route }) {
             <FontAwesome name={!likeIcon ? "heart-o" : "heart"} size={20} color={"#b9ac7d"} />
 
             {
-              !likeIcon ? (<Text style={{ color: '#b9ac7d', fontWeight: 'bold', marginLeft: 5, fontSize: 18 }}>Add to wishlist</Text>) : null
+              
+              <Text style={style.wishlistText}>
+                {
+                  !likeIcon ? ("Add to wishlist") : ("it's in your wishlist")
+                }
+              </Text>
 
             }
           </TouchableOpacity>
@@ -207,7 +212,7 @@ function ProductDetail({ route }) {
         </View>
 
         {/* Category  */}
-        <View style={{ marginTop: 25, flexDirection: 'row' }}>
+        <View style={{ marginTop: 25, flexDirection: 'row', alignItems: "center" }}>
 
 
           {productInfo.props.category.length > 0 && productInfo.props.category[0] !== " " ? (
@@ -307,6 +312,12 @@ const style = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20
   },
+  wishlistText: {
+    color: '#b9ac7d',
+    fontWeight: 'bold',
+    marginLeft: 5,
+    fontSize: 18
+  }
 
 });
 

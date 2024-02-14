@@ -7,7 +7,7 @@ function EditCategory({ category, action }) {
 
 
     return (
-        <View style={{ flexDirection: "row", alignSelf: 'flex-start', alignItems: "center", marginVertical: 10, paddingVertical: 10}}>
+        <View style={{ flexDirection: "row", alignSelf: 'flex-start', alignItems: "center", marginVertical: 10, paddingVertical: 10 }}>
 
             <Text style={{ color: "black", fontSize: 18, fontWeight: 'bold' }}>Categories: </Text>
             {category.length > 0 ? (<ScrollView horizontal paddingVertical={5}>
@@ -50,13 +50,14 @@ const style = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: 6,
         marginHorizontal: 10,
-        position: 'relative'
+        position: 'relative',
+        borderRadius: 10
     },
     categoryBTN: {
         position: "absolute",
         top: -1,
         right: -5,
-        overflow:'visible'
+        overflow: 'visible'
     }
 })
 
