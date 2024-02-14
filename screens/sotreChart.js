@@ -1,9 +1,7 @@
-import { Modal, View, Text, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from "react-native";
-import CloseBTN from "../product/closeBTN";
+import {View, Text, StyleSheet, Dimensions, ScrollView } from "react-native";
 import { PieChart } from "react-native-chart-kit";
-import ButtonContainer from "../productDetails/buttonContainer";
 
-function StoreChart({ display, setStoreChartDisplay }) {
+function StoreChart() {
 
     const data = [
         {
@@ -49,7 +47,7 @@ function StoreChart({ display, setStoreChartDisplay }) {
 
 
     return (
-        <Modal visible={display} >
+   
 
             <View style={style.container}>
                 <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Sold Products Chart</Text>
@@ -101,30 +99,11 @@ function StoreChart({ display, setStoreChartDisplay }) {
 
 
                 </View>
-				
-				
-                {/* 
-                <View style={style.buttonsContainer}>
-                    <CloseBTN action={() => setStoreChartDisplay(false)} />
-                </View> */}
-
-                <ButtonContainer>
-				
-                    <CloseBTN action={() => setStoreChartDisplay(false)} />
-
-                    <TouchableOpacity>
-                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>
-							Print
-						</Text>
-                    </TouchableOpacity>
-
-                </ButtonContainer>
+			
 
             </View>
 
 
-
-        </Modal >
     )
 }
 

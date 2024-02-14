@@ -4,30 +4,27 @@ import * as ImagePicker from 'expo-image-picker'
 import { Ionicons } from '@expo/vector-icons';
 import { ProductContext } from '../../context/productContext';
 import { useContext, useState } from 'react';
-import StoreChart from '../modals/sotreChart';
 import AddNewProduct from '../modals/addNewProduct';
 import ManageButtonContainer from './manageButtonContainer';
 import { Fontisto } from '@expo/vector-icons';
 import SearchBox from '../modals/searchBox';
+import { useNavigation } from '@react-navigation/native';
 
 function ManageProducts() {
 
-    const [storeChartDisplay, setStoreChartDisplay] = useState(false)
+    const navigation = useNavigation()
+
     const [addNewProductDisplay, setAddNewProductDisplay] = useState(false)
     const [searchBoxDisplay, setSearchBoxDisplay] = useState(false)
 
 
     const { fetchData } = useContext(ProductContext)
 
- 
+
 
     return (
         <ManageButtonContainer justifyContent={"space-evenly"} >
 
-            <StoreChart
-                display={storeChartDisplay}
-                setStoreChartDisplay={setStoreChartDisplay}
-            />
 
             <AddNewProduct
                 setAddNewProductDisplay={setAddNewProductDisplay}
@@ -52,7 +49,7 @@ function ManageProducts() {
 
 
             {/* display sotre chart */}
-            <TouchableOpacity style={style.btn} onPress={() => setStoreChartDisplay(true)}>
+            <TouchableOpacity style={style.btn} onPress={() => navigation.navigate("chart")}>
                 <Feather name="pie-chart" size={50} color="white" />
             </TouchableOpacity>
 

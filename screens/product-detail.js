@@ -196,7 +196,7 @@ function ProductDetail({ route }) {
             <FontAwesome name={!likeIcon ? "heart-o" : "heart"} size={20} color={"#b9ac7d"} />
 
             {
-              
+
               <Text style={style.wishlistText}>
                 {
                   !likeIcon ? ("Add to wishlist") : ("it's in your wishlist")
@@ -282,8 +282,7 @@ const style = StyleSheet.create({
     paddingVertical: 12,
     width: '50%',
     borderColor: '#878e95',
-    paddingHorizontal: 20,
-    borderWidth: 1
+    paddingHorizontal: 20
   },
   wrapperRow: {
     flexDirection: 'row',
