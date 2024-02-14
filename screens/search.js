@@ -1,42 +1,17 @@
-import { View, Text, StatusBar, ScrollView, StyleSheet } from 'react-native'
-import { useState, useEffect, useContext } from 'react'
+import { View, StatusBar, ScrollView, StyleSheet } from 'react-native'
 import Product from '../components/product/product'
-import { ProductContext } from '../context/productContext';
 
 const Search = ({ route }) => {
 
-    const test = route.params;
-
-    const { products } = useContext(ProductContext)
-    const [searchedItems, setSearchFilter] = useState([])
+    const searchRoute = route.params;
 
     const loadProducts = () => {
 
-        if (searchedItems.length > 0) {
-            return searchedItems.map((product) => (
-                <Product key={product.id} {...product} />
-            ));
-        }
-
-        return (
-            <View style={{ marginTop: 100 }}>
-                
-            </View>
-        )
-
-
+        return searchRoute.searchedItems.map((product) => (
+            <Product key={product.id} {...product} />
+        ));
 
     }
-    // product.name === test.searchValue
-    const filterProducts = () => {
-        const searchedProducts = products.filter((product) => product.name.toLowerCase().includes(test.searchValue.toLowerCase()))
-        setSearchFilter(searchedProducts)
-    }
-
-    useEffect(() => {
-        filterProducts()
-    }, [test])
-
 
     return (
         <ScrollView>

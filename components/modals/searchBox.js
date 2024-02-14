@@ -1,23 +1,26 @@
 import { View, Modal, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native'
 import CloseBTN from '../product/closeBTN'
 import Input from '../product/input'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useContext } from 'react'
 import ButtonContainer from '../productDetails/buttonContainer'
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { ProductContext } from '../../context/productContext'
 
 
 const SearchBox = ({ searchBoxDisplay, setSearchBoxDisplay }) => {
 
+    const { products } = useContext(ProductContext)
 
     const navigation = useNavigation();
 
     const [searchValue, setSearchValue] = useState("")
+    const [searchedItems, setSeachedItems] = useState([])
 
+
+    ////------------- fade
     const fadeAnim = useRef(new Animated.Value(0)).current;
-
     const fadeDurration = 500
-
     const fadeOut = () => {
         // Will change fadeAnim value to 0 in 3 seconds
         Animated.timing(fadeAnim, {
@@ -45,18 +48,32 @@ const SearchBox = ({ searchBoxDisplay, setSearchBoxDisplay }) => {
             fadeIn()
         }
     }, [searchBoxDisplay])
+    ////------------- end fade
 
 
-    const searching = () => {
-        if (searchValue !== "") {
+    const handleSearch = () => {
+        if (searchValue !== "" && searchedItems.length > 0) {
             fadeOut()
             displaySearchedPoructs()
+            setSearchValue("")
+        }else{
+            console.log("error")
         }
     }
 
+
+    const filterProducts = () => {
+        const searchedProducts = products.filter((product) => product.name.toLowerCase().includes(searchValue.toLowerCase()))
+        setSeachedItems(searchedProducts)
+    }
+
+    useEffect(() => {
+        filterProducts()
+    }, [searchValue])
+
     function displaySearchedPoructs() {
         navigation.navigate('Search', {
-            searchValue
+            searchedItems
         });
     }
 
@@ -80,7 +97,7 @@ const SearchBox = ({ searchBoxDisplay, setSearchBoxDisplay }) => {
 
                     <CloseBTN action={() => fadeOut()} color={"red"} />
 
-                    <TouchableOpacity onPress={searching} style={style.btn}>
+                    <TouchableOpacity onPress={handleSearch} style={style.btn}>
                         <AntDesign name="checksquare" size={35} color="green" />
                     </TouchableOpacity>
 
