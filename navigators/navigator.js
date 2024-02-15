@@ -17,7 +17,7 @@ function Navigator() {
                 <Stack.Screen
                     name="Home"
                     component={Home}
-                    options={{ headerShown: true, headerStyle: { height: 40 }, headerPressColor: '#b9ac7d' }}
+                    options={{ headerShown: false, headerStyle: { height: 40 }, headerPressColor: '#b9ac7d' }}
                 />
 
                 <Stack.Screen

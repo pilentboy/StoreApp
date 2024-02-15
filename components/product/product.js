@@ -39,7 +39,7 @@ function Product(props) {
             setlikeColor("#222529")
         }
 
-    }, [products])
+    }, [products,props])
 
     // Render the Product component
     return (

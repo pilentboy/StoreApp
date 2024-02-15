@@ -42,6 +42,8 @@ function ProductDetail({ route }) {
 
   // Function to display related products based on the selected product
   const findRelatedProducts = async () => {
+    console.log("related")
+
     // Reset relatedProducts before updating
     setRelatedProducts([]);
     // Find related products based on the clicked product's information
@@ -50,9 +52,10 @@ function ProductDetail({ route }) {
         return products[index];
       }
     });
-
     // Update the relatedProducts state
     setRelatedProducts(relProducts);
+    console.log(relProducts)
+
   };
 
 
@@ -76,7 +79,7 @@ function ProductDetail({ route }) {
 
     fetchData();
     scrollToTop();
-  }, [productInfo]);
+  }, [productInfo, products]);
 
   const handleAvailableProductSize = () => {
 
@@ -100,7 +103,7 @@ function ProductDetail({ route }) {
 
   const [likeIcon, setLikeIcon] = useState(productInfo.props.favourite)
 
-  const handleProductLike = () => {
+  const handleWishlist = () => {
 
     const myProducts = products
     const productIndex = myProducts.findIndex((p) => p.id === productInfo.props.id)
@@ -191,7 +194,7 @@ function ProductDetail({ route }) {
         {/* Add to wishlist and social media links */}
         <View style={style.wrapperRow}>
 
-          <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }} onPress={handleProductLike}>
+          <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }} onPress={handleWishlist}>
 
             <FontAwesome name={!likeIcon ? "heart-o" : "heart"} size={20} color={"#b9ac7d"} />
 
@@ -258,6 +261,7 @@ function ProductDetail({ route }) {
           {/* Related products */}
           <View style={style.relatedProductsWrapper}>
             {relatedProducts.map((product) => {
+              console.log(product,"xx")
               return <Product key={product.id} {...product} />;
             })}
           </View>
