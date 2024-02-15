@@ -20,7 +20,7 @@ import ProductSize from "../product/productSize";
 
 function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
-
+    const DefaultImage = "https://gnetradio.com/wp-content/uploads/2019/10/no-image.jpg"
 
     const { products, updateProducts } = useContext(ProductContext)
 
@@ -42,7 +42,18 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
 
     ])
 
-    const DefaultImage = "https://gnetradio.com/wp-content/uploads/2019/10/no-image.jpg"
+    const handleProductInfo = () => {
+        if (productImage === DefaultImage) {
+            console.log("error")
+            Alert.alert("Adding Product", "Please upload an image for the product and try again",
+                [
+                    { text: "Ok", onPress: console.log("ok pressed") }
+                ])
+            return false
+        }
+        AddProduct()
+    }
+
 
     function AddProduct() {
 
@@ -53,6 +64,9 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
             },
             {
                 text: "Yes", onPress: (() => {
+
+
+
 
                     const myProducts = products
 
@@ -115,7 +129,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
                         <CloseBTN action={() => setAddNewProductDisplay(false)} color={"black"} />
 
                         {/* apply new info */}
-                        <TouchableOpacity onPress={AddProduct} style={style.btn}>
+                        <TouchableOpacity onPress={handleProductInfo} style={style.btn}>
                             <AntDesign name="checksquare" size={35} color="green" />
                         </TouchableOpacity>
                     </ButtonContainer>

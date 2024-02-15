@@ -134,9 +134,9 @@ const EditProduct = ({ display, setModalDisplay, productInfo }) => {
 
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: 120 }}>
 
-                        <TouchableOpacity style={{}} onPress={() => setProductImage(defaultImage)}>
+                        {/* <TouchableOpacity style={{}} onPress={() => setProductImage(defaultImage)}>
                             <MaterialCommunityIcons name="file-image-remove" size={50} color="#45474B" />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
 
                         <ImagePicker setProductImage={setProductImage} />
 
