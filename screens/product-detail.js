@@ -72,14 +72,17 @@ function ProductDetail({ route }) {
 
 
   useEffect(() => {
+    scrollToTop();
+  }, [productInfo]);
+
+  useEffect(() => {
     const fetchData = async () => {
       await findRelatedProducts();
       handleAvailableProductSize();
     };
 
     fetchData();
-    scrollToTop();
-  }, [productInfo, products]);
+  }, [products, productInfo]);
 
   const handleAvailableProductSize = () => {
 
@@ -261,7 +264,7 @@ function ProductDetail({ route }) {
           {/* Related products */}
           <View style={style.relatedProductsWrapper}>
             {relatedProducts.map((product) => {
-              console.log(product,"xx")
+              console.log(product, "xx")
               return <Product key={product.id} {...product} />;
             })}
           </View>

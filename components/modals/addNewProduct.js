@@ -45,7 +45,7 @@ function AddNewProduct({ addNewProductDisplay, setAddNewProductDisplay }) {
     const handleProductInfo = () => {
         if (productImage === DefaultImage) {
             console.log("error")
-            Alert.alert("Adding Product", "Please upload an image for the product and try again",
+            Alert.alert("Adding Product Failed", "Please fill all the inputs.",
                 [
                     { text: "Ok", onPress: console.log("ok pressed") }
                 ])
