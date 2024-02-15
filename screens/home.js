@@ -14,6 +14,7 @@ import ProductPageDescription from "../components/home/productPageDescription"
 import ManageProducts from '../components/home/manageProducts';
 import Product from "../components/product/product"
 import ProductPageTitle from '../components/home/productPageTitle';
+import HomePageTitle from '../components/home/homepageTitle';
 
 
 // Home  component
@@ -47,13 +48,13 @@ function Home() {
                 <View style={style.container}>
 
                     {/* home title */}
-                    <ProductPageTitle firstText={"All the clothes"} secondText={"You Need!"} />
+                    <HomePageTitle StoreName={"MyMarket"} />
 
                     {/* product page description */}
-                    <ProductPageDescription description={"you can find the best and cheapest products for every seasons here!"} />
+                    {/* <ProductPageDescription description={"you can find the best and cheapest products for every seasons here!"} /> */}
 
                     {/* control product options */}
-                    <ManageProducts />
+                    {/* <ManageProducts /> */}
 
 
                     {/* List of Products */}
@@ -100,7 +101,7 @@ const style = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         alignContent: "center",
-        paddingVertical: 25,
+        paddingVertical: 10,
         width: "100%",
     },
     container: {
